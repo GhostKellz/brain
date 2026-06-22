@@ -17,7 +17,7 @@ related:
 # Cloud and Microsoft 365
 
 Microsoft 365 / Entra / Exchange administration and cloud hosting, largely from
-[[CK Technology Solutions]] MSP work.
+[[CK Technology LLC]] MSP work.
 
 ## Microsoft 365 & identity
 [[Microsoft 365 Services]] · [[Microsoft 365 Administration]] ·

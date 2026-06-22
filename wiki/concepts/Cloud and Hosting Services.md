@@ -15,7 +15,7 @@ tags:
 status: seed
 related:
   - "[[cktechx.com]]"
-  - "[[CK Technology Solutions]]"
+  - "[[CK Technology LLC]]"
   - "[[Managed IT Services]]"
   - "[[Network and Security Services]]"
   - "[[Microsoft 365 Services]]"
@@ -25,7 +25,7 @@ related:
 
 ## Definition
 
-Cloud & Hosting is one of the four core services [[CK Technology Solutions]] markets on
+Cloud & Hosting is one of the four core services [[CK Technology LLC]] markets on
 [[cktechx.com]]: helping businesses move to, optimize, and manage cloud infrastructure
 and managed hosting, with a stated focus on reliability, security, and
 cost-effectiveness rather than chasing trends.
@@ -58,7 +58,7 @@ managed hosting capabilities.
 
 - One of four core services on [[cktechx.com]], alongside [[Managed IT Services]],
   [[Network and Security Services]], and [[Microsoft 365 Services]].
-- Delivered by [[CK Technology Solutions]].
+- Delivered by [[CK Technology LLC]].
 
 ## Sources
 

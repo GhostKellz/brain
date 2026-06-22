@@ -28,7 +28,7 @@ hand-built backbone.
 
 ## Recent Changes
 - Created backbone: [[Brain Overview]], [[Wiki Index]], 8 domain hubs,
-  [[GhostKellz]], [[CK Technology Solutions]].
+  [[GhostKellz]], [[CK Technology LLC]].
 - Seeded entities (47), concepts (38), references (39), sources (3).
 - Resolved a filename collision: split Tailscale into [[Tailscale]] (entity) +
   [[Tailscale Operations]] (runbook).

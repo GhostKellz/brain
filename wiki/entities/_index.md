@@ -19,7 +19,7 @@ People, organizations, products, repositories, and tools.
 - [[GhostKellz]] — owner; MSP operator, systems engineer, OSS author
 
 ## Organizations
-- [[CK Technology Solutions]] — the MSP
+- [[CK Technology LLC]] — the MSP
 
 ## Sites
 - [[ckelley.dev]] — portfolio / dev site

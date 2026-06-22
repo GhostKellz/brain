@@ -18,7 +18,7 @@ tags:
 status: seed
 related:
   - "[[cktechx.com]]"
-  - "[[CK Technology Solutions]]"
+  - "[[CK Technology LLC]]"
   - "[[MSP Positioning and Values]]"
 ---
 
@@ -27,7 +27,7 @@ related:
 ## Summary
 
 The source repository for [[cktechx.com]], the marketing site for
-[[CK Technology Solutions]] (CK Technology LLC). Built with [[Astro Static Site
+[[CK Technology LLC]] (CK Technology LLC). Built with [[Astro Static Site
 Generator]] 6, [[Tailwind CSS 4]], and [[Alpine.js]]; static output served by
 [[NGINX Static Site Hosting]] (config in `deploy/cktechx.conf`). Read at
 `/data/projects/cktechx.com` (README + `src/`).
@@ -44,7 +44,7 @@ Generator]] 6, [[Tailwind CSS 4]], and [[Alpine.js]]; static output served by
 ## Entities Mentioned
 
 - [[cktechx.com]] — the website this repo builds.
-- [[CK Technology Solutions]] — the MSP organization it markets.
+- [[CK Technology LLC]] — the MSP organization it markets.
 - [[GhostKellz]] — founder.
 
 ## Concepts Introduced

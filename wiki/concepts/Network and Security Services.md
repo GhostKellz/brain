@@ -16,7 +16,7 @@ tags:
 status: seed
 related:
   - "[[cktechx.com]]"
-  - "[[CK Technology Solutions]]"
+  - "[[CK Technology LLC]]"
   - "[[Managed IT Services]]"
   - "[[Cloud and Hosting Services]]"
   - "[[Microsoft 365 Services]]"
@@ -27,7 +27,7 @@ related:
 
 ## Definition
 
-Network & Security is one of the four core services [[CK Technology Solutions]] markets
+Network & Security is one of the four core services [[CK Technology LLC]] markets
 on [[cktechx.com]]: enterprise-grade network design plus layered cybersecurity. The
 stated philosophy is "security as a foundation, not an afterthought" — built into
 everything from network design to endpoint protection to user training.
@@ -58,7 +58,7 @@ down to individual endpoints.
 
 - One of four core services on [[cktechx.com]], alongside [[Managed IT Services]],
   [[Cloud and Hosting Services]], and [[Microsoft 365 Services]].
-- Delivered by [[CK Technology Solutions]]; reflects the "Security First" value in
+- Delivered by [[CK Technology LLC]]; reflects the "Security First" value in
   [[MSP Positioning and Values]].
 
 ## Sources

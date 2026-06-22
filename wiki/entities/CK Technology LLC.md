@@ -1,6 +1,6 @@
 ---
 type: entity
-title: "CK Technology Solutions"
+title: "CK Technology LLC"
 created: 2026-06-21
 updated: 2026-06-21
 tags:
@@ -17,9 +17,9 @@ related:
   - "[[MSP Positioning and Values]]"
 ---
 
-# CK Technology Solutions
+# CK Technology LLC
 
-**CK Technology Solutions** (brand: CK Technology / CKTech) is the IT Managed
+**CK Technology LLC** (brand: CK Technology / CKTech) is the IT Managed
 Service Provider operated by [[GhostKellz]]. Its public marketing site is
 [[cktechx.com]]. The organization is the *business entity*; the website is a
 *separate page* — keep them distinct.

@@ -12,7 +12,7 @@ status: developing
 related:
   - "[[Windows Administration]]"
   - "[[Exchange Online Administration]]"
-  - "[[CK Technology Solutions]]"
+  - "[[CK Technology LLC]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders.
@@ -100,4 +100,4 @@ reg add HKEY_CURRENT_USER\Software\Policies\Microsoft\OneDrive /v DisablePersona
 
 - Update/patch workflows: [[Windows Administration]].
 - Mail-side protection (Defender for Office 365): [[Exchange Online Administration]].
-- These agent-deployment patterns are part of standard managed-services tooling at [[CK Technology Solutions]].
+- These agent-deployment patterns are part of standard managed-services tooling at [[CK Technology LLC]].

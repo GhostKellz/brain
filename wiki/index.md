@@ -31,7 +31,7 @@ and [[Hot Cache]] for recent context.
 
 ## Anchor entities
 - [[GhostKellz]] — owner; MSP operator, systems engineer, OSS author
-- [[CK Technology Solutions]] — the MSP organization
+- [[CK Technology LLC]] — the MSP organization
 
 ## Project families & flagships
 - [[Ghost Ecosystem]] · [[NV Tools Suite]]

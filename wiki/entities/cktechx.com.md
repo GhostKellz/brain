@@ -13,7 +13,7 @@ tags:
   - astro
 status: seed
 related:
-  - "[[CK Technology Solutions]]"
+  - "[[CK Technology LLC]]"
   - "[[GhostKellz]]"
   - "[[Managed IT Services]]"
   - "[[Cloud and Hosting Services]]"
@@ -27,11 +27,11 @@ related:
 
 ## Overview
 
-`cktechx.com` is the public marketing website for [[CK Technology Solutions]] (CK
+`cktechx.com` is the public marketing website for [[CK Technology LLC]] (CK
 Technology LLC), a managed IT, cloud, and security services provider founded by
 [[GhostKellz]]. The site presents the company's services, positioning, founder
 story, and contact channels. It is a separate concern from the organization itself:
-this page documents the *website*; [[CK Technology Solutions]] documents the *business*.
+this page documents the *website*; [[CK Technology LLC]] documents the *business*.
 
 ## Key Facts
 
@@ -72,7 +72,7 @@ endpoint and supports a `?client=` URL parameter to show a personalized welcome 
 
 ## Connections
 
-- Marketing front for [[CK Technology Solutions]] (the org).
+- Marketing front for [[CK Technology LLC]] (the org).
 - Founded and operated by [[GhostKellz]]; the About page links to [[ckelley.dev]].
 - Shares the Astro + Tailwind static stack with [[ckelley.dev]] and [[ghostkellz.sh]].
 

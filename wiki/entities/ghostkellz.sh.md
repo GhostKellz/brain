@@ -64,7 +64,7 @@ independently confirm that a signature or release genuinely comes from GhostKell
 
 - The identity belongs to [[GhostKellz]].
 - Links out to GitHub orgs `ghostkellz` and `CK-Technology` (the latter tied to
-  [[CK Technology Solutions]]).
+  [[CK Technology LLC]]).
 - Shares the Astro + Tailwind static stack with [[ckelley.dev]] and [[cktechx.com]].
 
 ## Sources

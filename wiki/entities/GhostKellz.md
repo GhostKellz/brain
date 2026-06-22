@@ -10,7 +10,7 @@ entity_type: person
 role: "Owner of this brain; MSP operator, systems engineer, prolific OSS author"
 status: evergreen
 related:
-  - "[[CK Technology Solutions]]"
+  - "[[CK Technology LLC]]"
   - "[[ckelley.dev]]"
   - "[[ghostkellz.sh]]"
   - "[[Ghost Ecosystem]]"
@@ -20,7 +20,7 @@ related:
 # GhostKellz
 
 **GhostKellz** (Christopher Kelley) is the owner and curator of this knowledge
-base. He operates an IT Managed Service Provider, [[CK Technology Solutions]]
+base. He operates an IT Managed Service Provider, [[CK Technology LLC]]
 (brand site [[cktechx.com]]), and authors a large open-source ecosystem of
 developer and systems tooling under the `ghost*` and `nv*` families.
 
@@ -31,7 +31,7 @@ developer and systems tooling under the `ghost*` and `nv*` families.
 
 ## Hats
 
-- **MSP operator** — [[CK Technology Solutions]]: managed IT, networking,
+- **MSP operator** — [[CK Technology LLC]]: managed IT, networking,
   security, cloud, and [[Microsoft 365 Services]] for businesses.
 - **Systems engineer** — daily-driver Arch Linux ([[Arch Linux Administration]]),
   [[Btrfs Snapshots|Btrfs]], [[Wayland]]/[[KDE Plasma]], NVIDIA on Linux, and a

@@ -24,7 +24,7 @@ Append-only. Newest entries at the TOP. Each entry: `## [YYYY-MM-DD] operation |
   hubs, plus [[Brain Overview]], [[Wiki Index]], [[Hot Cache]], this log, and
   the meta dashboard. ~140 pages total.
 - Backbone: [[Brain Overview]], [[Wiki Index]], [[Hot Cache]], 8 domain hubs,
-  anchor entities [[GhostKellz]] and [[CK Technology Solutions]].
+  anchor entities [[GhostKellz]] and [[CK Technology LLC]].
 - Collision resolved: split Tailscale into [[Tailscale]] (entity) +
   [[Tailscale Operations]] (runbook).
 - Tiering: PUBLIC vault. `heimdall-stack`/`security` specifics held back to the

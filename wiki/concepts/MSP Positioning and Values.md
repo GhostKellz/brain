@@ -16,7 +16,7 @@ tags:
 status: seed
 related:
   - "[[cktechx.com]]"
-  - "[[CK Technology Solutions]]"
+  - "[[CK Technology LLC]]"
   - "[[GhostKellz]]"
   - "[[Managed IT Services]]"
   - "[[Network and Security Services]]"
@@ -26,7 +26,7 @@ related:
 
 ## Definition
 
-This is the public brand positioning of [[CK Technology Solutions]] as expressed on
+This is the public brand positioning of [[CK Technology LLC]] as expressed on
 [[cktechx.com]]: an MSP that brings secure, modern, enterprise-grade IT to small and
 mid-sized businesses, paired with personal, founder-led service that large providers
 "can't match." It is the why-choose-us story sitting beneath the four service lines.
@@ -75,7 +75,7 @@ personal site, [[ckelley.dev]].
 
 ## Connections
 
-- The brand layer over [[CK Technology Solutions]]'s service lines.
+- The brand layer over [[CK Technology LLC]]'s service lines.
 - Founder story ties to [[GhostKellz]] and [[ckelley.dev]].
 
 ## Sources

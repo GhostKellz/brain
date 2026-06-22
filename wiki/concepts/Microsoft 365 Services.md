@@ -16,7 +16,7 @@ tags:
 status: seed
 related:
   - "[[cktechx.com]]"
-  - "[[CK Technology Solutions]]"
+  - "[[CK Technology LLC]]"
   - "[[Managed IT Services]]"
   - "[[Network and Security Services]]"
   - "[[Cloud and Hosting Services]]"
@@ -26,7 +26,7 @@ related:
 
 ## Definition
 
-Microsoft 365 is one of the four core services [[CK Technology Solutions]] markets on
+Microsoft 365 is one of the four core services [[CK Technology LLC]] markets on
 [[cktechx.com]]: deployment, security hardening, and ongoing management of a client's
 M365 tenant. The framing is "more than just email" — helping businesses use the full
 platform while keeping strong security controls.
@@ -57,7 +57,7 @@ users.
 
 - One of four core services on [[cktechx.com]], alongside [[Managed IT Services]],
   [[Cloud and Hosting Services]], and [[Network and Security Services]].
-- Delivered by [[CK Technology Solutions]].
+- Delivered by [[CK Technology LLC]].
 
 ## Sources
 

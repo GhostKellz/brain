@@ -24,7 +24,7 @@ and cross-platform notes. Source of truth for sensitive material stays elsewhere
 ## The big picture
 
 > [!key-insight]
-> One person operating at three layers — an **MSP** ([[CK Technology Solutions]]),
+> One person operating at three layers — an **MSP** ([[CK Technology LLC]]),
 > a **systems/homelab** practice on Arch + Proxmox, and a **prolific OSS author**
 > ([[Ghost Ecosystem]], [[NV Tools Suite]]). The unifying technical thesis:
 > *local-first infrastructure, Rust for apps, [[Zig]] for engines.*
@@ -43,7 +43,7 @@ and cross-platform notes. Source of truth for sensitive material stays elsewhere
 ## Major entities
 
 - People: [[GhostKellz]]
-- Orgs: [[CK Technology Solutions]]
+- Orgs: [[CK Technology LLC]]
 - Sites: [[ckelley.dev]] · [[ghostkellz.sh]] · [[cktechx.com]]
 - Project families: [[Ghost Ecosystem]] · [[NV Tools Suite]]
 - Flagships: [[zqlite]] · [[Jarvis]] · [[nvcontrol]] · [[ghostctl]]

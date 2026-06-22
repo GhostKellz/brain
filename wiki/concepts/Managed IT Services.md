@@ -14,7 +14,7 @@ tags:
 status: seed
 related:
   - "[[cktechx.com]]"
-  - "[[CK Technology Solutions]]"
+  - "[[CK Technology LLC]]"
   - "[[MSP Positioning and Values]]"
   - "[[Network and Security Services]]"
   - "[[Cloud and Hosting Services]]"
@@ -25,7 +25,7 @@ related:
 
 ## Definition
 
-Managed IT is the core offering of [[CK Technology Solutions]], marketed on
+Managed IT is the core offering of [[CK Technology LLC]], marketed on
 [[cktechx.com]]: proactive monitoring, maintenance, and support delivered for a
 predictable monthly cost. The pitch is to stop *chasing* IT problems and start
 *preventing* them, with the MSP acting as an extension of the client's team.
@@ -56,7 +56,7 @@ across the site's services.
 - One of four core services on [[cktechx.com]], alongside
   [[Cloud and Hosting Services]], [[Network and Security Services]], and
   [[Microsoft 365 Services]].
-- Delivered by [[CK Technology Solutions]].
+- Delivered by [[CK Technology LLC]].
 
 ## Sources
 
