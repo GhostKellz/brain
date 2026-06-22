@@ -1,0 +1,44 @@
+---
+type: meta
+title: "Hot Cache"
+aliases:
+  - "Hot Cache"
+created: 2026-06-21
+updated: 2026-06-21
+tags:
+  - meta
+status: developing
+related:
+  - "[[Wiki Index]]"
+  - "[[Brain Overview]]"
+---
+
+# Recent Context
+
+## Last Updated
+2026-06-21 — Initial seed of the brain. Four parallel extraction passes plus a
+hand-built backbone.
+
+## Key Recent Facts
+- The brain (`~/brain` → `github.com/ghostkellz/brain`, public) is now seeded with
+  ~130 cross-linked pages across 8 domains.
+- Unifying thesis captured: local-first infra, **Rust for apps / [[Zig]] for engines**.
+- Sources mined: `~/arch` (public-safe subset), `/data/projects` (85 repos),
+  the three web properties, and the (sanitized) CK Cheatsheet.
+
+## Recent Changes
+- Created backbone: [[Brain Overview]], [[Wiki Index]], 8 domain hubs,
+  [[GhostKellz]], [[CK Technology Solutions]].
+- Seeded entities (47), concepts (38), references (39), sources (3).
+- Resolved a filename collision: split Tailscale into [[Tailscale]] (entity) +
+  [[Tailscale Operations]] (runbook).
+
+## Tiering reminders
+- PUBLIC vault. `heimdall-stack`/`security` specifics excluded → private tier.
+- Cheatsheet was sanitized: client domains/IPs/keys removed or placeholdered.
+- Client docs stay in Hudu, never here.
+
+## Active Threads
+- Next: aggregate/lint pass, then commit the seed.
+- Pending later phases: private vault on GitLab, MemPalace eval, Quartz publish to
+  `brain.ckelley.dev`, optional Graphify code-graph visuals.
