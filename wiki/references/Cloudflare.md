@@ -44,7 +44,7 @@ related:
 | Used here for | public web apps | `brain.ckelley.dev` (self-hosted TLS on origin) |
 
 > [!note] `brain.ckelley.dev` is intentionally **grey-cloud** — the origin
-> (thallium) terminates its own Let's Encrypt cert via [[acme.sh - DNS-01
+> host terminates its own Let's Encrypt cert via [[acme.sh - DNS-01
 > Certificates]], and the FortiGate geo-allowlist does the gating. Orange-cloud
 > would hide the origin and add the WAF, at the cost of Cloudflare seeing the
 > traffic.
