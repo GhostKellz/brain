@@ -1,6 +1,6 @@
 ---
 type: reference
-title: "Tailscale Operations"
+title: "Tailscale"
 created: 2026-06-21
 updated: 2026-06-22
 tags:
@@ -13,26 +13,45 @@ tags:
   - mesh
 status: developing
 related:
-  - "[[Tailscale]]"
-  - "[[Headscale Self-Hosting]]"
-  - "[[Zero Trust Networking]]"
-  - "[[WireGuard]]"
+  - "[[Headscale]]"
   - "[[Mesh VPN]]"
+  - "[[WireGuard]]"
+  - "[[Zero Trust Networking]]"
   - "[[FortiGate Administration]]"
   - "[[Linux Administration]]"
   - "[[Networking Reference]]"
 ---
 
+# Tailscale
+
+**Tailscale** is a [[Mesh VPN]] built on [[WireGuard]] with a managed control
+plane. It creates a private overlay network (a "tailnet") where every enrolled
+device gets a stable address and reaches every other device through direct,
+encrypted peer-to-peer tunnels — without manual key management or port
+forwarding.
+
 > [!key-insight] Tailscale splits a VPN into a **control plane** (a coordination
 > server that distributes WireGuard public keys + ACLs but never sees traffic)
 > and a **data plane** (direct, end-to-end-encrypted WireGuard tunnels between
-> peers). Everything below — SSH, subnet routes, MagicDNS, serve/funnel, ACLs —
-> is built on those two ideas. See [[Tailscale]] for the conceptual overview and
-> [[Headscale Self-Hosting]] for running the control plane yourself.
+> peers). Its value is everything *around* WireGuard: identity (SSO/OIDC),
+> automatic key distribution + rotation, NAT traversal, ACLs, and relay
+> fallback. WireGuard is the tunnel; Tailscale is the coordination. Everything
+> below — SSH, subnet routes, MagicDNS, serve/funnel, ACLs — builds on those two
+> planes. To run the control plane yourself, see [[Headscale]].
 
 > [!note] Generalized from field notes. All tailnet names, hostnames, and IPs
 > here are placeholders (`tailnet-name.ts.net`, `100.x.y.z`, RFC-5737 example
 > subnets). Real topology lives in the private tier.
+
+## What it provides
+
+- **Coordination server** — distributes keys and ACLs; never sees your traffic.
+- **NAT traversal** — punches direct paths through most NATs/firewalls.
+- **DERP relays** — fallback path when a direct connection can't be established;
+  most traffic never touches one.
+- **MagicDNS** — names instead of IPs across the tailnet.
+- **ACLs** — per-identity access policy enabling [[Zero Trust Networking]].
+- **SSO/OIDC login** — tie tailnet membership to an identity provider.
 
 ## How it works (one paragraph)
 
@@ -158,7 +177,7 @@ tunnel can be built. Key facts:
 - Each client picks a **home DERP** by latency; Tailscale runs 20+ regions with
   automatic failover.
 - You can self-host with `cmd/derper` and pin it via a `derpMap` in the policy
-  file (mainly relevant to [[Headscale Self-Hosting]]); regions can be disabled
+  file (mainly relevant to [[Headscale]]); regions can be disabled
   by setting their `RegionID` to `null`.
 - Persistent DERP usage usually means a NAT/firewall problem — see Fortinet.
 
@@ -381,10 +400,17 @@ Also on FortiGate (see [[FortiGate Administration]]):
   the HTTPS control connection with cert-validation errors.
 - Don't block the **Tailscale application category** in app-control profiles.
 
+## Where it fits a homelab / MSP
+
+A mesh control plane lets management traffic (SSH, dashboards, APIs) ride the
+encrypted overlay so it never crosses the public internet — a core
+[[Zero Trust Networking]] pattern. For the self-hosted control plane (no
+third-party coordination server), see [[Headscale]]; the data plane
+(the WireGuard tunnels above) is identical either way.
+
 ## Related
 
-- [[Tailscale]] — conceptual overview (control vs data plane, where it fits).
-- [[Headscale Self-Hosting]] — run the control plane + DERP yourself.
+- [[Headscale]] — run the control plane + DERP yourself.
 - [[Zero Trust Networking]] · [[WireGuard]] · [[Mesh VPN]] — the model & tunnel.
 - [[FortiGate Administration]] — the firewall side of the DERP fix.
-- [[Linux Administration]] — host setup.
+- [[Linux Administration]] · [[Networking Reference]] — host & network setup.

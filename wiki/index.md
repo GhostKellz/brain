@@ -49,7 +49,7 @@ and [[Hot Cache]] for recent context.
 
 ## Entities — tools, sites, orgs
 [[ckelley.dev]] · [[cktechx.com]] · [[ghostkellz.sh]] · [[KDE Plasma]] ·
-[[Ollama]] · [[Restic]] · [[Snapper]] · [[Tailscale]] · [[Unbound]]
+[[Ollama]] · [[Restic]] · [[Snapper]] · [[Unbound]]
 
 ## Concepts
 [[3-2-1 Backup Strategy]] · [[Alpine.js]] · [[Astro Static Site Generator]] ·
@@ -87,8 +87,8 @@ and [[Hot Cache]] for recent context.
 [[Ollama Service Configuration]] · [[Pacman Hooks]] · [[PKGBUILD Auditing]] ·
 [[PKGBUILD Templates]] · [[Prometheus Monitoring]] · [[Proxmox Administration]] ·
 [[Restic Backup]] · [[Self-Hosted Services]] · [[Sysctl Performance Tuning]] ·
-[[systemd Drop-in Overrides]] · [[Tailscale Operations|Tailscale]] ·
-[[Headscale Self-Hosting]] · [[tmux Cheatsheet]] ·
+[[systemd Drop-in Overrides]] · [[Tailscale]] ·
+[[Headscale]] · [[tmux Cheatsheet]] ·
 [[UniFi Controller]] · [[Wazuh]] · [[Windows Activation]] ·
 [[Windows Administration]]
 

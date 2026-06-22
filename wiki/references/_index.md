@@ -30,8 +30,8 @@ Runbooks and how-to procedures.
 
 ## Networking
 - [[Networking Reference]] · [[nftables Firewall]] · [[FortiGate Administration]] ·
-  [[UniFi Controller]] · [[Tailscale Operations|Tailscale]] ·
-  [[Headscale Self-Hosting]] · [[Cloudflare]]
+  [[UniFi Controller]] · [[Tailscale]] ·
+  [[Headscale]] · [[Cloudflare]]
 
 ## acme.sh & TLS certificates
 - [[acme.sh - DNS-01 Certificates|acme.sh]] — DNS-01 (Cloudflare + Azure DNS),

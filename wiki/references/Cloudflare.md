@@ -119,7 +119,7 @@ classic VPN:
 - **Tunnel (`cloudflared`)** — outbound-only daemon that connects an origin to
   the edge, so you publish an app **without opening inbound ports** or exposing
   the origin IP. Conceptually similar to `tailscale funnel` (see
-  [[Tailscale Operations]]) but on Cloudflare's edge.
+  [[Tailscale]]) but on Cloudflare's edge.
 - **Gateway** — egress/DNS/HTTP filtering policies for outbound traffic
   (content categories, security, **egress policies**), the SWG half of the
   story.

@@ -18,7 +18,7 @@ Mesh VPN, DNS, firewalls, and vendor gear (FortiGate, UniFi) from MSP and homela
 work.
 
 ## Overlay & VPN
-[[Tailscale]] · [[Tailscale Operations]] · [[WireGuard]] · [[Mesh VPN]] ·
+[[Tailscale]] · [[WireGuard]] · [[Mesh VPN]] ·
 [[Zero Trust Networking]]
 
 ## DNS

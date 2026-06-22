@@ -41,7 +41,7 @@ sanitized from `~/arch`, `~/fortigate`, `~/proxmox`, and `~/heimdall-stack`.
   [[GhostKellz]], [[CK Technology LLC]].
 - Seeded entities (47), concepts (38), references (39), sources (3).
 - Resolved a filename collision: split Tailscale into [[Tailscale]] (entity) +
-  [[Tailscale Operations]] (runbook).
+  [[Tailscale]] (runbook).
 
 ## Tiering reminders
 - PUBLIC vault. `heimdall-stack`/`security` specifics excluded → private tier.

@@ -1,6 +1,6 @@
 ---
 type: reference
-title: "Headscale Self-Hosting"
+title: "Headscale"
 created: 2026-06-22
 updated: 2026-06-22
 tags:
@@ -14,7 +14,6 @@ tags:
 status: developing
 related:
   - "[[Tailscale]]"
-  - "[[Tailscale Operations]]"
   - "[[WireGuard]]"
   - "[[Mesh VPN]]"
   - "[[Zero Trust Networking]]"
@@ -27,7 +26,7 @@ related:
 > *normal, unmodified* Tailscale **client** — point the client at your server
 > with `--login-server`. The data plane (WireGuard tunnels, NAT traversal, DERP)
 > is identical to SaaS; only the coordination/identity layer changes. See
-> [[Tailscale Operations]] for the client side.
+> [[Tailscale]] for the client side.
 
 > [!note] All hostnames/IPs here are placeholders (`headscale.example.com`,
 > `100.x.y.z`). Real topology lives in the private tier.
@@ -142,7 +141,7 @@ Pre-auth keys default to single-use, 1-hour expiry; add `--reusable` and
 ## Routes, exit nodes, DNS
 
 Advertise/accept routes exactly like SaaS on the client (see
-[[Tailscale Operations]]), but **approve** them with the Headscale CLI:
+[[Tailscale]]), but **approve** them with the Headscale CLI:
 
 ```bash
 # client advertises:
@@ -175,7 +174,7 @@ policy:
 ```
 
 Reload after edits: `sudo systemctl reload headscale` (or `restart`). The
-zero-trust model is identical to [[Tailscale Operations]] — default-deny, grant
+zero-trust model is identical to [[Tailscale]] — default-deny, grant
 by identity/tag.
 
 ## DERP relays (self-hosted)
@@ -210,8 +209,7 @@ relay fleet, so a reachable DERP is your fallback when peers can't go direct.
 
 ## Related
 
-- [[Tailscale Operations]] — the client side (the CLI/commands above run there).
-- [[Tailscale]] — control-plane vs data-plane overview.
+- [[Tailscale]] — the client side + control-plane vs data-plane overview.
 - [[WireGuard]] · [[Mesh VPN]] · [[Zero Trust Networking]] — the fundamentals.
 - [[acme.sh - DNS-01 Certificates]] — TLS for the `server_url` host.
 - [[Self-Hosted Services]] — wider self-hosting context.

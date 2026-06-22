@@ -44,7 +44,7 @@ Append-only. Newest entries at the TOP. Each entry: `## [YYYY-MM-DD] operation |
 - Backbone: [[Brain Overview]], [[Wiki Index]], [[Hot Cache]], 8 domain hubs,
   anchor entities [[GhostKellz]] and [[CK Technology LLC]].
 - Collision resolved: split Tailscale into [[Tailscale]] (entity) +
-  [[Tailscale Operations]] (runbook).
+  [[Tailscale]] (runbook).
 - Tiering: PUBLIC vault. `heimdall-stack`/`security` specifics held back to the
   private tier. Cheatsheet sanitized — client domains/IPs/keys removed or
   placeholdered. Client docs stay in Hudu.
