@@ -396,8 +396,22 @@ a **random** WireGuard source port instead of the static **41641**:
 ```
 
 Also on FortiGate (see [[FortiGate Administration]]):
-- **Disable SSL/deep inspection** for the Tailscale control plane — DPI can break
-  the HTTPS control connection with cert-validation errors.
+- **Exempt the Tailscale domains from SSL/deep inspection** — don't disable
+  inspection wholesale. DPI re-signs the HTTPS control/coordination connection,
+  which fails cert validation (Tailscale pins its endpoints). Add the domains to
+  the SSL inspection profile's **Exempt from SSL Inspection → Addresses** list —
+  best as a reusable **address group** so every profile/policy inherits it:
+
+  ```
+  tailscale.com              *.tailscale.com
+  *.tailscale.io             controlplane.tailscale.com
+  log.tailscale.com          derp.tailscale.com   *derp.tailscale.com
+  ```
+
+  Define each as an FQDN/wildcard-FQDN firewall address, bundle into one group
+  (e.g. `TAILSCALE-EXEMPT`), then reference that group under *Exempt from SSL
+  Inspection*. This keeps inspection on for everything else while letting the
+  control plane and DERP relays through untouched.
 - Don't block the **Tailscale application category** in app-control profiles.
 
 ## Where it fits a homelab / MSP
