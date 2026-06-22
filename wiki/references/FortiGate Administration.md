@@ -471,6 +471,13 @@ execute reboot
 execute factoryreset keepvmlicense
 ```
 
+> [!important] **Follow the supported upgrade path — don't jump major versions.**
+> FortiOS upgrades must hop through specific intermediate builds; skipping them
+> can corrupt config migration. Plan multi-step jumps with the official
+> [FortiGate Upgrade Path Tool](https://docs.fortinet.com/upgrade-tool/) (pick
+> current → target version, follow each hop in order), and read the target
+> release notes before each step.
+
 ## Flow Debug & Session Table
 
 The packet-flow debugger answers "why didn't my policy match?":
