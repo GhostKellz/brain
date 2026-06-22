@@ -1,6 +1,6 @@
 ---
 type: reference
-title: "acme.sh — DNS-01 Certificates"
+title: "acme.sh"
 created: 2026-06-22
 updated: 2026-06-22
 tags:
@@ -20,14 +20,15 @@ related:
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders.
 
 [acme.sh](https://github.com/acmesh-official/acme.sh) is a pure-shell ACME
-client. The reason to reach for it over certbot is **DNS-01 validation**:
-the cert is proved by writing a TXT record, so no port 80 listener is needed and
-**wildcards** (`*.example.com`) are issuable. This page covers the two DNS
-providers used here — **Cloudflare** and **Azure DNS** — for both Let's Encrypt
-and the option of other ACME CAs. For the HTTP-01 / nginx-plugin path see
+client — no Python, no system packages, just a script and a cron entry. The
+reason to reach for it over certbot is **DNS-01 validation**: the cert is proved
+by writing a TXT record, so no port-80 listener is needed and **wildcards**
+(`*.example.com`) are issuable. This page is the full acme.sh runbook:
+install it, wire up DNS-01 (Cloudflare and Azure DNS), issue with Let's Encrypt,
+and install the cert with auto-reload. For the HTTP-01 / nginx-plugin path see
 [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]].
 
-## Install
+## Install acme.sh
 
 ```bash
 curl https://get.acme.sh | sh -s email=<you>@<domain>
@@ -37,17 +38,18 @@ source ~/.bashrc      # or re-login so the alias loads
 
 > [!key-insight]
 > acme.sh installs its own cron entry on install (`acme.sh --cron`). You do
-> **not** need a separate systemd timer for renewal — issuing once wires up
-> auto-renew for that cert.
+> **not** need a separate systemd timer for renewal — issuing a cert once wires
+> up its own auto-renew.
 
-acme.sh defaults to ZeroSSL. Pin Let's Encrypt as the default CA so issuance is
-predictable:
+## DNS-01 validation
 
-```bash
-acme.sh --set-default-ca --server letsencrypt
-```
+DNS-01 proves control of a domain by writing a `_acme-challenge` **TXT record**
+into the zone, then asking the CA to read it back. Because nothing listens on a
+port, it works on hosts with no inbound access and is the **only** challenge type
+that can issue **wildcard** certs. acme.sh ships a DNS plugin per provider; the
+two used here are Cloudflare (`dns_cf`) and Azure DNS (`dns_azure`).
 
-## Method A — Cloudflare DNS
+### Cloudflare DNS
 
 Create a **scoped** API token in Cloudflare (My Profile → API Tokens) with
 `Zone:DNS:Edit` + `Zone:Zone:Read`, restricted to the target zone. Export it,
@@ -69,9 +71,9 @@ so subsequent renewals don't need the env vars re-exported.
 
 > [!warning]
 > Use a **scoped token** (single zone, DNS edit only). The legacy Global API Key
-> works but grants account-wide access — never put that in an automation host.
+> works but grants account-wide access — never put that on an automation host.
 
-## Method B — Azure DNS
+### Azure DNS
 
 For zones hosted in **Azure DNS**, validation writes the TXT record via an Azure
 service principal. Create an app registration / service principal with the **DNS
@@ -87,8 +89,8 @@ acme.sh --issue --dns dns_azure -d <fqdn>.<domain>
 acme.sh --issue --dns dns_azure -d <domain> -d '*.<domain>'
 ```
 
-Managed-identity mode (when running on an Azure VM with a system-assigned
-identity, no secret needed):
+Managed-identity mode (running on an Azure VM with a system-assigned identity,
+no secret needed):
 
 ```bash
 export AZUREDNS_MANAGEDIDENTITY="true"
@@ -100,7 +102,25 @@ acme.sh --issue --dns dns_azure -d <fqdn>.<domain>
 > resource group — not Owner, not subscription-wide. Scope it tightly; this
 > credential lives on an unattended renewal host.
 
-## Install the cert (don't symlink `~/.acme.sh`)
+## Issue with Let's Encrypt
+
+### Set Let's Encrypt as the CA
+
+acme.sh defaults to ZeroSSL. Pin Let's Encrypt as the default CA so issuance is
+predictable:
+
+```bash
+acme.sh --set-default-ca --server letsencrypt
+```
+
+Per-issue override (e.g. staging while testing, to avoid rate limits):
+
+```bash
+acme.sh --issue --dns dns_cf -d <domain> --server letsencrypt
+acme.sh --issue --dns dns_cf -d <domain> --server letsencrypt_test   # staging
+```
+
+### Install the cert (don't symlink `~/.acme.sh`)
 
 Never point a web server at the files in `~/.acme.sh` directly — acme.sh rotates
 those on renewal. Use `--install-cert` to copy them to a stable path and fire a
@@ -130,7 +150,7 @@ Let's Encrypt certs are 90-day; acme.sh renews at ~60 days by default. DNS-01
 renewals are non-disruptive (no port juggling), which is the main operational
 win over standalone HTTP-01.
 
-## Choosing between acme.sh and certbot
+## acme.sh vs certbot
 
 | | acme.sh (DNS-01) | certbot |
 |---|---|---|

@@ -106,33 +106,110 @@ signtool verify /pa /v "<path-to-binary>.exe"
 > valid after the signing cert expires; an un-timestamped one goes invalid the
 > day the cert lapses. Use the CA's RFC-3161 timestamp URL.
 
-## 4. ScreenConnect / ConnectWise Control integration
+## 4. ScreenConnect / ConnectWise Control code signing
 
-Self-hosted ScreenConnect signs the access-agent installers it generates so end
-users don't get SmartScreen / "unknown publisher" warnings. The signing config
-lives in the instance's `web.config` (`<codeSigning>` /
-`CodeSigningCertificate*` app settings).
+Self-hosted **ScreenConnect (ConnectWise Control)** builds a fresh access-agent
+installer (`.exe` / `.msi`) every time you create a support session, deploy an
+access agent, or rebuild the client. Unsigned, those binaries trip Windows
+**SmartScreen** and "Unknown Publisher" UAC prompts — a real conversion-killer
+for end users. Signing every generated agent with your OV/EV code-signing cert
+makes them trusted and silences the warnings.
 
-- **Exportable cert path:** if the cert is a real `.pfx` with a password,
-  ScreenConnect can sign on the fly — point the app settings at the PFX path and
-  password, restart the service.
-- **Non-exportable Key Vault / HSM cert:** ScreenConnect can't be handed a
-  private key it can't read. Two viable patterns:
-  1. **Out-of-band signing** — let ScreenConnect emit the unsigned agent, then
-     sign the produced installer artifact with AzureSignTool (step 3) before
-     distribution. Good for occasional rebuilds.
-  2. **Key Vault KSP/CNG** — install the Azure Key Vault key-storage provider on
-     the Windows host so the OS cert store can reference the vault key; then a
-     `signtool`-compatible command can sign using the cert by subject/thumbprint
-     without exporting it.
+### How ScreenConnect signs
 
-Confirm the exact `web.config` keys against current ConnectWise docs for your
-build — the setting names have shifted across versions.
+ScreenConnect performs the signing **itself, at agent-build time**, by shelling
+out to Authenticode signing on the host running the service. It needs:
+
+1. A code-signing certificate it can present (subject/thumbprint or a `.pfx`).
+2. Configuration telling it which cert to use + a timestamp URL.
+
+The configuration lives in the instance's **`web.config`** under `<appSettings>`
+(on Windows, `C:\Program Files (x86)\ScreenConnect\web.config`). The relevant
+keys across recent builds:
+
+```xml
+<appSettings>
+  <!-- Thumbprint of a cert installed in the host's certificate store -->
+  <add key="CodeSigningCertificateThumbprint" value="<cert-thumbprint>" />
+  <!-- RFC-3161 timestamp authority (always set one) -->
+  <add key="CodeSigningTimestampServer" value="http://timestamp.digicert.com" />
+  <!-- Optional: digest algorithm -->
+  <add key="CodeSigningDigestAlgorithm" value="SHA256" />
+</appSettings>
+```
+
+> [!key-insight]
+> Setting names have drifted across ConnectWise Control versions (older builds
+> used `CodeSigningCertificatePath` + `CodeSigningCertificatePassword` pointing
+> at a `.pfx`; newer builds prefer a **thumbprint** referencing the Windows cert
+> store). Always confirm the exact keys against the ConnectWise docs for your
+> build before editing `web.config`, and restart the **ScreenConnect** service
+> after any change.
+
+### Path A — exportable PFX (simplest, weakest)
+
+If you still hold a legacy **exportable** OV cert as a `.pfx`:
+
+1. Import it into the host store: `certutil -user -p <pfx-pass> -importpfx <cert>.pfx`
+2. Grab the thumbprint (Certificates MMC → Details, or `Get-ChildItem Cert:\CurrentUser\My`).
+3. Put the thumbprint in `web.config`, set the timestamp URL, restart the service.
+
+ScreenConnect now signs each generated agent automatically. **This path is going
+away** — post-2023 CA/B rules require keys on hardware, so new EV certs are
+non-exportable and cannot live as a plain `.pfx`.
+
+### Path B — non-exportable Key Vault / HSM cert (current standard)
+
+A Key Vault HSM key is **non-exportable** — ScreenConnect can't be handed a
+private key it cannot read. Two viable patterns:
+
+**B1. Out-of-band post-build signing (recommended, simplest to reason about).**
+Leave ScreenConnect's own signing **disabled** and sign the artifact it produces
+with AzureSignTool (step 3) before distribution:
+
+- For a fixed **access agent** (MSI/EXE you deploy at scale), build it once in
+  the admin UI, download the unsigned installer, sign it with AzureSignTool, and
+  host the signed copy for deployment.
+- Automate it: a small watcher/script signs new agent artifacts as they're
+  produced, e.g.
+
+  ```bash
+  AzureSignTool sign \
+    --azure-key-vault-url "https://<vault-name>.vault.azure.net" \
+    --azure-key-vault-certificate "<cert-name>" \
+    --azure-key-vault-tenant-id "<tenant-id>" \
+    --azure-key-vault-client-id "<app-registration-client-id>" \
+    --azure-key-vault-client-secret "$AZURE_KV_CLIENT_SECRET" \
+    --timestamp-rfc3161 "http://timestamp.digicert.com" \
+    --file-digest sha256 -v "<agent-installer>.exe"
+  ```
+
+  Trade-off: per-session *support* installers (built ad hoc) aren't auto-signed
+  this way — B1 fits the **access agent** (stable, deployed broadly) far better
+  than one-off attended-support downloads.
+
+**B2. Key Vault CNG/KSP provider (lets ScreenConnect sign HSM-backed).**
+Install the **Azure Key Vault key-storage provider** (the dlib/CNG provider that
+exposes the vault key to Windows CNG) on the ScreenConnect host so the OS cert
+store can reference the non-exportable vault key by thumbprint. ScreenConnect's
+thumbprint-based signing then works without the key ever being exported —
+signing operations are proxied to the vault. This keeps ScreenConnect's
+auto-sign-every-agent behaviour intact while satisfying the HSM requirement.
+More moving parts (provider install, app-registration auth on the host, network
+egress to Key Vault) than B1.
+
+### Verify a signed agent
+
+```powershell
+signtool verify /pa /v "<agent-installer>.exe"
+# confirm: chains to a trusted root, has a timestamp, digest = SHA256
+```
 
 > [!warning]
-> Do **not** store the code-signing `.pfx`/password, the Key Vault client
-> secret, or any ScreenConnect licence in the wiki or a tracked repo. They are
-> all secrets.
+> Never store the code-signing `.pfx`/password, the Key Vault client secret, the
+> cert thumbprint's backing key, or any ScreenConnect licence in the wiki or a
+> tracked repo. Inject secrets as environment variables / from a secret store at
+> sign time. Everything cert-specific here is a placeholder.
 
 ## Related
 

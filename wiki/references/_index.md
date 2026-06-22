@@ -32,9 +32,14 @@ Runbooks and how-to procedures.
 - [[Networking Reference]] · [[nftables Firewall]] · [[FortiGate Administration]] ·
   [[UniFi Controller]] · [[Tailscale Operations]]
 
-## TLS & certificates
-- [[acme.sh - DNS-01 Certificates]] (DNS-01: Cloudflare + Azure DNS) ·
-  [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] (HTTP-01 / nginx plugin)
+## acme.sh & TLS certificates
+- [[acme.sh - DNS-01 Certificates|acme.sh]] — DNS-01 (Cloudflare + Azure DNS),
+  wildcards, Let's Encrypt issuance & auto-renew
+- [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] — HTTP-01 / nginx plugin
+
+## Code signing
+- [[Azure Key Vault Code Signing]] — HSM-backed Authenticode signing
+  (AzureSignTool) + ScreenConnect / ConnectWise Control agents
 
 ## Web & hosting
 - [[Nginx Reference]] · [[Self-Hosted Services]] · [[Docker and Portainer]]
@@ -49,7 +54,7 @@ Runbooks and how-to procedures.
 - [[Microsoft 365 Administration]] · [[Exchange Online Administration]] ·
   [[Active Directory Administration]] · [[Windows Administration]] ·
   [[Windows Activation]] · [[Hyper-V Administration]] · [[Proxmox Administration]] ·
-  [[macOS Virtualization]] · [[Azure Key Vault Code Signing]]
+  [[macOS Virtualization]]
 
 ## Observability
 - [[Prometheus Monitoring]] · [[Grafana]]
