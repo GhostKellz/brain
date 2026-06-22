@@ -1,6 +1,8 @@
 ---
 type: reference
 title: "Headscale"
+aliases:
+  - "references/Headscale Self-Hosting"
 created: 2026-06-22
 updated: 2026-06-22
 tags:
