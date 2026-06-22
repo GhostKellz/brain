@@ -32,10 +32,12 @@ Runbooks and how-to procedures.
 - [[Networking Reference]] · [[nftables Firewall]] · [[FortiGate Administration]] ·
   [[UniFi Controller]] · [[Tailscale Operations]]
 
+## TLS & certificates
+- [[acme.sh - DNS-01 Certificates]] (DNS-01: Cloudflare + Azure DNS) ·
+  [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] (HTTP-01 / nginx plugin)
+
 ## Web & hosting
-- [[Nginx Reference]] · [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] ·
-  [[acme.sh - DNS-01 Certificates]] · [[Self-Hosted Services]] ·
-  [[Docker and Portainer]]
+- [[Nginx Reference]] · [[Self-Hosted Services]] · [[Docker and Portainer]]
 
 ## GPU & Wayland
 - [[NVIDIA on Wayland]] · [[NVIDIA Container Runtime Troubleshooting]]
