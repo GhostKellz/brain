@@ -1,0 +1,48 @@
+# === Confidentiality guardrails (this repo is PUBLIC) ===
+# Private / home-lab / security tiers must never land here — they live in
+# ~/brain-private (GitLab). Clients live in Hudu. These patterns are a safety net,
+# NOT the primary control: keep sensitive content physically out of this vault.
+private/
+clients/
+client-*/
+*.private.md
+*.secret.md
+secrets/
+**/secrets/
+heimdall-stack/
+infra-inventory/
+
+# Secrets / credentials
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+*.env
+.env
+.env.*
+*credentials*
+*.kdbx
+id_rsa*
+id_ed25519*
+*.ovpn
+
+# Obsidian workspace state (keep config/, drop volatile caches)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# Local retrieval index / embeddings (regenerated locally)
+.retrieve/
+*.duckdb
+*.sqlite3
+embeddings/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
