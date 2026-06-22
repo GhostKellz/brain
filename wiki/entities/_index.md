@@ -29,7 +29,7 @@ People, organizations, products, repositories, and tools.
 ## Ghost Ecosystem — repositories
 - [[Bolt]] — container runtime (Rust)
 - [[GhostChain]] — blockchain stack (Rust)
-- [[ghostbrew]] — package tooling
+- [[ghostbrew]] — sched-ext BPF CPU scheduler (Rust)
 - [[ghostcrate]] — crate/registry tooling
 - [[ghostctl]] — all-in-one sysadmin/DevOps/homelab toolkit (Rust)
 - [[GhostForge]] — build/forge tooling
@@ -59,7 +59,6 @@ People, organizations, products, repositories, and tools.
 
 ## NV Tools Suite — repositories
 - [[nvcontrol]] — NVIDIA control (Rust)
-- [[nvbind]] — NVIDIA container binding (Rust)
 - [[nvhud]] — overlay/HUD
 - [[nvlatency]] — latency tooling
 - [[nvproton]] — Proton integration

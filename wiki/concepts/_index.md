@@ -17,7 +17,8 @@ Ideas, patterns, and frameworks.
 
 ## Linux & systems
 - [[Btrfs Snapshots]] · [[Linux Memory Tuning]] · [[systemd Timers]] ·
-  [[Tiling Window Management]] · [[Wayland]] · [[ZRAM Swap]]
+  [[Tiling Window Management]] · [[Wayland]] · [[ZRAM Swap]] ·
+  [[eBPF and Linux Schedulers]] · [[CachyOS and TKG Kernels]]
 
 ## AI & local LLMs
 - [[Local LLM Inference]] · [[Choosing a Local Model for Agents]] ·

@@ -41,7 +41,7 @@ services where a richer crate ecosystem and strong type guarantees pay off.
 ## Projects in this vault built in Rust
 
 - **AI / agents**: [[Jarvis]], [[Zeke]]
-- **GPU / NVIDIA**: [[nvcontrol]], [[nvbind]]
+- **GPU / NVIDIA**: [[nvcontrol]]
 - **Infra / containers**: [[Bolt]], [[ghostctl]]
 - **Networking / chain**: [[GhostWire]], [[GhostChain]]
 - **Hosting / registry**: [[GhostCP]], [[ghostport]]

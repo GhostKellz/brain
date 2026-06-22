@@ -17,7 +17,7 @@ purpose: "Modern NVIDIA settings manager for Linux + Wayland — vibrance, VRR/G
 related:
   - "[[Rust]]"
   - "[[NV Tools Suite]]"
-  - "[[nvbind]]"
+  - "[[Bolt]]"
   - "[[nvhud]]"
   - "[[nvsync]]"
   - "[[GhostKellz]]"
@@ -81,5 +81,6 @@ experimental ("use at your own risk").
 ## Relationships
 
 The anchor of the [[NV Tools Suite]]. Sibling tools cover adjacent niches:
-[[nvbind]] (container GPU passthrough), [[nvhud]] (performance OSD),
-[[nvsync]] (VRR/G-Sync manager), and others. Built on [[Rust]].
+[[nvhud]] (performance OSD), [[nvsync]] (VRR/G-Sync manager), and others.
+Container GPU passthrough now lives natively in [[Bolt]] (formerly the
+standalone `nvbind`). Built on [[Rust]].

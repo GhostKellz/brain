@@ -28,8 +28,8 @@ Built in Zig: [[zqlite]] · [[Ghostlang]] · [[Grove]] · [[GShell]] · [[Grim]]
 [[Rust]] — language overview and why it covers the application/service layer.
 [[Rust Ownership and Borrowing]] · [[Cargo Workflow]]
 Built in Rust: [[Jarvis]] · [[nvcontrol]] · [[ghostctl]] · [[GhostChain]] ·
-[[GhostWire]] · [[nvbind]] · [[Bolt]] · [[Zeke]] · [[GhostCP]] · [[ghostport]] ·
-[[ghostcrate]]
+[[GhostWire]] · [[Bolt]] · [[ghostbrew]] · [[Zeke]] · [[GhostCP]] ·
+[[ghostport]] · [[ghostcrate]] · [[reaper]] · [[GhostView]]
 
 ## Scripting
 [[Ghostlang]] (.gza) — embeddable Lua-replacement scripting engine, with

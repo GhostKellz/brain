@@ -42,7 +42,7 @@ and [[Hot Cache]] for recent context.
 [[ghostctl]] · [[GhostForge]] · [[Ghostlang]] · [[ghostls]] · [[GhostPanel]] ·
 [[ghostport]] · [[ghostshell]] · [[ghostsnap]] · [[GhostView]] · [[ghostVK]] ·
 [[Ghostwarden]] · [[GhostWave]] · [[GhostWire]] · [[Grim]] · [[Grove]] ·
-[[GShell]] · [[Jarvis]] · [[nvbind]] · [[nvcontrol]] · [[nvhud]] · [[nvlatency]] ·
+[[GShell]] · [[Jarvis]] · [[nvcontrol]] · [[nvhud]] · [[nvlatency]] ·
 [[nvprime]] · [[nvproton]] · [[nvshader]] · [[nvsync]] · [[nvvk]] · [[Phantom]] ·
 [[PhantomLink]] · [[Proton-NV]] · [[reaper]] · [[Wraith]] · [[zcrypto]] ·
 [[Zeke]] · [[zqlite]] · [[zquic]] · [[zsync]]
@@ -53,8 +53,10 @@ and [[Hot Cache]] for recent context.
 
 ## Concepts
 [[3-2-1 Backup Strategy]] · [[Alpine.js]] · [[Astro Static Site Generator]] ·
-[[Btrfs Snapshots]] · [[Choosing a Local Model for Agents]] ·
-[[Cloud and Hosting Services]] · [[CUDA Delivery Paths]] · [[Ghost Ecosystem]] ·
+[[Btrfs Snapshots]] · [[CachyOS and TKG Kernels]] ·
+[[Choosing a Local Model for Agents]] ·
+[[Cloud and Hosting Services]] · [[CUDA Delivery Paths]] ·
+[[eBPF and Linux Schedulers]] · [[Ghost Ecosystem]] ·
 [[GPG Key Verification Workflow]] · [[Hand-Authored Inline SVG Diagrams]] ·
 [[IOMMU and Device Groups]] · [[KV Cache Quantization]] · [[Linux Memory Tuning]] ·
 [[Local LLM Inference]] · [[Managed IT Services]] · [[Mesh VPN]] ·
@@ -73,10 +75,10 @@ and [[Hot Cache]] for recent context.
 [[Arch Linux Administration]] · [[Azure Key Vault Code Signing]] ·
 [[Btrfs Restore From Snapshot]] · [[Btrfs Subvolume Layout]] ·
 [[Btrfs Troubleshooting]] · [[Cargo Workflow]] · [[Cloud Backup Storage]] ·
-[[CrowdSec]] · [[Disk IO Scheduler]] · [[Docker and Portainer]] ·
+[[Cloudflare]] · [[CrowdSec]] · [[Disk IO Scheduler]] · [[Docker and Portainer]] ·
 [[Email DNS Security]] · [[Endpoint Security Tooling]] ·
 [[Exchange Online Administration]] · [[FortiGate Administration]] ·
-[[Grafana]] · [[Hyper-V Administration]] · [[Initramfs FSCK Recovery]] ·
+[[Grafana]] · [[HestiaCP]] · [[Hyper-V Administration]] · [[Initramfs FSCK Recovery]] ·
 [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] · [[Linux Administration]] ·
 [[macOS Virtualization]] · [[Microsoft 365 Administration]] ·
 [[Modprobe Options]] · [[Neovim Cheatsheet]] · [[Networking Reference]] ·
@@ -85,7 +87,8 @@ and [[Hot Cache]] for recent context.
 [[Ollama Service Configuration]] · [[Pacman Hooks]] · [[PKGBUILD Auditing]] ·
 [[PKGBUILD Templates]] · [[Prometheus Monitoring]] · [[Proxmox Administration]] ·
 [[Restic Backup]] · [[Self-Hosted Services]] · [[Sysctl Performance Tuning]] ·
-[[systemd Drop-in Overrides]] · [[Tailscale Operations]] · [[tmux Cheatsheet]] ·
+[[systemd Drop-in Overrides]] · [[Tailscale Operations|Tailscale]] ·
+[[Headscale Self-Hosting]] · [[tmux Cheatsheet]] ·
 [[UniFi Controller]] · [[Wazuh]] · [[Windows Activation]] ·
 [[Windows Administration]]
 

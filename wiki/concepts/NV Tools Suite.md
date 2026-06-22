@@ -12,7 +12,7 @@ tags:
 status: seed
 related:
   - "[[nvcontrol]]"
-  - "[[nvbind]]"
+  - "[[Bolt]]"
   - "[[nvhud]]"
   - "[[nvsync]]"
   - "[[nvshader]]"
@@ -37,8 +37,9 @@ caching) to Linux + Wayland, tuned for the NVIDIA open kernel modules.
 
 - **[[nvcontrol]]** — flagship NVIDIA settings manager (vibrance, VRR, HDR,
   overclock, fan, power) for Wayland. Rust, TUI + GUI.
-- **[[nvbind]]** — fast Rust alternative to the NVIDIA Container Toolkit for GPU
-  passthrough in containers.
+- **GPU passthrough** — the fast, toolkit-free alternative to the NVIDIA
+  Container Toolkit is now **built into [[Bolt]]** (the former standalone
+  `nvbind` tool, folded in as a native runtime path).
 - **[[nvhud]]** — GPU-accelerated performance OSD (MangoHud alternative) in Zig.
 - **[[nvsync]]** — VRR & G-Sync manager for Linux (Wayland + X11).
 - **[[nvshader]]** — shader cache management/pre-warming across DXVK,

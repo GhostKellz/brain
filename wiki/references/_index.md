@@ -30,7 +30,8 @@ Runbooks and how-to procedures.
 
 ## Networking
 - [[Networking Reference]] · [[nftables Firewall]] · [[FortiGate Administration]] ·
-  [[UniFi Controller]] · [[Tailscale Operations]]
+  [[UniFi Controller]] · [[Tailscale Operations|Tailscale]] ·
+  [[Headscale Self-Hosting]] · [[Cloudflare]]
 
 ## acme.sh & TLS certificates
 - [[acme.sh - DNS-01 Certificates|acme.sh]] — DNS-01 (Cloudflare + Azure DNS),
@@ -42,7 +43,8 @@ Runbooks and how-to procedures.
   (AzureSignTool) + ScreenConnect / ConnectWise Control agents
 
 ## Web & hosting
-- [[Nginx Reference]] · [[Self-Hosted Services]] · [[Docker and Portainer]]
+- [[Nginx Reference]] · [[Self-Hosted Services]] · [[Docker and Portainer]] ·
+  [[HestiaCP]]
 
 ## GPU & Wayland
 - [[NVIDIA on Wayland]] · [[NVIDIA Container Runtime Troubleshooting]]

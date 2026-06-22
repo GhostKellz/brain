@@ -44,7 +44,8 @@ tooling, [[Zig]] for low-level engines and libraries.
 ## System administration & infra
 
 - [[ghostctl]] — all-in-one sysadmin/DevOps/homelab toolkit (Rust).
-- [[ghostbrew]] / [[GhostView]] — Arch package discovery/management.
+- [[reaper]] (`reap`) — yay/paru-style AUR helper CLI; [[GhostView]] — egui
+  GUI for Arch package discovery (Pacman/AUR/Flatpak).
 - [[GhostWire]] — zero-trust WireGuard mesh VPN (Rust control plane, Zig tools).
 - [[Ghostwarden]] — nftables/bridge/VM network guardian.
 - [[GhostCP]] — host-level hosting control panel (Axum + Leptos).
@@ -65,6 +66,8 @@ tooling, [[Zig]] for low-level engines and libraries.
 
 - [[ghostshell]] — terminal emulator (Ghostty-derived).
 - [[GhostForge]] — gaming platform manager on the Bolt runtime.
+- [[ghostbrew]] — sched-ext BPF CPU scheduler for AMD X3D/Zen5 gaming
+  ([[eBPF and Linux Schedulers]]).
 - [[ghostVK]] — Zig Vulkan runtime for HDR/high-refresh gaming.
 - [[GhostWave]] — RTX-voice-style noise suppression for Linux.
 - [[GhostPanel]] — "Portainer for Bolt" container management UI.

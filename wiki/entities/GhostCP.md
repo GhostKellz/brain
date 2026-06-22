@@ -18,14 +18,15 @@ related:
   - "[[Ghost Ecosystem]]"
   - "[[ghostport]]"
   - "[[Self-Hosted Services]]"
+  - "[[HestiaCP]]"
   - "[[GhostKellz]]"
 ---
 
 # GhostCP
 
-A host-level **hosting control panel** written in [[Rust]] — HestiaCP reimagined
-with a memory-safe control plane. Marked experimental (research / lab use). By
-[[GhostKellz]].
+A host-level **hosting control panel** written in [[Rust]] — [[HestiaCP]]
+reimagined with a memory-safe control plane. Marked experimental (research / lab
+use). By [[GhostKellz]].
 
 ## What it does
 

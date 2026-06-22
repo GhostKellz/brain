@@ -17,7 +17,7 @@ purpose: "Professional system administration toolkit — an interactive all-in-o
 related:
   - "[[Rust]]"
   - "[[Ghost Ecosystem]]"
-  - "[[ghostbrew]]"
+  - "[[reaper]]"
   - "[[GhostKellz]]"
 ---
 
@@ -71,5 +71,5 @@ Active, production-tested per its own description, with a large CHANGELOG.
 
 - Built on [[Rust]]; part of the [[Ghost Ecosystem]].
 - Integrates AUR helper preferences including [[reaper]]; complements the
-  package-discovery tools [[ghostbrew]] / [[GhostView]].
+  [[GhostView]] package GUI.
 - Shares the homelab/Proxmox/admin focus that recurs across the ghost\* family.

@@ -16,17 +16,18 @@ purpose: "AUR package manager / helper for Arch Linux"
 related:
   - "[[Rust]]"
   - "[[ghostctl]]"
-  - "[[ghostbrew]]"
+  - "[[GhostView]]"
   - "[[Ghost Ecosystem]]"
   - "[[GhostKellz]]"
 ---
 
 # reaper
 
-An AUR package manager for Arch Linux, written in [[Rust]]. By [[GhostKellz]].
+A yay/paru-style **AUR helper CLI** for Arch Linux (binary `reap`), written in
+[[Rust]]. By [[GhostKellz]].
 
 reaper is one of the AUR helpers that [[ghostctl]]'s preference system supports
-(alongside paru/yay), and complements the package-discovery tools [[ghostbrew]]
-and [[GhostView]] within the [[Ghost Ecosystem]] Arch tooling.
+(alongside paru/yay), and complements the [[GhostView]] package GUI within the
+[[Ghost Ecosystem]] Arch tooling.
 
 Built on [[Rust]].

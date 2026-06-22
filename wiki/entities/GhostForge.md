@@ -15,7 +15,6 @@ repo_status: experimental
 purpose: "Modern Lutris-alternative gaming platform manager built on the Bolt container runtime"
 related:
   - "[[Bolt]]"
-  - "[[nvbind]]"
   - "[[Ghost Ecosystem]]"
   - "[[GhostKellz]]"
 ---
@@ -28,5 +27,6 @@ runtime, it provides isolated gaming environments, GPU passthrough, real-time
 monitoring, and Wine/Proton integration. By [[GhostKellz]]; part of the
 [[Ghost Ecosystem]].
 
-GPU passthrough connects it to [[nvbind]]; the container runtime is [[Bolt]]
-(also the platform behind [[GhostPanel]]).
+The container runtime is [[Bolt]] (also the platform behind [[GhostPanel]]),
+and GPU passthrough comes from Bolt's built-in NVIDIA path (formerly the
+standalone `nvbind`).

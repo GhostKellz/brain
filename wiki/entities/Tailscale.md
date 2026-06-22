@@ -43,7 +43,8 @@ encrypted peer-to-peer tunnels — without manual key management or port forward
 **Headscale** is an open-source reimplementation of Tailscale's control server.
 Paired with the normal Tailscale client, it lets you run the coordination plane
 yourself — useful for labs and learning the moving parts. The data plane (the
-WireGuard tunnels) is identical either way.
+WireGuard tunnels) is identical either way. See [[Headscale Self-Hosting]] for
+the full self-hosting runbook and [[Tailscale Operations]] for the client side.
 
 ## Useful operational notes
 
