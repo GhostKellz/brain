@@ -65,20 +65,50 @@ end
 
 ## DHCP Option 43 (UniFi Layer 3 Adoption)
 
-Encode the controller IP as hex and serve it via option 43. The hex value is `2b <len> <controller-ip-in-hex>` — use a converter for your controller IP.
+UniFi devices on a different subnet from the controller can't discover it over
+Layer 2. Option 43 hands them the controller IP inside their DHCP lease, so they
+inform the right endpoint automatically. The value is a vendor sub-option TLV:
+
+```
+01 04 <controller-ip-in-hex>
+   │  │  └─ the four IP octets, one hex byte each
+   │  └──── length = 4 bytes (an IPv4 address)
+   └─────── sub-option type 0x01 = "controller IP"
+```
+
+Worked example — controller at `192.168.1.2`:
+
+| Octet | 192 | 168 | 1  | 2  |
+|-------|-----|-----|----|----|
+| Hex   | C0  | A8  | 01 | 02 |
+
+→ option 43 value = `0104C0A80102`.
+
+Set it on the DHCP server that leases the **device** VLAN (run `get system dhcp
+server` to find the right server ID):
 
 ```
 config system dhcp server
-  edit 1
+  edit <server-id>
     config options
       edit 1
         set code 43
         set type hex
-        set value 2b 1a <controller-ip-hex>
+        set value 0104C0A80102        # 0104 + controller IP in hex
+      next
+    end
+  next
 end
 ```
 
-See [[UniFi Controller]] for the adoption side and the local-DNS alternative.
+> [!key-insight]
+> The leading `01 04` is mandatory — it's the UniFi vendor sub-option header, not
+> the option-43 code itself (FortiOS already supplies the `43` via `set code`).
+> Sending just the raw IP hex, or prefixing `2b`/`2b06`, is the usual reason
+> devices DHCP fine but never adopt.
+
+See [[UniFi Controller]] for the adoption side, the Windows Server DNS A-record
+alternative, and a cross-vendor value table.
 
 ## VoIP / SIP ALG (disable for SIP trunks)
 

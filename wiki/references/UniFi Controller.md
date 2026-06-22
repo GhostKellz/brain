@@ -40,14 +40,71 @@ set-inform http://<ip>:8080/inform
 
 ## Layer 3 Adoption (Remote Networks)
 
-When devices and controller are on different subnets, use one of:
+When devices and controller sit on different subnets, the device's Layer 2
+discovery broadcast never reaches the controller, so it stays "pending" forever.
+Two reliable ways to point it across the boundary — DHCP Option 43, or a local
+`unifi` DNS record. Either works; pick whichever your environment already owns.
 
-- **DHCP Option 43** — encode the controller IP as hex. See the FortiGate DHCP Option 43 recipe in [[FortiGate Administration]] and UI's L3 adoption docs.
-- **Local DNS override** — create an `A` record named `unifi` pointing at the controller, so devices resolve the default `unifi` hostname to your controller:
+### Option A — DHCP Option 43 (preferred where the firewall is the DHCP server)
+
+Option 43 is a DHCP vendor-specific option that delivers the controller IP in
+the device's lease, so it informs the right place with no per-device config.
+UniFi expects a sub-option TLV:
 
 ```
-unifi  ->  <controller-ip>
+01 04 <4-byte controller IP in hex>
+   │  │  └─ controller IP, one hex byte per octet
+   │  └──── length = 4 (an IPv4 address)
+   └─────── sub-option 0x01 = controller IP
 ```
+
+Worked example — controller `192.168.1.2` → `C0 A8 01 02` → value
+**`0104C0A80102`**.
+
+We run **FortiGate** as the DHCP server, so the option goes on the FortiGate
+scope that serves the device VLAN — full CLI recipe in
+[[FortiGate Administration]]. The value is identical across vendors; only the
+formatting (spaces / colons / `0x`) differs:
+
+| Platform | Where | Type | Value for 192.168.1.2 |
+|----------|-------|------|-----------------------|
+| **FortiGate** | `config system dhcp server` → `config options` | hex | `0104C0A80102` |
+| pfSense / OPNsense | Services → DHCPv4 → Option 43 | String | `0104C0A80102` |
+| Sophos UTM | DHCP → vendor option | hex | `01:04:C0:A8:01:02` |
+| MikroTik | `/ip dhcp-server option` | raw | `0x0104C0A80102` |
+| Cisco IOS | `ip dhcp pool` → `option 43 hex` | hex | `0104.C0A8.0102` |
+| Windows Server DHCP | Scope Options → 043 | binary | `01 04 C0 A8 01 02` |
+
+> [!key-insight]
+> The `01 04` prefix is the UniFi vendor header and is required. A device that
+> gets a correct lease but never adopts almost always has a malformed option-43
+> value (missing the `0104`, or an extra `2b`/`2b06` wrapper).
+
+### Option B — local DNS `unifi` record (Windows Server DNS snap-in)
+
+UniFi devices look up the hostname **`unifi`** by default. Publish an `A` record
+for it on the DNS your devices use and they resolve straight to the controller —
+no DHCP changes, and it survives DHCP server swaps.
+
+On **Windows Server** (DNS Manager — `dnsmgmt.msc`):
+
+1. Forward Lookup Zones → your internal zone (e.g. `<domain>`).
+2. Right-click → **New Host (A or AAAA)…**
+3. **Name:** `unifi`  ·  **IP address:** `<controller-ip>`  ·  tick *Create
+   associated pointer (PTR)* if you keep reverse zones.
+4. Devices in that domain now resolve `unifi.<domain>` → controller and adopt.
+
+Equivalent record on any other DNS (BIND/dnsmasq/UniFi's own DNS):
+
+```
+unifi  IN  A  <controller-ip>
+```
+
+> [!key-insight]
+> The device must use this DNS server and have the matching DNS **suffix**
+> (`<domain>`) pushed via DHCP, or the bare `unifi` lookup won't resolve. This is
+> why the firewall-DHCP Option 43 route is often simpler when one box owns both
+> DHCP and the device VLAN.
 
 ## TLS Certificate (Let's Encrypt)
 
