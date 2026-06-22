@@ -39,6 +39,9 @@ id_ed25519*
 *.sqlite3
 embeddings/
 
+# Local planning (kept on disk, not published)
+tasks/
+
 # OS / editor junk
 .DS_Store
 Thumbs.db
