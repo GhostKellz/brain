@@ -4,7 +4,7 @@ title: "Alpine.js"
 complexity: beginner
 domain: web
 aliases:
-  - AlpineJS
+  - Alpine.js
 created: 2026-06-21
 updated: 2026-06-21
 tags:

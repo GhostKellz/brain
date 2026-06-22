@@ -47,6 +47,10 @@ scripts/
 bin/
 .vault-meta/
 
+# Quartz publish pipeline — deploy artifacts staged locally, applied to the
+# builder LXC + thallium. Not part of the published knowledge vault.
+deploy/
+
 # Local planning (kept on disk, not published)
 tasks/
 
