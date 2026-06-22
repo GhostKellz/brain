@@ -25,10 +25,19 @@
 
 <p align="center">
   <em>Project</em><br>
-  <img src="https://img.shields.io/badge/Quartz-planned-8A2BE2?style=for-the-badge" alt="Quartz (planned)">
+  <a href="https://brain.ckelley.dev"><img src="https://img.shields.io/badge/Live-brain.ckelley.dev-00C853?style=for-the-badge&logo=quartz&logoColor=white" alt="Live at brain.ckelley.dev"></a>
+  <img src="https://img.shields.io/badge/Quartz-v4-8A2BE2?style=for-the-badge" alt="Quartz v4">
   <img src="https://img.shields.io/badge/GPG_Signed-Verified-00C853?style=for-the-badge&logo=gnu-privacy-guard&logoColor=white" alt="GPG Signed">
   <img src="https://img.shields.io/badge/License-MIT-A31F34?style=for-the-badge" alt="MIT License">
   <img src="https://img.shields.io/badge/GhostKellz-👻-9B59B6?style=for-the-badge" alt="GhostKellz">
+</p>
+
+<p align="center">
+  <a href="https://brain.ckelley.dev">
+    <img src="assets/images/example-brain.png" alt="GhostKellz Brain — the published Quartz site at brain.ckelley.dev (left) and the same vault in Obsidian's graph view (right)" width="100%">
+  </a>
+  <br>
+  <em>One vault, two views — the published <a href="https://brain.ckelley.dev">Quartz site</a> (left) and the Obsidian graph (right).</em>
 </p>
 
 ---
@@ -133,13 +142,45 @@ concept per page. Start at [`wiki/hot.md`](wiki/hot.md) for recent context, then
 
 ---
 
-## 🚀 Publishing → brain.ckelley.dev
+## 🚀 Live at [brain.ckelley.dev](https://brain.ckelley.dev)
 
-The public tier is intended to ship as a self-hosted, browsable knowledge site at
-`brain.ckelley.dev`. Likely path: render the vault to a static site preserving
-wiki-links + graph view (**Quartz**, Obsidian-native; or Astro to match
-`ckelley.dev` / `ghostkellz.sh`), deployed via CI on push to `main`. Only the
-public tier ever renders — the tiering rule above guarantees no leakage.
+The public tier ships as a self-hosted [**Quartz v4**](https://quartz.jzhao.xyz)
+static site — wiki-links, full-text search, backlinks, and the graph view all
+preserved. The build only ever consumes `wiki/`, so private notes are
+*structurally* unpublishable.
+
+### Automated deployment
+
+Pushing to `main` is the whole workflow; a dedicated build host picks up the
+change and ships inert static HTML to the public web host:
+
+```
+GitHub (public repo)
+   │  git pull
+   ▼
+build host ─ Quartz build (wiki/ only) ─ leak-guard ─ rsync ─► web host (nginx) ─► https://brain.ckelley.dev
+   ▲
+   └─ systemd timer (~10 min): rebuild only when origin/main moved
+```
+
+- **Decoupled build / serve.** The Node + Quartz + git toolchain lives on an
+  internal build host; only rendered static HTML is shipped to the
+  internet-facing web host. No repo clone or build toolchain sits on the public
+  box.
+- **Change-gated.** A `systemd` timer fetches every ~10 minutes and rebuilds
+  *only* when `origin/main` actually moved, then rsyncs the output.
+- **Leak-guarded.** The publish script aborts if a `tier: private` marker appears
+  in the build input **or** output — a third guard on top of the `wiki/`-only
+  build and the gitignored private paths.
+- **TLS** via Let's Encrypt, issued with **acme.sh** over DNS-01 — see
+  [acme.sh](wiki/references/acme.sh%20-%20DNS-01%20Certificates.md).
+- **Cache correctness.** Fingerprinted assets are long-cached; `contentIndex.json`
+  (which feeds search + the explorer/graph) is served `no-cache`, so content
+  updates appear immediately after a publish instead of being frozen behind a
+  stale cache.
+
+> Infra specifics (hostnames, IPs, the deploy unit files) live in gitignored
+> paths, never in this public repo — consistent with the tiering rule above.
 
 ---
 
