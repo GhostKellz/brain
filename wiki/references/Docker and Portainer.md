@@ -2,16 +2,18 @@
 type: reference
 title: "Docker and Portainer"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-22
 tags:
   - docker
   - portainer
   - containers
+  - networking
 status: developing
 related:
   - "[[Linux Administration]]"
   - "[[Let's Encrypt - Certbot|Let's Encrypt / Certbot]]"
   - "[[Nginx Reference]]"
+  - "[[Prometheus Monitoring]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders.
@@ -107,6 +109,102 @@ sudo docker run -d -p 9001:9001 --name portainer_agent --restart=always \
   portainer/agent:latest
 ```
 
+## Docker networking
+
+The part everyone trips over. Docker gives each container a network stack; the
+*driver* decides how that stack reaches other containers, the host, and the
+outside world.
+
+### Driver cheat-sheet
+
+| Driver | Scope | Use when |
+|--------|-------|----------|
+| `bridge` | single host | default; isolated app stacks on one box |
+| `host` | single host | container shares the host's network namespace (no isolation, no port mapping) |
+| `macvlan` | single host | container needs a *real* IP on the LAN (its own MAC) |
+| `ipvlan` | single host | like macvlan but shares the host MAC (switch port-security friendly) |
+| `overlay` | multi-host (Swarm) | containers across hosts on one virtual L2 |
+| `none` | single host | fully isolated, no networking |
+
+### The default bridge vs a user-defined bridge
+
+```bash
+docker network ls                          # list networks
+docker network inspect bridge              # the built-in default
+```
+
+> [!key-insight]
+> Always create a **user-defined bridge** for an app stack — never rely on the
+> default `bridge`. User-defined bridges give you **automatic DNS**: containers
+> resolve each other by name. The default bridge does *not* (you'd be stuck with
+> brittle `--link` or raw IPs).
+
+```bash
+# Create a user-defined bridge, attach containers, and they resolve by name
+docker network create appnet
+docker run -d --name db  --network appnet postgres:16
+docker run -d --name web --network appnet myapp:latest
+# inside `web`, the host `db` resolves to db's container IP automatically
+```
+
+### Port publishing (host ↔ container)
+
+```bash
+docker run -d -p 8080:80 nginx            # hostPort:containerPort
+docker run -d -p 127.0.0.1:8080:80 nginx  # bind to loopback only — not 0.0.0.0
+docker run -d -P nginx                     # publish all EXPOSEd ports to random highports
+```
+
+> [!warning]
+> `-p 8080:80` binds `0.0.0.0` by default — reachable from the whole network, and
+> Docker's iptables rules can **bypass a host ufw/firewalld policy**. Bind to
+> `127.0.0.1:` and put a reverse proxy in front when a port shouldn't be public.
+
+### macvlan — give a container its own LAN IP
+
+```bash
+docker network create -d macvlan \
+  --subnet=192.0.2.0/24 --gateway=192.0.2.1 \
+  -o parent=eth0 lan_macvlan
+docker run -d --name dns --network lan_macvlan --ip 192.0.2.53 pihole/pihole
+```
+
+> [!key-insight]
+> macvlan's gotcha: the **host cannot talk to its own macvlan containers** by
+> default (the NIC won't hairpin its own MAC). If the host needs to reach them,
+> add a `macvlan` shim interface on the host, or use `ipvlan l2` instead.
+
+### Connecting, inspecting, cleaning up
+
+```bash
+docker network connect appnet web          # attach a running container to another net
+docker network disconnect appnet web
+docker network inspect appnet              # see subnet, gateway, attached containers
+docker network prune                       # remove all unused networks
+```
+
+### Compose networks
+
+```yaml
+services:
+  web:
+    image: myapp:latest
+    networks: [frontend, backend]
+  db:
+    image: postgres:16
+    networks: [backend]          # db is NOT on frontend → unreachable from the edge
+
+networks:
+  frontend:
+  backend:
+    internal: true               # no outbound route to the host/internet
+```
+
+Compose auto-creates a default network per project, so services already resolve
+each other by service name. Declare explicit networks only to **segment** tiers
+(put the DB on a `backend` net the public-facing proxy can't see).
+
 ## Notes
 
 - Front Portainer/containers with TLS via [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] and [[Nginx Reference]].
+- Container metrics (per-network IO included) are exposed by cadvisor → see [[Prometheus Monitoring]].

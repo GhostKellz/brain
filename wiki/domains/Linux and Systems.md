@@ -2,7 +2,7 @@
 type: domain
 title: "Linux and Systems"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-22
 tags:
   - domain
   - linux
@@ -36,4 +36,4 @@ packaging, and desktop (Wayland/KDE).
 [[Wayland]] · [[KDE Plasma]] · [[Tiling Window Management]] · [[NVIDIA on Wayland]]
 
 ## Admin runbooks
-[[Linux Administration]] · [[tmux Cheatsheet]]
+[[Linux Administration]] · [[tmux Cheatsheet]] · [[Neovim Cheatsheet]]

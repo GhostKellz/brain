@@ -2,7 +2,7 @@
 type: domain
 title: "Web Development"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-22
 tags:
   - domain
   - web-dev
@@ -25,7 +25,9 @@ The static-first stack behind [[ckelley.dev]], [[ghostkellz.sh]], and
 [[Hand-Authored Inline SVG Diagrams]] — the ckelley.dev architecture-page method.
 
 ## Deploy
-[[NGINX Static Site Hosting]] · [[Nginx Reference]]
+[[NGINX Static Site Hosting]] · [[Nginx Reference]] ·
+[[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] ·
+[[acme.sh - DNS-01 Certificates]]
 
 ## The sites
 [[ckelley.dev]] · [[ghostkellz.sh]] · [[cktechx.com]]

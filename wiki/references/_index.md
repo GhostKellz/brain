@@ -2,7 +2,7 @@
 type: meta
 title: "References Index"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-22
 tags:
   - meta
   - index
@@ -34,7 +34,8 @@ Runbooks and how-to procedures.
 
 ## Web & hosting
 - [[Nginx Reference]] · [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] ·
-  [[Self-Hosted Services]] · [[Docker and Portainer]]
+  [[acme.sh - DNS-01 Certificates]] · [[Self-Hosted Services]] ·
+  [[Docker and Portainer]]
 
 ## GPU & Wayland
 - [[NVIDIA on Wayland]] · [[NVIDIA Container Runtime Troubleshooting]]
@@ -46,10 +47,14 @@ Runbooks and how-to procedures.
 - [[Microsoft 365 Administration]] · [[Exchange Online Administration]] ·
   [[Active Directory Administration]] · [[Windows Administration]] ·
   [[Windows Activation]] · [[Hyper-V Administration]] · [[Proxmox Administration]] ·
-  [[macOS Virtualization]]
+  [[macOS Virtualization]] · [[Azure Key Vault Code Signing]]
+
+## Observability
+- [[Prometheus Monitoring]] · [[Grafana]]
 
 ## Security
-- [[Endpoint Security Tooling]] · [[Email DNS Security]]
+- [[Endpoint Security Tooling]] · [[Email DNS Security]] · [[Wazuh]] ·
+  [[CrowdSec]]
 
 ## Dev workflow
-- [[Cargo Workflow]] · [[tmux Cheatsheet]]
+- [[Cargo Workflow]] · [[tmux Cheatsheet]] · [[Neovim Cheatsheet]]

@@ -2,13 +2,13 @@
 type: reference
 title: "Restic Backup"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-22
 tags:
   - restic
   - backup
   - systemd
   - encryption
-status: seed
+status: developing
 related:
   - "[[Restic]]"
   - "[[3-2-1 Backup Strategy]]"
@@ -51,6 +51,23 @@ restic backup /home          # first manual run
 restic snapshots             # verify
 ```
 
+## Excludes
+
+Keep caches, build artifacts, and other churny junk out of the repo with an
+exclude file (one glob per line):
+
+```bash
+restic backup ~/ --exclude-file=/etc/restic.exclude
+```
+
+```ini
+# /etc/restic.exclude
+**/.cache
+**/node_modules
+**/target
+**/*.tmp
+```
+
 ## Retention / pruning
 
 ```bash
@@ -58,6 +75,35 @@ restic forget --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune
 ```
 
 This keeps a useful history without unbounded growth.
+
+## Verify & restore
+
+A backup you've never restored is a hope, not a backup. Periodically verify
+integrity and rehearse a restore:
+
+```bash
+restic check                 # verify repo structure + metadata
+restic check --read-data     # also re-read & rehash all data (slow, thorough)
+
+restic snapshots             # find the snapshot/ID you want
+restic restore latest --target ~/restic-restore
+restic restore <snapshot-id> --target /restore/path --include /home/user/docs
+
+restic diff <snap-a> <snap-b>   # what changed between two snapshots
+restic mount ~/restic-mnt        # browse snapshots as a FUSE filesystem
+```
+
+If a backup run was interrupted and left a stale lock:
+
+```bash
+restic unlock
+```
+
+> [!key-insight]
+> Schedule `restic check` separately from the backup (e.g. weekly) — it catches
+> bit-rot/corruption that a successful `backup` won't surface. Run
+> `--read-data` occasionally (or `--read-data-subset=10%`) so you're not trusting
+> metadata alone.
 
 ## Automate with systemd
 

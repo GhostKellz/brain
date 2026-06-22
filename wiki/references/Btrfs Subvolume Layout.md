@@ -2,7 +2,7 @@
 type: reference
 title: "Btrfs Subvolume Layout"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-22
 tags:
   - btrfs
   - filesystem
@@ -46,7 +46,22 @@ A typical partition split (systemd-boot, NVMe):
 ```
 noatime                 # don't write access times on every read
 compress=zstd:3         # transparent compression, good ratio/CPU balance
+ssd                     # SSD-aware allocation (auto-detected, but pin it)
+discard=async           # batched TRIM in the background — no fstrim timer needed
+space_cache=v2          # faster free-space tracking on large/aged filesystems
 ```
+
+A full fstab line for the root subvolume then looks like:
+
+```
+UUID=<root-uuid>  /  btrfs  subvol=@,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2  0 0
+```
+
+> [!key-insight]
+> `discard=async` is the modern replacement for a periodic `fstrim.timer` — it
+> queues TRIM in the background rather than synchronously on every delete, so you
+> get SSD longevity without the latency spikes of `discard` (sync) or the
+> all-at-once stall of a weekly fstrim.
 
 ## Boot entry — pin the subvolume
 

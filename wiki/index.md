@@ -4,7 +4,7 @@ title: "Wiki Index"
 aliases:
   - "Wiki Index"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-22
 tags:
   - meta
   - index
@@ -69,22 +69,25 @@ and [[Hot Cache]] for recent context.
 [[Zero Trust Networking]] · [[Zig]] · [[ZRAM Swap]]
 
 ## References — runbooks
-[[Active Directory Administration]] · [[Arch Linux Administration]] ·
+[[acme.sh - DNS-01 Certificates]] · [[Active Directory Administration]] ·
+[[Arch Linux Administration]] · [[Azure Key Vault Code Signing]] ·
 [[Btrfs Restore From Snapshot]] · [[Btrfs Subvolume Layout]] ·
 [[Btrfs Troubleshooting]] · [[Cargo Workflow]] · [[Cloud Backup Storage]] ·
-[[Disk IO Scheduler]] · [[Docker and Portainer]] · [[Email DNS Security]] ·
-[[Endpoint Security Tooling]] · [[Exchange Online Administration]] ·
-[[FortiGate Administration]] · [[Hyper-V Administration]] ·
-[[Initramfs FSCK Recovery]] · [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] ·
-[[Linux Administration]] · [[macOS Virtualization]] ·
-[[Microsoft 365 Administration]] · [[Modprobe Options]] · [[Networking Reference]] ·
+[[CrowdSec]] · [[Disk IO Scheduler]] · [[Docker and Portainer]] ·
+[[Email DNS Security]] · [[Endpoint Security Tooling]] ·
+[[Exchange Online Administration]] · [[FortiGate Administration]] ·
+[[Grafana]] · [[Hyper-V Administration]] · [[Initramfs FSCK Recovery]] ·
+[[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] · [[Linux Administration]] ·
+[[macOS Virtualization]] · [[Microsoft 365 Administration]] ·
+[[Modprobe Options]] · [[Neovim Cheatsheet]] · [[Networking Reference]] ·
 [[nftables Firewall]] · [[Nginx Reference]] ·
 [[NVIDIA Container Runtime Troubleshooting]] · [[NVIDIA on Wayland]] ·
 [[Ollama Service Configuration]] · [[Pacman Hooks]] · [[PKGBUILD Auditing]] ·
-[[PKGBUILD Templates]] · [[Proxmox Administration]] · [[Restic Backup]] ·
-[[Self-Hosted Services]] · [[Sysctl Performance Tuning]] ·
+[[PKGBUILD Templates]] · [[Prometheus Monitoring]] · [[Proxmox Administration]] ·
+[[Restic Backup]] · [[Self-Hosted Services]] · [[Sysctl Performance Tuning]] ·
 [[systemd Drop-in Overrides]] · [[Tailscale Operations]] · [[tmux Cheatsheet]] ·
-[[UniFi Controller]] · [[Windows Activation]] · [[Windows Administration]]
+[[UniFi Controller]] · [[Wazuh]] · [[Windows Activation]] ·
+[[Windows Administration]]
 
 ## Sources
 [[ckelley.dev Repository]] · [[cktechx.com Repository]] · [[ghostkellz.sh Repository]]

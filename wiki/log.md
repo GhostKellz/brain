@@ -2,7 +2,7 @@
 type: meta
 title: "Operations Log"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-22
 tags:
   - meta
   - log
@@ -15,6 +15,24 @@ related:
 # Operations Log
 
 Append-only. Newest entries at the TOP. Each entry: `## [YYYY-MM-DD] operation | title`.
+
+## [2026-06-22] expand | Reference-authoring pass
+- Sources mined (sanitized): `~/arch` (nvim config, restic/btrfs), `~/fortigate`
+  (FortiOS CLI cheatsheet), `~/proxmox` (cloud-init/PBS/ZFS), `~/heimdall-stack`
+  (Prometheus/Grafana/Wazuh/CrowdSec/Loki observability compose).
+- New references (7): [[acme.sh - DNS-01 Certificates]],
+  [[Azure Key Vault Code Signing]], [[Neovim Cheatsheet]],
+  [[Prometheus Monitoring]], [[Grafana]], [[Wazuh]], [[CrowdSec]].
+- Expanded (5): [[Proxmox Administration]] (cloud-init, LXC, VM, ZFS, PBS),
+  [[FortiGate Administration]] (interfaces→VPN→SD-WAN→HA→flow-debug),
+  [[Restic Backup]] (excludes, check, restore), [[Docker and Portainer]]
+  (Docker networking: bridge/host/macvlan/overlay, DNS, port publishing),
+  [[Btrfs Subvolume Layout]] (ssd/discard=async/space_cache=v2 mount opts).
+- Wiring: added [[acme.sh - DNS-01 Certificates]], the observability quartet,
+  and the new cheatsheets to [[Wiki Index]], references `_index`, and the
+  DevOps/Security/Linux/Cloud/Web domain hubs.
+- Tiering: every real host/IP/client/domain/credential placeholdered. Generic
+  vendor/tool names (FortiGate, Prometheus, Wazuh) kept; leak guard clean.
 
 ## [2026-06-21] seed | Initial brain seed
 - Sources: `~/arch` (public-safe subset), `/data/projects` (85 repos),

@@ -4,7 +4,7 @@ title: "Hot Cache"
 aliases:
   - "Hot Cache"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-22
 tags:
   - meta
 status: developing
@@ -16,8 +16,18 @@ related:
 # Recent Context
 
 ## Last Updated
-2026-06-21 — Initial seed of the brain. Four parallel extraction passes plus a
-hand-built backbone.
+2026-06-22 — Reference-authoring pass: 7 new runbooks + 4 expansions, all
+sanitized from `~/arch`, `~/fortigate`, `~/proxmox`, and `~/heimdall-stack`.
+
+## 2026-06-22 additions
+- New references: [[acme.sh - DNS-01 Certificates]] (Cloudflare + Azure DNS),
+  [[Azure Key Vault Code Signing]], [[Neovim Cheatsheet]],
+  [[Prometheus Monitoring]], [[Grafana]], [[Wazuh]], [[CrowdSec]].
+- Expanded: [[Proxmox Administration]] (cloud-init/LXC/VM/ZFS/PBS),
+  [[FortiGate Administration]] (interfaces→routing→policy→VPN→SD-WAN→HA→debug),
+  [[Restic Backup]] (excludes/verify/restore), [[Docker and Portainer]]
+  (Docker networking deep-dive), [[Btrfs Subvolume Layout]] (SSD mount opts).
+- All host/IP/client/domain identifiers placeholdered; leak guard clean.
 
 ## Key Recent Facts
 - The brain (`~/brain` → `github.com/ghostkellz/brain`, public) is now seeded with

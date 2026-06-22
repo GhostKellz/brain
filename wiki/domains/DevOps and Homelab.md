@@ -2,7 +2,7 @@
 type: domain
 title: "DevOps and Homelab"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-22
 tags:
   - domain
   - devops
@@ -29,7 +29,11 @@ the brain together.
 
 ## Self-hosting
 [[Self-Hosted Services]] · [[NGINX Static Site Hosting]] · [[UniFi Controller]] ·
-[[Let's Encrypt - Certbot|Let's Encrypt / Certbot]]
+[[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] ·
+[[acme.sh - DNS-01 Certificates]]
+
+## Observability
+[[Prometheus Monitoring]] · [[Grafana]] · [[Wazuh]] · [[CrowdSec]]
 
 ## Toolkits
 [[ghostctl]] — all-in-one sysadmin/DevOps/homelab toolkit.
