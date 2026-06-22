@@ -47,18 +47,20 @@
 
 ## ⚠️ This repo is PUBLIC
 
-Only public-safe knowledge lives here. The tiering is strict and load-bearing —
-because the public tier is meant to ship as a website, anything committed here is
-effectively published.
+Only public-safe knowledge is *committed* here. The vault on disk may also hold
+private notes, but they live in gitignored paths and never leave the machine. The
+tiering is strict and load-bearing — because the public tier is meant to ship as a
+website, anything committed here is effectively published.
 
 | Tier | What | Lives in |
 |------|------|----------|
-| 🟢 **Public** (this repo) | general cheatsheets, cross-platform notes, OSS project docs | GitHub `ghostkellz/brain` |
-| 🟡 **Personal / home-lab / security** | heimdall-stack, security configs, infra inventory | `~/brain-private` → GitLab `git.cktechx.com` (private) |
+| 🟢 **Public** (tracked) | general cheatsheets, cross-platform notes, OSS project docs | GitHub `ghostkellz/brain` |
+| 🟡 **Personal / home-lab / security** | heimdall-stack, security configs, infra inventory | gitignored `private/` paths in this vault — local-only, never pushed |
 | 🔴 **Client-confidential** | per-client runbooks, topologies, M365 tenants | **Hudu** (`hudu.cktechx.com`) — system of record, never in git |
 
 Never commit home-lab topology, security configs, secrets, or client data here.
-When in doubt, it goes in the private vault or Hudu — not here.
+When in doubt, it goes in a gitignored `private/` path or Hudu — not the tracked
+public tier.
 
 ---
 
@@ -87,9 +89,9 @@ and cross-references them.
 ```
 Sources of truth                 Derived AI layer
 ────────────────                 ────────────────
-~/arch          (system/lab) ──► ~/brain   ──► GitHub  (public)
-/data/projects  (code)       ──► (this)        ~/brain-private ──► GitLab (private)
-Hudu            (clients)    ──►                MemPalace (agent graph memory)
+~/arch          (system/lab) ──► ~/brain ──► GitHub (public tier only)
+/data/projects  (code)       ──► (this)      private/ paths stay local (gitignored)
+Hudu            (clients)    ──►              MemPalace (agent graph memory)
 ```
 
 ### Knowledge stack (under evaluation)

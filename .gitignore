@@ -1,7 +1,8 @@
 # === Confidentiality guardrails (this repo is PUBLIC) ===
-# Private / home-lab / security tiers must never land here — they live in
-# ~/brain-private (GitLab). Clients live in Hudu. These patterns are a safety net,
-# NOT the primary control: keep sensitive content physically out of this vault.
+# One vault: public content is tracked & pushed; private / home-lab / security
+# notes live in the gitignored paths below — local-only, never pushed. Clients
+# live in Hudu. These patterns are the control that keeps the private tier out of
+# the public remote: file sensitive notes under private/ (etc.) and they stay local.
 private/
 clients/
 client-*/
@@ -38,6 +39,13 @@ id_ed25519*
 *.duckdb
 *.sqlite3
 embeddings/
+
+# claude-obsidian retrieval pipeline — vendored locally, not published.
+# The public repo stays a pure knowledge vault; this tooling + its generated
+# index live on disk only and are regenerated via bin/setup-retrieve.sh.
+scripts/
+bin/
+.vault-meta/
 
 # Local planning (kept on disk, not published)
 tasks/

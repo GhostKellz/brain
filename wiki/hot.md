@@ -39,6 +39,10 @@ hand-built backbone.
 - Client docs stay in Hudu, never here.
 
 ## Active Threads
-- Next: aggregate/lint pass, then commit the seed.
-- Pending later phases: private vault on GitLab, MemPalace eval, Quartz publish to
-  `brain.ckelley.dev`, optional Graphify code-graph visuals.
+- Done: seed committed; MCPVault filesystem MCP wired for both Claude Code and
+  Codex; local hybrid retrieval (BM25 + ollama `nomic-embed-text` rerank) built.
+- Tiering update: one vault only — public content is tracked/pushed; private notes
+  live in gitignored `private/` paths, local-only (no separate GitLab vault).
+- Pending later phases: MemPalace eval, Quartz publish to `brain.ckelley.dev`,
+  optional Graphify code-graph visuals. Eventually capture config in
+  `~/arch/dotfiles/claude`.
