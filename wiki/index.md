@@ -78,10 +78,11 @@ and [[Hot Cache]] for recent context.
 [[Cloudflare]] · [[CrowdSec]] · [[Disk IO Scheduler]] · [[Docker and Portainer]] ·
 [[Email DNS Security]] · [[Endpoint Security Tooling]] ·
 [[Exchange Online Administration]] · [[FortiGate Administration]] ·
-[[Grafana]] · [[HestiaCP]] · [[Hyper-V Administration]] · [[Initramfs FSCK Recovery]] ·
+[[Grafana]] · [[HestiaCP]] · [[Hudu]] · [[Hyper-V Administration]] · [[Initramfs FSCK Recovery]] ·
 [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] · [[Linux Administration]] ·
 [[macOS Virtualization]] · [[Microsoft 365 Administration]] ·
-[[Modprobe Options]] · [[Neovim Cheatsheet]] · [[Networking Reference]] ·
+[[Modprobe Options]] · [[NATO Phonetic Alphabet]] · [[Neovim Cheatsheet]] ·
+[[Networking Reference]] ·
 [[nftables Firewall]] · [[Nginx Reference]] ·
 [[NVIDIA Container Runtime Troubleshooting]] · [[NVIDIA on Wayland]] ·
 [[Ollama Service Configuration]] · [[Pacman Hooks]] · [[PKGBUILD Auditing]] ·

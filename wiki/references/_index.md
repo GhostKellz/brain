@@ -52,6 +52,10 @@ Runbooks and how-to procedures.
 ## AI
 - [[Ollama Service Configuration]]
 
+## Hudu
+- [[Hudu]] — wiring Claude Code + Codex into Hudu via its native MCP to read/write
+  client & internal KBs (OAuth, two-tier knowledge model, leak guard)
+
 ## Cloud & Microsoft
 - [[Microsoft 365 Administration]] · [[Exchange Online Administration]] ·
   [[Active Directory Administration]] · [[Windows Administration]] ·
@@ -67,3 +71,6 @@ Runbooks and how-to procedures.
 
 ## Dev workflow
 - [[Cargo Workflow]] · [[tmux Cheatsheet]] · [[Neovim Cheatsheet]]
+
+## Phonetic alphabet
+- [[NATO Phonetic Alphabet]] — spelling letters/digits aloud over phone or radio
