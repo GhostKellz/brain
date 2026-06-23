@@ -2,6 +2,7 @@
 type: reference
 title: "Tailscale"
 aliases:
+  - "Tailscale"
   - "entities/Tailscale"
   - "references/Tailscale Operations"
 created: 2026-06-21
