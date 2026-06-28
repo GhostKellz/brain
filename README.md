@@ -1,4 +1,8 @@
-# 👻 GhostKellz Brain
+<p align="center">
+  <img src="assets/ck-logo1.png" alt="CK Brain" width="320">
+</p>
+
+# 👻 CK Brain
 
 <p align="center">
   <strong>An AI-queryable, cross-referenced second brain — markdown in git, readable by humans and by Claude / Codex.</strong>
@@ -34,7 +38,7 @@
 
 <p align="center">
   <a href="https://brain.ckelley.dev">
-    <img src="assets/images/example-brain.png" alt="GhostKellz Brain — the published Quartz site at brain.ckelley.dev (left) and the same vault in Obsidian's graph view (right)" width="100%">
+    <img src="assets/images/example-brain.png" alt="CK Brain — the published Quartz site at brain.ckelley.dev (left) and the same vault in Obsidian's graph view (right)" width="100%">
   </a>
   <br>
   <em>One vault, two views — the published <a href="https://brain.ckelley.dev">Quartz site</a> (left) and the Obsidian graph (right).</em>
