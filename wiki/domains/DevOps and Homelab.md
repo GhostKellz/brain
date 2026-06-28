@@ -39,6 +39,14 @@ the brain together.
 ## ChatOps & alerting
 [[Discord]] (webhooks/bots/alert hub) · [[SMTP2GO]] (outbound SMTP relay)
 
+## CI/CD & infrastructure as code
+[[CICD Workflows]] (GitHub Actions + self-hosted runners, GitLab CI) ·
+[[Terraform]] (provisioning) · [[Ansible]] (configuration management)
+
+## Data
+[[Databases]] — choosing/architecting datastores (Postgres, MariaDB, SQLite,
+Redis, TigerBeetle, Turso/libSQL).
+
 ## Toolkits
 [[ghostctl]] — all-in-one sysadmin/DevOps/homelab toolkit.
 

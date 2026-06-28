@@ -43,7 +43,14 @@ Ideas, patterns, and frameworks.
   [[Hand-Authored Inline SVG Diagrams]]
 
 ## Programming languages
-- [[Zig]] · [[Rust Ownership and Borrowing]]
+- [[Rust]] · [[Zig]] · [[Go]] · [[Python]] · [[JavaScript]] ·
+  [[Rust Ownership and Borrowing]] · [[Cargo Workflow]]
+
+## DevOps & CI/CD
+- [[CICD Workflows]]
+
+## Databases
+- [[Databases]]
 
 ## Project families
 - [[Ghost Ecosystem]] · [[NV Tools Suite]]

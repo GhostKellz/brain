@@ -16,7 +16,40 @@ related:
 # Recent Context
 
 ## Last Updated
-2026-06-28 — Uptime Kuma, SMTP2GO, Discord refs; Docker, memory-tuning & ARC enhanced.
+2026-06-28 — Language concept pages (Go/Python/JS), Cargo/rustc, Rust/Zig depth;
+earlier: Uptime Kuma, SMTP2GO, Discord refs; Docker, memory-tuning & ARC enhanced.
+
+## 2026-06-28 additions (IaC, CI/CD, databases)
+- New [[Ansible]] reference — agentless config management: inventory, playbooks,
+  roles, ad-hoc, Jinja2/vars precedence, Ansible Vault, `ansible.cfg`; "Terraform
+  builds, Ansible configures"; Tailscale-targeted inventory posture.
+- New [[Terraform]] reference (note OpenTofu fork) — core loop (init/plan/apply),
+  HCL, **state** + remote backends/locking, modules, workspaces; Proxmox provider
+  + cloud-init + Cloudflare DNS-as-code; Terraform-vs-Ansible split.
+- Expanded [[Proxmox]] cloud-init: added the actual `#cloud-config` format
+  (users/packages/write_files/runcmd/power_state), the three data parts, and
+  `cloud-init status/schema/clean` debugging (first-boot-only gotcha).
+- New [[CICD Workflows]] concept — GitHub Actions (workflows/jobs/steps, matrix,
+  **self-hosted runners** + the public-repo warning + homelab/Tailscale pattern)
+  and GitLab CI (`.gitlab-ci.yml` stages, executors/runners); platform compare,
+  pros/cons.
+- New [[Databases]] concept — Postgres (the default), MariaDB/MySQL, SQLite,
+  Redis/Valkey, TigerBeetle (ledgers, Zig), Turso/libSQL; SQL-vs-NoSQL, OLTP-vs-
+  OLAP, per-engine pros/cons, a quick chooser, and architecture principles.
+
+## 2026-06-28 additions (languages)
+- New concept pages giving the general-purpose languages the same pros/cons
+  treatment as Rust/Zig: [[Go]] (goroutines/channels, `go` toolchain, the
+  `cobra`/`viper` + Charm `bubbletea`/`bubbles`/`lipgloss` stacks, web/db libs),
+  [[Python]] (venvs on Linux + `pip`/`pipx`/`uv`/`poetry`, Flask/FastAPI,
+  must-have libs, GIL trade-offs), [[JavaScript]] (language-vs-runtime: Node.js/
+  Bun/Deno; npm/`node_modules`/lockfiles; npm vs pnpm vs yarn vs bun; TypeScript).
+- New [[Cargo Workflow]] concept (resolves the long-dangling link) covering the
+  full Rust toolchain: `rustup` (toolchains/targets), `rustc` (editions), `cargo`
+  (build/test/clippy/fmt, features, profiles, workspaces, publish).
+- Added depth to [[Rust]] (Go/Zig comparison, strengths/trade-offs, tooling
+  pointer) and [[Zig]] (strengths/trade-offs). Wired all five into the
+  [[Programming Languages]] hub, concepts `_index`, and [[Wiki Index]].
 
 ## 2026-06-28 additions (memory & ARC)
 - Expanded [[Linux Memory Tuning]] with a **gaming/performance profile**: disable

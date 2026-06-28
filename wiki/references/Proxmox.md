@@ -293,6 +293,69 @@ qm cloudinit dump <vmid> user      # preview the rendered user-data
 > render boot/console output to the serial port. Without it `qm terminal` and
 > the cloud-init console are blank and first-boot debugging is painful.
 
+### Writing the `#cloud-config` (cloud-init proper)
+
+The simple `--ciuser/--sshkeys/--ipconfig0` flags cover identity + network.
+`--cicustom` lets you supply full **cloud-init** user-data — the cross-platform
+first-boot provisioning standard (it's the same format AWS/Azure/GCP consume).
+Cloud-init runs **once on first boot**, ordered by modules. The `#cloud-config`
+header is mandatory:
+
+```yaml
+#cloud-config
+# /var/lib/vz/snippets/web.yaml
+hostname: web01
+manage_etc_hosts: true
+
+users:
+  - name: deploy
+    groups: [sudo]
+    sudo: "ALL=(ALL) NOPASSWD:ALL"
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAA... you@host
+
+package_update: true
+package_upgrade: true
+packages:
+  - qemu-guest-agent
+  - nginx
+
+write_files:
+  - path: /etc/motd
+    content: "Provisioned by cloud-init\n"
+
+runcmd:                      # shell commands, last, in order
+  - systemctl enable --now qemu-guest-agent
+  - systemctl enable --now nginx
+
+power_state:                # reboot so upgrades/kernel take effect
+  mode: reboot
+  condition: true
+```
+
+Key modules: `users`/`ssh_authorized_keys` (identity), `packages`/`package_*`
+(install), `write_files` (drop config), `runcmd` (arbitrary commands, runs last),
+`power_state` (reboot). There are three data parts — **user-data** (the above),
+**meta-data** (instance id/hostname), and **network-config**; on Proxmox the
+`--ipconfig0`/`--nameserver` flags generate network-config for you, so `cicustom
+user=` is usually all you hand-write.
+
+```bash
+# debug on the booted VM
+cloud-init status --long          # done / running / error
+cloud-init schema --system        # validate the merged config
+journalctl -u cloud-init          # what ran
+# to re-run during template testing (NOT in prod):
+cloud-init clean --logs && reboot
+```
+
+> [!key-insight]
+> Cloud-init is **first-boot only** — it keys off the instance-id, so cloning a
+> template re-runs it on each new clone (good) but editing user-data on an
+> already-booted VM does nothing until `cloud-init clean` + reboot. This is also
+> the cloud-init that [[Terraform]]'s Proxmox provider sets when it stamps out VMs.
+
 ## LXC Containers
 
 ```bash

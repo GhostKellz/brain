@@ -26,7 +26,7 @@ and [[Hot Cache]] for recent context.
 - [[Cloud and Microsoft 365]] — M365/Exchange/AD, hosting, virtualization
 - [[Security]] — endpoint/identity/email/network, GPG identity
 - [[Web Development]] — Astro static stack
-- [[Programming Languages]] — Zig + Rust
+- [[Programming Languages]] — Rust, Zig, Go, Python, JavaScript
 - [[DevOps and Homelab]] — containers, virtualization, self-hosting
 
 ## Anchor entities
@@ -53,17 +53,19 @@ and [[Hot Cache]] for recent context.
 
 ## Concepts
 [[3-2-1 Backup Strategy]] · [[Alpine.js]] · [[Astro Static Site Generator]] ·
-[[Btrfs Snapshots]] · [[CachyOS and TKG Kernels]] ·
-[[Choosing a Local Model for Agents]] ·
-[[Cloud and Hosting Services]] · [[CUDA Delivery Paths]] ·
-[[eBPF and Linux Schedulers]] · [[Ghost Ecosystem]] ·
+[[Btrfs Snapshots]] · [[CachyOS and TKG Kernels]] · [[Cargo Workflow]] ·
+[[Choosing a Local Model for Agents]] · [[CICD Workflows]] ·
+[[Cloud and Hosting Services]] · [[CUDA Delivery Paths]] · [[Databases]] ·
+[[eBPF and Linux Schedulers]] · [[Ghost Ecosystem]] · [[Go]] ·
 [[GPG Key Verification Workflow]] · [[Hand-Authored Inline SVG Diagrams]] ·
-[[IOMMU and Device Groups]] · [[KV Cache Quantization]] · [[Linux Memory Tuning]] ·
+[[IOMMU and Device Groups]] · [[JavaScript]] · [[KV Cache Quantization]] ·
+[[Linux Memory Tuning]] ·
 [[Local LLM Inference]] · [[Managed IT Services]] · [[Mesh VPN]] ·
 [[Microsoft 365 Services]] · [[MSP Positioning and Values]] ·
 [[Network and Security Services]] · [[NGINX Static Site Hosting]] ·
 [[NVIDIA Container Toolkit]] · [[NVIDIA GSP Firmware]] · [[NV Tools Suite]] ·
-[[Ollama Context Length]] · [[PGP and GPG]] · [[Recursive DNS Resolution]] ·
+[[Ollama Context Length]] · [[PGP and GPG]] · [[Python]] ·
+[[Recursive DNS Resolution]] ·
 [[Rust]] · [[Rust Ownership and Borrowing]] · [[systemd Timers]] ·
 [[Tailwind CSS 4]] ·
 [[Tiling Window Management]] · [[VFIO GPU Passthrough]] · [[Wayland]] ·
@@ -72,8 +74,8 @@ and [[Hot Cache]] for recent context.
 
 ## References — runbooks
 [[acme.sh - DNS-01 Certificates]] · [[Active Directory Administration]] ·
-[[Arch Linux Administration]] · [[Azure Key Vault Code Signing]] ·
-[[Btrfs]] · [[Cargo Workflow]] · [[Cloud Backup Storage]] ·
+[[Ansible]] · [[Arch Linux Administration]] · [[Azure Key Vault Code Signing]] ·
+[[Btrfs]] · [[Cloud Backup Storage]] ·
 [[Cloudflare]] · [[CrowdSec]] · [[Debian and Ubuntu Administration]] ·
 [[Discord]] · [[Disk IO Scheduler]] · [[Docker]] ·
 [[Email DNS Security]] · [[Endpoint Security Tooling]] ·
@@ -91,7 +93,7 @@ and [[Hot Cache]] for recent context.
 [[PKGBUILD Templates]] · [[Portainer]] · [[Prometheus Monitoring]] · [[Proxmox]] ·
 [[Restic Backup]] · [[RHEL, Rocky and Alma Administration]] ·
 [[Self-Hosted Services]] · [[SMTP2GO]] · [[Sysctl Performance Tuning]] ·
-[[systemd]] · [[Tailscale]] · [[Uptime Kuma]] ·
+[[systemd]] · [[Tailscale]] · [[Terraform]] · [[Uptime Kuma]] ·
 [[Headscale]] · [[tmux Cheatsheet]] · [[Ubuntu Unattended Upgrades]] ·
 [[UniFi Controller]] · [[Wazuh]] · [[Windows Activation]] ·
 [[Windows Administration]] · [[ZFS]]

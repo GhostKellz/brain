@@ -79,8 +79,13 @@ Runbooks and how-to procedures.
 - [[Linux Server Hardening]] (the hardening bible) · [[Endpoint Security Tooling]] ·
   [[Email DNS Security]] · [[Wazuh]] · [[CrowdSec]]
 
+## Infrastructure as code
+- [[Terraform]] (provision: VMs/DNS/cloud) · [[Ansible]] (configure: agentless
+  over SSH) — Terraform builds, Ansible configures; cloud-init bootstraps on
+  first boot (see [[Proxmox]])
+
 ## Dev workflow
-- [[Cargo Workflow]] · [[tmux Cheatsheet]] · [[Neovim Cheatsheet]]
+- [[Cargo Workflow]] · [[CICD Workflows]] · [[tmux Cheatsheet]] · [[Neovim Cheatsheet]]
 
 ## Phonetic alphabet
 - [[NATO Phonetic Alphabet]] — spelling letters/digits aloud over phone or radio
