@@ -11,6 +11,7 @@ tags:
   - reference
 status: developing
 related:
+  - "[[Linux Networking]]"
   - "[[FortiGate Administration]]"
   - "[[UniFi Controller]]"
   - "[[nftables Firewall]]"
@@ -24,7 +25,10 @@ related:
 > placeholders (`10.0.0.0/8`, `192.0.2.x`); swap in your own scheme.
 
 Quick references for subnetting, address space, VLAN segmentation, and static
-routing. For spelling values aloud over the phone see [[NATO Phonetic Alphabet]].
+routing. This note is L3-focused (addressing/routing); for the host-side L2 layer
+— bridges, bonds, 802.1Q VLAN interfaces, VXLAN, and Proxmox `vmbr` examples — see
+[[Linux Networking]]. For spelling values aloud over the phone see
+[[NATO Phonetic Alphabet]].
 
 ## CIDR / Subnet Mask Cheat Sheet
 

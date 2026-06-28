@@ -16,7 +16,23 @@ related:
 # Recent Context
 
 ## Last Updated
-2026-06-28 — Linux Server Hardening bible added; Btrfs layout expanded.
+2026-06-28 — Linux Networking hub added; Proxmox SDN/dnsmasq/passthrough sections.
+
+## 2026-06-28 additions (networking)
+- New [[Linux Networking]] hub — the host-side L2 layer (complements
+  [[Networking Reference]]'s L3 focus). Sections: runtime-vs-persistent renderers
+  (ifupdown2/systemd-networkd/netplan/NetworkManager), iproute2 basics, bridges
+  (runtime + persistent `/etc/network/interfaces` + systemd-networkd), bonds
+  (active-backup/LACP/balance-alb), 802.1Q VLANs (sub-interfaces + VLAN-aware
+  bridges), veth/namespaces, VXLAN (VNI/VTEP/underlay/overlay, MTU overhead),
+  and a worked Proxmox example (vmbr0 mgmt + vmbr1-3 VLAN-aware on a 4-port NIC,
+  `qm set --net0 ...tag=`, virtualized pfSense vmbr2=WAN/vmbr1=LAN).
+- Expanded [[Proxmox]]: new `## Networking — bridges & passthrough` (vmbr overview
+  pointing to [[Linux Networking]], `qm/pct set` tagging, `ifreload -a`, PCI/USB
+  passthrough — WiFi adapter → Kali VM via IOMMU `hostpci` or USB `host=vendor:product`),
+  `## Software-Defined Networking (SDN)` (zones Simple/VLAN/QinQ/VXLAN/EVPN, VNets,
+  subnets, IPAM, `pvesh` apply), and `### Built-in DHCP (dnsmasq) + IPAM`
+  (`dnsmasq@<zone>` units, PVE 8.1+). Cross-linked [[VFIO GPU Passthrough]].
 
 ## 2026-06-28 additions (hardening)
 - New [[Linux Server Hardening]] — the authoritative, example-heavy hardening

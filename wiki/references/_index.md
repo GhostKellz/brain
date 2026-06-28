@@ -33,7 +33,8 @@ Runbooks and how-to procedures.
 - [[Restic Backup]] · [[Cloud Backup Storage]]
 
 ## Networking
-- [[Networking Reference]] · [[nftables Firewall]] · [[FortiGate Administration]] ·
+- [[Networking Reference]] · [[Linux Networking]] (bridges/bonds/VLANs/VXLAN) ·
+  [[nftables Firewall]] · [[FortiGate Administration]] ·
   [[UniFi Controller]] · [[Tailscale]] ·
   [[Headscale]] · [[Cloudflare]]
 

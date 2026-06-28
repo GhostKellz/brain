@@ -27,5 +27,9 @@ work.
 ## Firewalls & vendor gear
 [[FortiGate Administration]] · [[UniFi Controller]] · [[nftables Firewall]]
 
+## Host / Linux
+[[Linux Networking]] (bridges, bonds, 802.1Q VLANs, VXLAN, veth/namespaces,
+Proxmox vmbr examples)
+
 ## Reference
 [[Networking Reference]] (CIDR/subnet table, phonetic alphabet) · [[Nginx Reference]]

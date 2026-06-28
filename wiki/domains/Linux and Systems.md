@@ -43,5 +43,8 @@ packaging, and desktop (Wayland/KDE).
 ## Desktop
 [[Wayland]] · [[KDE Plasma]] · [[Tiling Window Management]] · [[NVIDIA on Wayland]]
 
+## Networking
+[[Linux Networking]] (bridges, bonds, VLANs, VXLAN, Proxmox vmbr) · [[nftables Firewall]]
+
 ## Tooling
 [[tmux Cheatsheet]] · [[Neovim Cheatsheet]]
