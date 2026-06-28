@@ -34,7 +34,7 @@ packaging, and desktop (Wayland/KDE).
 
 ## Kernel & performance
 [[Linux Memory Tuning]] · [[ZRAM Swap]] · [[Sysctl Performance Tuning]] ·
-[[Disk IO Scheduler]] · [[systemd Timers]] · [[systemd Drop-in Overrides]] ·
+[[Disk IO Scheduler]] · [[systemd]] · [[systemd Timers]] ·
 [[Initramfs FSCK Recovery]] · [[CachyOS and TKG Kernels]] ·
 [[eBPF and Linux Schedulers]]
 

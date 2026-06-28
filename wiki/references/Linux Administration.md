@@ -131,5 +131,5 @@ echo '/mnt/1GiB.swap swap swap defaults 0 0' | sudo tee -a /etc/fstab   # persis
 ## Notes
 
 - systemd is the common layer across all of these — see [[systemd Timers]] and
-  [[systemd Drop-in Overrides]].
+  [[systemd]].
 - Containers: [[Docker and Portainer]]. TLS: [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]].

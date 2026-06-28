@@ -31,6 +31,10 @@ related:
   links to it and names its default frontend (ufw / firewalld / nftables).
 - Fedora/RHEL/openSUSE notes carry baseline content + `[!todo]` flags where house
   defaults (update/reboot policy, baseline package set) still need filling.
+- Renamed [[systemd Drop-in Overrides]] → [[systemd]] (alias + old-slug redirect
+  kept) and expanded it into a full leveraging-systemd reference: unit model,
+  systemctl/journald, drop-ins, targets, cgroup resource control, service
+  hardening (`systemd-analyze security`), user services. Repointed all backlinks.
 - Earlier: [[Ubuntu Unattended Upgrades]] runbook (security-only default,
   auto-reboot 03:30, mail on-change).
 

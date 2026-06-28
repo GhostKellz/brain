@@ -12,7 +12,7 @@ status: seed
 related:
   - "[[Ollama]]"
   - "[[Ollama Context Length]]"
-  - "[[systemd Drop-in Overrides]]"
+  - "[[systemd]]"
 ---
 
 # Ollama Service Configuration
@@ -20,7 +20,7 @@ related:
 [[Ollama]] is configured almost entirely through environment variables. The clean
 way to set them on a systemd system is a **drop-in override** — never edit the
 packaged unit, so config survives `ollama-cuda` package updates. See
-[[systemd Drop-in Overrides]] for the general pattern.
+[[systemd]] drop-in overrides for the general pattern.
 
 ## The drop-in
 
@@ -87,4 +87,4 @@ sudo chown -R ollama:ollama /data/ollama
 
 - [[Ollama]] — the runtime
 - [[Ollama Context Length]] — why 64k
-- [[systemd Drop-in Overrides]] — the general override mechanism
+- [[systemd]] — the general override mechanism (drop-ins)

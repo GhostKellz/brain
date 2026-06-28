@@ -9,7 +9,7 @@ tags:
   - automation
 status: seed
 related:
-  - "[[systemd Drop-in Overrides]]"
+  - "[[systemd]]"
   - "[[Restic Backup]]"
   - "[[Snapper]]"
 ---
@@ -88,5 +88,5 @@ journalctl -u foo.service          # output from the triggered service
 
 ## Related
 
-- [[systemd Drop-in Overrides]] — customizing units without editing them
+- [[systemd]] — customizing units without editing them (drop-ins)
 - [[Restic Backup]] / [[Snapper]] — concrete timer-driven jobs

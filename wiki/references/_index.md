@@ -24,7 +24,7 @@ Runbooks and how-to procedures.
 - [[Pacman Hooks]] · [[PKGBUILD Templates]] · [[PKGBUILD Auditing]] ·
   [[Modprobe Options]] · [[Ubuntu Unattended Upgrades]] ·
   [[Sysctl Performance Tuning]] · [[Disk IO Scheduler]] ·
-  [[systemd Drop-in Overrides]] · [[Initramfs FSCK Recovery]]
+  [[systemd]] · [[Initramfs FSCK Recovery]]
 
 ## Btrfs
 - [[Btrfs Subvolume Layout]] · [[Btrfs Restore From Snapshot]] ·

@@ -147,7 +147,7 @@ cat /var/run/reboot-required.pkgs 2>/dev/null
 - `apt-daily-upgrade.timer` → `apt-daily-upgrade.service` — applies upgrades.
 
 Both have randomized delays. To shift the window, drop in an override rather than
-editing the unit (see [[systemd Drop-in Overrides]]):
+editing the unit (see [[systemd]] drop-in overrides):
 
 ```bash
 sudo systemctl edit apt-daily-upgrade.timer
