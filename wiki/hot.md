@@ -16,7 +16,33 @@ related:
 # Recent Context
 
 ## Last Updated
-2026-06-28 — Linux Networking hub added; Proxmox SDN/dnsmasq/passthrough sections.
+2026-06-28 — Uptime Kuma, SMTP2GO, Discord references; Docker enhanced.
+
+## 2026-06-28 additions (monitoring & comms)
+- New [[Uptime Kuma]] reference — the black-box/synthetic monitoring layer
+  (complements Prometheus white-box). Catalog of monitor types (HTTP/keyword/JSON,
+  TCP, ping, DNS, cert, Docker-via-socket-proxy, Push dead-man's-switch, DB, gRPC,
+  MQTT, SNMP, real-browser), 90+ notification providers (chat/on-call/push/SMS/
+  webhook/Apprise), status pages, maintenance windows, and **Alertmanager** both
+  ways (Kuma→Alertmanager notifier; Prometheus scrape of Kuma `/metrics`). Plus
+  the **remote-site/behind-NAT** pattern: an agent inside a client LAN pings local
+  IPs and pushes outbound to a Push monitor (no inbound ports).
+- New [[SMTP2GO]] reference (alias **SMTP**) — outbound SMTP relay/smarthost for
+  app/alert mail. Create an SMTP user (auth is per-user, not account login), host
+  `mail.smtp2go.com`, ports (587 STARTTLS / 465 SSL / 2525 fallback when 25/587
+  blocked), msmtp + Uptime Kuma examples, SPF/DKIM deliverability → [[Email DNS Security]].
+- New [[Discord]] reference — IT/ops chatops+alerting hub: webhooks (embeds, the
+  `/github` & `/slack` URL trick, rate limits), bots (dev portal, intents,
+  slash commands, discord.py example, least-privilege), alert producers
+  ([[Uptime Kuma]]/[[Grafana]]/Alertmanager/CI), and the nginx **vanity invite
+  redirect** (`discord.ghostkellz.sh` → `discord.gg/...`).
+- Enhanced [[Docker]]: socket-proxy section now covers the **Tailscale bind via
+  `.env`** (`SOCKET_PROXY_BIND_IP`) + **ufw allow on `tailscale0`** + GET-200/
+  POST-403 verification + Uptime Kuma TCP/HTTP setup (no-trailing-space gotcha).
+  New **container hardening** section (`read_only`/`tmpfs`/`cap_drop`/
+  `no-new-privileges`/non-root), **volume & container backup** section (tar
+  sidecar, DB dumps, hot-vs-cold, restic), and a **bridge-internals** subsection
+  (veth/docker0/MASQUERADE/DNAT/ICC).
 
 ## 2026-06-28 additions (networking)
 - New [[Linux Networking]] hub — the host-side L2 layer (complements

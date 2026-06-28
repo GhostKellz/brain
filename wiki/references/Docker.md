@@ -12,6 +12,8 @@ tags:
   - compose
   - networking
   - dockerfile
+  - hardening
+  - backup
   - sysadmin
 status: developing
 related:
@@ -21,15 +23,19 @@ related:
   - "[[Nginx Reference]]"
   - "[[Prometheus Monitoring]]"
   - "[[Self-Hosted Services]]"
+  - "[[Tailscale]]"
+  - "[[Restic Backup]]"
+  - "[[3-2-1 Backup Strategy]]"
   - "[[Portainer]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders. The container engine of record across the fleet — Compose stacks behind nginx, mounted onto host storage, on user-defined bridges.
 
 Docker hub: install, image/container lifecycle, Dockerfiles & builds, Compose
-stacks, volumes & bind mounts, networking (incl. DNS troubleshooting), the
-Docker socket + socket-proxy, daemon tuning, and troubleshooting. Portainer is
-split out (archival) → [[Portainer]].
+stacks, volumes & bind mounts, volume/container backups, networking (incl. DNS
+troubleshooting), the Docker socket + socket-proxy (with the Tailscale/Uptime
+Kuma pattern), container hardening, daemon tuning, and troubleshooting. Portainer
+is split out (archival) → [[Portainer]].
 
 ## Install Docker Engine
 
@@ -266,6 +272,64 @@ docker run -d --name web \
 > hosts ([[Fedora Administration]], [[RHEL, Rocky and Alma Administration]])
 > need a `:z` (shared) or `:Z` (private) suffix on the mount or access is denied.
 
+## Backing up volumes & containers
+
+> [!key-insight] You don't back up a *container* — it's disposable. Back up the
+> **state**: named volumes, bind-mount directories, and the Compose files / `.env`.
+> Then rebuild the container from its image + that state.
+
+What to capture:
+
+- **Named volumes** — live under `/var/lib/docker/volumes/<name>/_data`
+- **Bind mounts** — already host paths; fold them into normal host backups
+- **Compose files, `.env`, secrets** — the recipe to recreate the stack
+- **Databases** — prefer a logical dump over a raw volume copy for consistency
+
+### Snapshot a named volume (tar sidecar)
+
+A throwaway container mounts the volume + a backup dir and tars it — works without
+knowing the Docker storage internals:
+
+```bash
+# Back up volume `app_data` → ./app_data.tar.gz
+docker run --rm \
+  -v app_data:/data:ro \
+  -v "$PWD":/backup \
+  alpine tar czf /backup/app_data.tar.gz -C /data .
+
+# Restore into a (new) volume
+docker run --rm \
+  -v app_data:/data \
+  -v "$PWD":/backup \
+  alpine sh -c "cd /data && tar xzf /backup/app_data.tar.gz"
+```
+
+### Databases — dump, don't copy
+
+```bash
+# Postgres
+docker exec -t db pg_dumpall -U postgres | gzip > db_$(date +%F).sql.gz
+# MySQL / MariaDB
+docker exec db mysqldump -u root -p"$PW" --all-databases | gzip > db_$(date +%F).sql.gz
+```
+
+> [!warning] Copying a live DB volume can capture a torn, unrecoverable state.
+> Either dump logically (above), or `docker compose stop db` first for a cold,
+> consistent file-level copy.
+
+### Hot vs cold
+
+- **Hot** (running): fine for static content and most app data; risky for DBs or
+  anything with open write transactions.
+- **Cold** (`docker compose stop` first): guaranteed-consistent file copy at the
+  cost of brief downtime.
+
+### Roll it into the real backup system
+
+Point [[Restic Backup]] at the volume mountpoints + bind dirs + compose files for
+offsite, deduplicated, scheduled backups — and **verify restores**. Fits the
+[[3-2-1 Backup Strategy]].
+
 ## Networking
 
 The part everyone trips over. Docker gives each container a network stack; the
@@ -303,6 +367,24 @@ docker run -d --name db  --network appnet postgres:16
 docker run -d --name web --network appnet myapp:latest
 # inside `web`, the host `db` resolves to db's container IP automatically
 ```
+
+### How the bridge works under the hood
+
+```bash
+ip link show docker0          # default bridge interface on the host
+bridge link                   # veth endpoints enslaved to bridges
+```
+
+- Each container gets a **veth pair**: one end is the container's `eth0`, the
+  other is enslaved to the bridge (`docker0`, or a `br-<id>` for user-defined nets).
+- The bridge is an L2 switch in the host kernel — containers on the same bridge
+  talk directly at layer 2.
+- Outbound traffic is **NAT-masqueraded** to the host IP (an iptables/nft
+  `MASQUERADE` rule in the `nat` POSTROUTING chain).
+- Published ports (`-p`) add **DNAT** rules so `host:port` → `container:port`.
+- **ICC** (inter-container comms) is on by default within a bridge; set
+  `com.docker.network.bridge.enable_icc=false` to isolate containers on the same
+  network from each other.
 
 ### Port publishing (host ↔ container)
 
@@ -424,15 +506,28 @@ volumes:
 
 ### docker-socket-proxy (least-privilege API)
 
-Put a filtering proxy ([`tecnativa/docker-socket-proxy`](https://github.com/Tecnativa/docker-socket-proxy))
-in front of the socket so management tools (Portainer, Traefik, Watchtower) only
-get the endpoints they actually need — read-only by default.
+Put a filtering proxy in front of the socket so management tools ([[Uptime Kuma]],
+Portainer, Traefik, Watchtower) only get the endpoints they actually need —
+read-only by default. Two images share the same env-var scheme: the original
+[`tecnativa/docker-socket-proxy`](https://github.com/Tecnativa/docker-socket-proxy)
+and the LinuxServer fork (`lscr.io/linuxserver/socket-proxy`).
+
+There are **two deployment shapes**:
+
+1. **In-stack** (consumer is another container) — proxy on an `internal` network,
+   never publish a port. The consumer hits `tcp://dockerproxy:2375`.
+2. **Remote monitoring** (a central Uptime Kuma watches many hosts) — publish 2375
+   bound to the host's **Tailscale** IP and firewall it to the tailnet only.
+
+#### In-stack (no published port)
 
 ```yaml
 services:
   dockerproxy:
-    image: tecnativa/docker-socket-proxy
+    image: lscr.io/linuxserver/socket-proxy:latest
     restart: unless-stopped
+    read_only: true
+    tmpfs: [/run]
     environment:
       CONTAINERS: 1        # allow GET /containers
       IMAGES: 1
@@ -451,6 +546,140 @@ networks:
 
 Point the consumer at `tcp://dockerproxy:2375` instead of the raw socket. Grant
 `POST: 1` (and specific verbs) only to tools that genuinely need to mutate state.
+
+#### Remote monitoring over Tailscale (Uptime Kuma)
+
+The house pattern: a central Uptime Kuma monitors Docker hosts across the tailnet.
+Expose a **read-only** proxy bound to the host's tailnet IP — never `0.0.0.0`.
+
+```yaml
+# ~/socket-proxy/docker-compose.yml
+services:
+  socket-proxy:
+    image: lscr.io/linuxserver/socket-proxy:latest
+    container_name: socket-proxy
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /run
+    environment:
+      - ALLOW_START=0
+      - ALLOW_STOP=0
+      - ALLOW_RESTARTS=0
+      - AUTH=0
+      - BUILD=0
+      - COMMIT=0
+      - CONFIGS=0
+      - CONTAINERS=1
+      - DISTRIBUTION=0
+      - EVENTS=1
+      - EXEC=0
+      - IMAGES=1
+      - INFO=1
+      - NETWORKS=1
+      - NODES=0
+      - PLUGINS=0
+      - POST=0
+      - SECRETS=0
+      - SERVICES=0
+      - SESSION=0
+      - SWARM=0
+      - SYSTEM=0
+      - TASKS=0
+      - VERSION=1
+      - VOLUMES=0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - "${SOCKET_PROXY_BIND_IP:-127.0.0.1}:2375:2375"
+```
+
+> [!key-insight] **The `.env` bind override is the second step everyone forgets.**
+> The compose `ports:` defaults to `127.0.0.1` (safe, but unreachable remotely).
+> A central Uptime Kuma can't reach a loopback-bound proxy. Set the host's tailnet
+> IP in a sibling `.env` so it binds to Tailscale only:
+>
+> ```ini
+> # ~/socket-proxy/.env  (same folder as the compose file)
+> SOCKET_PROXY_BIND_IP=100.x.y.z      # this host's Tailscale IP
+> ```
+
+```bash
+cd ~/socket-proxy
+docker compose up -d
+```
+
+**Firewall — allow 2375 only over the tailnet.** Binding to the tailnet IP keeps
+it off other interfaces, but add a matching allow so the host policy is explicit:
+
+```bash
+# ufw: allow inbound on the Tailscale interface only
+sudo ufw allow in on tailscale0 to any port 2375 proto tcp
+```
+
+> [!note] nftables / FortiGate / Proxmox-SDN equivalent: allow TCP 2375 **only**
+> from the trusted tailnet/SDN source, drop everywhere else. See
+> [[nftables Firewall]] and [[Tailscale]].
+
+**Verify from another tailnet host** — GETs return 200, writes are 403:
+
+```bash
+curl -i http://100.x.y.z:2375/_ping            # 200 OK
+curl -i http://100.x.y.z:2375/version          # 200 + JSON
+curl -i http://100.x.y.z:2375/containers/json  # 200 + JSON
+curl -i -X POST http://100.x.y.z:2375/containers/none/stop   # 403 — writes denied
+```
+
+**Add it to Uptime Kuma:**
+
+- Monitor type **Docker Container**; Docker Host → **TCP / HTTP**
+- Docker Daemon URL: `http://100.x.y.z:2375`
+
+> [!warning] **No trailing space in the Docker Host URL.** A stray space makes
+> Kuma request `…%20/containers/json` and the proxy returns **400**. (Same class
+> of bug as a `tcp://` vs `http://` mismatch — check the exact string.)
+
+## Container hardening (read-only, caps, non-root)
+
+Defense-in-depth for the runtime. Most controls are a single line per service in
+Compose; apply them by default and only relax where a container genuinely needs
+more.
+
+| Control | Compose | What it does |
+|---------|---------|--------------|
+| Read-only root FS | `read_only: true` | container can't write its own filesystem |
+| Writable scratch | `tmpfs: [/run, /tmp]` | in-RAM writable paths when the root FS is read-only |
+| Drop capabilities | `cap_drop: [ALL]` + `cap_add: [...]` | start from zero Linux caps, add back only what's needed |
+| No privilege escalation | `security_opt: ["no-new-privileges:true"]` | blocks setuid/sudo from gaining caps |
+| Non-root user | `user: "1000:1000"` | run the process as an unprivileged UID |
+| Limit blast radius | `pids_limit`, `mem_limit`, `cpus` | cap fork bombs / runaway resource use |
+| Read-only data | `:ro` on the mount | data the container only needs to read |
+
+```yaml
+services:
+  app:
+    image: myapp:1.2.3
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /run
+      - /tmp
+    cap_drop: [ALL]
+    cap_add: [CHOWN, SETUID, SETGID]      # only if the entrypoint truly needs them
+    security_opt:
+      - no-new-privileges:true
+    user: "1000:1000"
+    pids_limit: 200
+    mem_limit: 512m
+    volumes:
+      - ./config:/etc/app:ro
+```
+
+> [!key-insight] `read_only: true` + `tmpfs` + `cap_drop: [ALL]` +
+> `no-new-privileges` + a non-root `USER` covers most of a typical service's
+> runtime attack surface. The socket-proxy compose above uses exactly this shape
+> (`read_only: true`, `tmpfs: [/run]`). For host-wide isolation, enable
+> `userns-remap` in `daemon.json` so container root maps to an unprivileged host UID.
 
 ## Daemon configuration (`/etc/docker/daemon.json`)
 

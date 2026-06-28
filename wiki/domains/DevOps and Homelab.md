@@ -33,7 +33,11 @@ the brain together.
 [[acme.sh - DNS-01 Certificates]]
 
 ## Observability
-[[Prometheus Monitoring]] · [[Grafana]] · [[Wazuh]] · [[CrowdSec]]
+[[Uptime Kuma]] (uptime/synthetic) · [[Prometheus Monitoring]] · [[Grafana]] ·
+[[Wazuh]] · [[CrowdSec]]
+
+## ChatOps & alerting
+[[Discord]] (webhooks/bots/alert hub) · [[SMTP2GO]] (outbound SMTP relay)
 
 ## Toolkits
 [[ghostctl]] — all-in-one sysadmin/DevOps/homelab toolkit.

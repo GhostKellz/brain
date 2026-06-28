@@ -21,8 +21,9 @@ work.
 [[Tailscale]] · [[WireGuard]] · [[Mesh VPN]] ·
 [[Zero Trust Networking]]
 
-## DNS
-[[Recursive DNS Resolution]] · [[Unbound]] · [[Email DNS Security]]
+## DNS & email
+[[Recursive DNS Resolution]] · [[Unbound]] · [[Email DNS Security]] ·
+[[SMTP2GO]] (outbound SMTP relay)
 
 ## Firewalls & vendor gear
 [[FortiGate Administration]] · [[UniFi Controller]] · [[nftables Firewall]]

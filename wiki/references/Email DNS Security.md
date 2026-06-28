@@ -13,6 +13,7 @@ status: developing
 related:
   - "[[Microsoft 365 Administration]]"
   - "[[Exchange Online Administration]]"
+  - "[[SMTP2GO]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders.

@@ -68,7 +68,12 @@ Runbooks and how-to procedures.
   [[macOS Virtualization]]
 
 ## Observability
-- [[Prometheus Monitoring]] · [[Grafana]]
+- [[Uptime Kuma]] (uptime/synthetic + 90+ notifiers) · [[Prometheus Monitoring]] ·
+  [[Grafana]]
+
+## Communications / ChatOps
+- [[Discord]] (webhooks, bots, alert hub, vanity invite) · [[SMTP2GO]] (outbound
+  SMTP relay for app/alert mail)
 
 ## Security
 - [[Linux Server Hardening]] (the hardening bible) · [[Endpoint Security Tooling]] ·

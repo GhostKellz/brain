@@ -75,7 +75,7 @@ and [[Hot Cache]] for recent context.
 [[Arch Linux Administration]] · [[Azure Key Vault Code Signing]] ·
 [[Btrfs]] · [[Cargo Workflow]] · [[Cloud Backup Storage]] ·
 [[Cloudflare]] · [[CrowdSec]] · [[Debian and Ubuntu Administration]] ·
-[[Disk IO Scheduler]] · [[Docker]] ·
+[[Discord]] · [[Disk IO Scheduler]] · [[Docker]] ·
 [[Email DNS Security]] · [[Endpoint Security Tooling]] ·
 [[Exchange Online Administration]] · [[Fedora Administration]] ·
 [[FortiGate Administration]] ·
@@ -90,8 +90,8 @@ and [[Hot Cache]] for recent context.
 [[Ollama Service Configuration]] · [[Pacman Hooks]] · [[PKGBUILD Auditing]] ·
 [[PKGBUILD Templates]] · [[Portainer]] · [[Prometheus Monitoring]] · [[Proxmox]] ·
 [[Restic Backup]] · [[RHEL, Rocky and Alma Administration]] ·
-[[Self-Hosted Services]] · [[Sysctl Performance Tuning]] ·
-[[systemd]] · [[Tailscale]] ·
+[[Self-Hosted Services]] · [[SMTP2GO]] · [[Sysctl Performance Tuning]] ·
+[[systemd]] · [[Tailscale]] · [[Uptime Kuma]] ·
 [[Headscale]] · [[tmux Cheatsheet]] · [[Ubuntu Unattended Upgrades]] ·
 [[UniFi Controller]] · [[Wazuh]] · [[Windows Activation]] ·
 [[Windows Administration]] · [[ZFS]]
