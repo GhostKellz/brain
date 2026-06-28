@@ -2,7 +2,7 @@
 type: meta
 title: "References Index"
 created: 2026-06-21
-updated: 2026-06-22
+updated: 2026-06-28
 tags:
   - meta
   - index
@@ -15,9 +15,14 @@ related:
 
 Runbooks and how-to procedures.
 
-## Linux & Arch
-- [[Linux Administration]] · [[Arch Linux Administration]] · [[Pacman Hooks]] ·
-  [[PKGBUILD Templates]] · [[PKGBUILD Auditing]] · [[Modprobe Options]] ·
+## Linux — distro admin
+- [[Linux Administration]] (hub) · [[Arch Linux Administration]] ·
+  [[Debian and Ubuntu Administration]] · [[Fedora Administration]] ·
+  [[RHEL, Rocky and Alma Administration]] · [[openSUSE Administration]]
+
+## Linux — packaging, updates & tuning
+- [[Pacman Hooks]] · [[PKGBUILD Templates]] · [[PKGBUILD Auditing]] ·
+  [[Modprobe Options]] · [[Ubuntu Unattended Upgrades]] ·
   [[Sysctl Performance Tuning]] · [[Disk IO Scheduler]] ·
   [[systemd Drop-in Overrides]] · [[Initramfs FSCK Recovery]]
 

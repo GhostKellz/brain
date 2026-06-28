@@ -4,7 +4,7 @@ title: "Hot Cache"
 aliases:
   - "Hot Cache"
 created: 2026-06-21
-updated: 2026-06-22
+updated: 2026-06-28
 tags:
   - meta
 status: developing
@@ -16,6 +16,25 @@ related:
 # Recent Context
 
 ## Last Updated
+2026-06-28 — Linux admin restructure into a distro-family hub.
+
+## 2026-06-28 additions
+- Restructured Linux admin around a hub: [[Linux Administration]] is now an
+  overarching index (cross-distro basics: SSH, swap, shell, system info) that
+  links out to per-distro runbooks.
+- New per-distro notes: [[Debian and Ubuntu Administration]],
+  [[Fedora Administration]], [[RHEL, Rocky and Alma Administration]],
+  [[openSUSE Administration]]. Arch kept separate as the daily driver
+  ([[Arch Linux Administration]], now with a firewall cross-link).
+- Debian+Ubuntu kept in ONE note (deltas in a callout); Ubuntu vs Debian not
+  split. Firewall content stays DRY in [[nftables Firewall]]; each distro note
+  links to it and names its default frontend (ufw / firewalld / nftables).
+- Fedora/RHEL/openSUSE notes carry baseline content + `[!todo]` flags where house
+  defaults (update/reboot policy, baseline package set) still need filling.
+- Earlier: [[Ubuntu Unattended Upgrades]] runbook (security-only default,
+  auto-reboot 03:30, mail on-change).
+
+## Prior (2026-06-22)
 2026-06-22 — Reference-authoring pass: 7 new runbooks + 4 expansions, all
 sanitized from `~/arch`, `~/fortigate`, `~/proxmox`, and `~/heimdall-stack`.
 

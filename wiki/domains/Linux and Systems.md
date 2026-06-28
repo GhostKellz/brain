@@ -2,7 +2,7 @@
 type: domain
 title: "Linux and Systems"
 created: 2026-06-21
-updated: 2026-06-22
+updated: 2026-06-28
 tags:
   - domain
   - linux
@@ -18,9 +18,14 @@ related:
 Daily-driver and server Linux: Arch, Btrfs, the boot/recovery path, systemd,
 packaging, and desktop (Wayland/KDE).
 
-## Distro & packaging
-[[Arch Linux Administration]] · [[Pacman Hooks]] · [[PKGBUILD Templates]] ·
-[[PKGBUILD Auditing]] · [[Modprobe Options]]
+## Distro admin
+[[Linux Administration]] (hub) · [[Arch Linux Administration]] ·
+[[Debian and Ubuntu Administration]] · [[Fedora Administration]] ·
+[[RHEL, Rocky and Alma Administration]] · [[openSUSE Administration]]
+
+## Packaging & updates
+[[Pacman Hooks]] · [[PKGBUILD Templates]] · [[PKGBUILD Auditing]] ·
+[[Modprobe Options]] · [[Ubuntu Unattended Upgrades]]
 
 ## Filesystem & backup
 [[Btrfs Snapshots]] · [[Btrfs Subvolume Layout]] · [[Btrfs Restore From Snapshot]] ·
@@ -36,5 +41,5 @@ packaging, and desktop (Wayland/KDE).
 ## Desktop
 [[Wayland]] · [[KDE Plasma]] · [[Tiling Window Management]] · [[NVIDIA on Wayland]]
 
-## Admin runbooks
-[[Linux Administration]] · [[tmux Cheatsheet]] · [[Neovim Cheatsheet]]
+## Tooling
+[[tmux Cheatsheet]] · [[Neovim Cheatsheet]]

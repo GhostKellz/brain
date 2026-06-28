@@ -2,7 +2,7 @@
 type: reference
 title: "Arch Linux Administration"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-28
 tags:
   - arch
   - pacman
@@ -11,6 +11,9 @@ tags:
 status: developing
 related:
   - "[[Linux Administration]]"
+  - "[[nftables Firewall]]"
+  - "[[Pacman Hooks]]"
+  - "[[Btrfs Snapshots]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders.
@@ -89,6 +92,17 @@ sudo snapper -c home create --description "initial home snapshot"
 
 sudo systemctl enable --now snapper-timeline.timer
 sudo systemctl enable --now snapper-cleanup.timer
+```
+
+## Firewall
+
+Arch ships nftables in the kernel/userspace with no frontend by default — drive
+it directly. Full ruleset + service management: [[nftables Firewall]].
+
+```bash
+sudo pacman -S nftables
+sudo systemctl enable --now nftables
+sudo nft -f /etc/nftables.conf      # reload after edits
 ```
 
 ## Recovery / Misc

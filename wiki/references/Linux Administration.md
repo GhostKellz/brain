@@ -1,56 +1,69 @@
 ---
 type: reference
-title: "Linux Administration"
+title: Linux Administration
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-28
 tags:
   - linux
   - ssh
-  - firewall
   - sysadmin
+  - index
 status: developing
 related:
   - "[[Arch Linux Administration]]"
-  - "[[Docker and Portainer]]"
-  - "[[Let's Encrypt - Certbot|Let's Encrypt / Certbot]]"
-  - "[[Networking Reference]]"
+  - "[[Debian and Ubuntu Administration]]"
+  - "[[Fedora Administration]]"
+  - "[[RHEL, Rocky and Alma Administration]]"
+  - "[[openSUSE Administration]]"
+  - "[[nftables Firewall]]"
 ---
 
-> [!key-insight] Generalized from field notes; host/client-specific values are placeholders.
+> [!key-insight] Overarching Linux hub. Truly cross-distro basics live here; package management, firewall frontends, and update policy live in the per-distro runbooks linked below.
 
-General Debian/Ubuntu-family Linux administration: SSH, firewall, packages, and system info.
+General-purpose Linux administration that applies regardless of distro — SSH,
+shell, swap, system info — plus the index to distro-specific admin notes.
+
+## By distro family
+
+| Family | Runbook | Packages | Default firewall |
+|--------|---------|----------|------------------|
+| Arch (daily driver) | [[Arch Linux Administration]] | `pacman` / AUR | nftables direct |
+| Debian / Ubuntu | [[Debian and Ubuntu Administration]] | `apt` / `dpkg` | `ufw` |
+| Fedora | [[Fedora Administration]] | `dnf` | `firewalld` |
+| RHEL / Rocky / Alma | [[RHEL, Rocky and Alma Administration]] | `dnf` | `firewalld` |
+| openSUSE | [[openSUSE Administration]] | `zypper` | `firewalld` |
+
+Firewall internals (the raw ruleset every frontend ultimately drives) are in
+[[nftables Firewall]]. Each distro note links back to it.
 
 ## System Info
 
 ```bash
-lsb_release -d        # distro & version
-uname -mrs            # kernel / arch
-uptime -p             # human-readable uptime
-ip a                  # network interfaces (legacy: ifconfig)
-echo $PATH            # show PATH
-man -k <keyword>      # search man pages (apropos)
-```
-
-## Package Management & Updates
-
-```bash
-sudo apt update && sudo apt full-upgrade -y
-sudo apt-get install -f          # fix broken/half-installed deps
-
-# Unattended security upgrades
-sudo apt install unattended-upgrades
-sudo dpkg-reconfigure --priority=low unattended-upgrades
+hostnamectl                 # host, kernel, OS, hardware vendor (systemd)
+cat /etc/os-release         # distro & version (portable across distros)
+lsb_release -d              # distro & version (where lsb-release is installed)
+uname -mrs                  # kernel / arch
+uptime -p                   # human-readable uptime
+ip a                        # network interfaces (legacy: ifconfig)
+echo $PATH                  # show PATH
+man -k <keyword>            # search man pages (apropos)
 ```
 
 ## SSH
 
 ### Install client/server
 
+The package name is the same family-to-family; only the installer differs (see
+each distro note for the exact command):
+
 ```bash
-sudo apt update && sudo apt upgrade
-sudo apt install openssh-client openssh-server
-sudo systemctl status ssh
-sudo ufw allow ssh
+# Debian/Ubuntu:  sudo apt install openssh-server
+# Fedora/RHEL:    sudo dnf install openssh-server
+# Arch:           sudo pacman -S openssh
+# openSUSE:       sudo zypper install openssh
+
+sudo systemctl enable --now sshd       # 'ssh' on Debian/Ubuntu, 'sshd' elsewhere
+sudo systemctl status sshd
 ```
 
 ### Key-based authentication
@@ -71,6 +84,8 @@ scp $env:USERPROFILE\.ssh\id_ed25519.pub <user>@<host>:~/.ssh/authorized_keys
 
 ### Hardening (`/etc/ssh/sshd_config`)
 
+Universal across distros:
+
 - Change the listen `Port` to a non-default value (under 1024 if you want it privileged).
 - Enable `PubkeyAuthentication` and disable password login once keys work.
 - `PermitRootLogin` — leave `no` unless you have a deliberate reason; prefer sudo.
@@ -80,18 +95,8 @@ sudo vim /etc/ssh/sshd_config     # edit Port / auth settings
 sudo systemctl restart sshd
 ```
 
-## Uncomplicated Firewall (UFW)
-
-```bash
-sudo apt install ufw
-sudo ufw status
-sudo ufw status numbered
-sudo ufw allow <port>
-sudo ufw allow 'Apache Full'      # named app profiles
-sudo ufw allow 'Nginx Full'
-sudo ufw enable
-sudo ufw delete <rule-number>
-```
+> [!warning] Open the new SSH port in the firewall *before* restarting, or you'll
+> lock yourself out. Firewall frontend is distro-specific — see the table above.
 
 ## Shell Snippets
 
@@ -110,6 +115,8 @@ cat >> output.txt       # append
 
 ## Add Swap (file-backed)
 
+Cross-distro (systemd/fstab based):
+
 ```bash
 sudo dd if=/dev/zero bs=1M count=1024 of=/mnt/1GiB.swap
 sudo chmod 600 /mnt/1GiB.swap
@@ -119,7 +126,10 @@ cat /proc/swaps                                    # verify
 echo '/mnt/1GiB.swap swap swap defaults 0 0' | sudo tee -a /etc/fstab   # persist
 ```
 
+> [!note] On Arch/CachyOS this box runs zram swap instead — see [[ZRAM Swap]].
+
 ## Notes
 
-- Arch/pacman-specific workflows live in [[Arch Linux Administration]].
+- systemd is the common layer across all of these — see [[systemd Timers]] and
+  [[systemd Drop-in Overrides]].
 - Containers: [[Docker and Portainer]]. TLS: [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]].
