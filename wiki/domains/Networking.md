@@ -23,7 +23,8 @@ work.
 
 ## DNS & email
 [[Recursive DNS Resolution]] · [[Unbound]] · [[Email DNS Security]] ·
-[[SMTP2GO]] (outbound SMTP relay)
+[[SMTP2GO]] (outbound SMTP relay) ·
+[[Internal Domain Naming]] (mDNS/RFC 6762 — why not `.local` for AD/internal)
 
 ## Firewalls & vendor gear
 [[FortiGate Administration]] · [[UniFi Controller]] · [[nftables Firewall]]

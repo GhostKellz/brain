@@ -49,7 +49,7 @@ and [[Hot Cache]] for recent context.
 
 ## Entities — tools, sites, orgs
 [[ckelley.dev]] · [[cktechx.com]] · [[ghostkellz.sh]] · [[KDE Plasma]] ·
-[[Ollama]] · [[Restic]] · [[Snapper]] · [[Unbound]]
+[[Ollama]] · [[Restic]] · [[Unbound]]
 
 ## Concepts
 [[3-2-1 Backup Strategy]] · [[Alpine.js]] · [[Astro Static Site Generator]] ·
@@ -58,14 +58,14 @@ and [[Hot Cache]] for recent context.
 [[Cloud and Hosting Services]] · [[CUDA Delivery Paths]] · [[Databases]] ·
 [[eBPF and Linux Schedulers]] · [[Ghost Ecosystem]] · [[Ghostty Terminal]] · [[Go]] ·
 [[GPG Key Verification Workflow]] · [[Hand-Authored Inline SVG Diagrams]] ·
-[[IOMMU and Device Groups]] · [[JavaScript]] · [[Kubernetes]] ·
+[[Internal Domain Naming]] · [[IOMMU and Device Groups]] · [[JavaScript]] · [[Kubernetes]] ·
 [[KV Cache Quantization]] · [[Linux Memory Tuning]] ·
 [[Local LLM Inference]] · [[Managed IT Services]] · [[Mesh VPN]] ·
 [[Microsoft 365 Services]] · [[MSP Positioning and Values]] ·
-[[Network and Security Services]] · [[NGINX Static Site Hosting]] ·
+[[Network and Security Services]] · [[NGINX Static Site Hosting]] · [[Nix]] ·
 [[NVIDIA Container Toolkit]] · [[NVIDIA GSP Firmware]] · [[NV Tools Suite]] ·
-[[Ollama Context Length]] · [[PGP and GPG]] · [[Python]] ·
-[[Recursive DNS Resolution]] ·
+[[Ollama Context Length]] · [[openshell]] · [[PGP and GPG]] · [[Python]] ·
+[[Recursive DNS Resolution]] · [[Reverse Shells]] ·
 [[Rust]] · [[Rust Ownership and Borrowing]] · [[systemd Timers]] ·
 [[Tailwind CSS 4]] ·
 [[Tiling Window Management]] · [[VFIO GPU Passthrough]] · [[vLLM]] · [[Wayland]] ·
@@ -77,15 +77,15 @@ and [[Hot Cache]] for recent context.
 [[Ansible]] · [[Arch Linux Administration]] · [[Avanan]] ·
 [[Azure Key Vault Code Signing]] ·
 [[Btrfs]] · [[Cloud Backup Storage]] ·
-[[Cloudflare]] · [[CrowdSec]] · [[Debian and Ubuntu Administration]] ·
+[[Cloudflare]] · [[Comet Backup]] · [[CrowdSec]] · [[Debian and Ubuntu Administration]] ·
 [[Discord]] · [[Disk IO Scheduler]] · [[Docker]] ·
 [[Email DNS Security]] · [[Endpoint Security Tooling]] ·
 [[Exchange Online Administration]] · [[Fedora Administration]] ·
 [[FortiGate Administration]] ·
-[[Grafana]] · [[HestiaCP]] · [[Hudu]] · [[Huntress]] · [[Hyper-V Administration]] ·
+[[Grafana]] · [[hermes-agent]] · [[HestiaCP]] · [[Hudu]] · [[Huntress]] · [[Hyper-V Administration]] ·
 [[Initramfs FSCK Recovery]] ·
 [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] · [[Linux Administration]] ·
-[[Linux Networking]] · [[Linux Server Hardening]] · [[macOS Virtualization]] ·
+[[Linux Networking]] · [[Linux Server Hardening]] · [[Looking Glass]] · [[macOS Virtualization]] ·
 [[Microsoft 365 Administration]] ·
 [[Modprobe Options]] · [[NATO Phonetic Alphabet]] · [[Neovim Cheatsheet]] ·
 [[Networking Reference]] ·
@@ -93,11 +93,11 @@ and [[Hot Cache]] for recent context.
 [[NVIDIA]] · [[NVIDIA Container Runtime Troubleshooting]] ·
 [[Ollama Service Configuration]] · [[Pacman Hooks]] · [[Pax8]] · [[PKGBUILD Auditing]] ·
 [[PKGBUILD Templates]] · [[Portainer]] · [[Prometheus Monitoring]] · [[Proxmox]] ·
-[[Restic Backup]] · [[RHEL, Rocky and Alma Administration]] ·
-[[Self-Hosted Services]] · [[SMTP2GO]] · [[Sysctl Performance Tuning]] ·
+[[ReFS]] · [[Restic Backup]] · [[RHEL, Rocky and Alma Administration]] ·
+[[ScreenConnect]] · [[Self-Hosted Services]] · [[SMTP2GO]] · [[Snapper]] · [[Sysctl Performance Tuning]] ·
 [[systemd]] · [[Tailscale]] · [[Terraform]] · [[Uptime Kuma]] ·
 [[Headscale]] · [[tmux Cheatsheet]] · [[Ubuntu Unattended Upgrades]] ·
-[[UniFi Controller]] · [[Wazuh]] · [[Windows Activation]] ·
+[[UniFi Controller]] · [[Veeam|Veeam Backup & Replication]] · [[Wazuh]] · [[Windows Activation]] ·
 [[Windows Administration]] · [[ZFS]]
 
 ## Sources

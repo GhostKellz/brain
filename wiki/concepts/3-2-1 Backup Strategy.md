@@ -72,4 +72,6 @@ A backup you've never restored is a hypothesis. Periodically:
 
 - [[Snapper]] — the local-rollback tier
 - [[Restic Backup]] — the encrypted file-backup tier
+- [[Veeam]] — the production VM tier: SOBR spans local + immutable offsite cloud
+- [[Comet Backup]] — file-level + image/Hyper-V; client-side encrypted off-site to Wasabi
 - [[Btrfs]] — exercising the rollback tier (restore-from-snapshot runbook)

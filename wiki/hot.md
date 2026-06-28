@@ -15,10 +15,72 @@ related:
 
 # Recent Context
 
+## 2026-06-28 additions (workstation, MSP, security)
+- New [[Looking Glass]] reference — VFIO-passthrough Windows VM displayed in a
+  lossless host window via **IVSHMEM** (zero-copy frames, no encode/no network
+  hop). Grounded in the real Arch workstation (Ryzen 9950X3D, **RTX 5090 → guest**,
+  Radeon iGPU stays on `amdgpu` for the host/LG client; clean IOMMU groups, no
+  ACS patch). Covers IVSHMEM sizing, libvirt `<shmem>` XML, tmpfiles perms,
+  host-app/client version coupling, input/audio/clipboard, and a dual-boot compare
+  ("dual-booting is dead"). Wired into references `_index` (GPU & Wayland),
+  [[DevOps and Homelab]] virtualization, [[Wiki Index]].
+- New [[ScreenConnect]] reference (ConnectWise Control) — self-hosted remote
+  support with **split exposure**: `screlay.<domain>` public (relay/session only,
+  :8041), **web admin portal tailnet-only** (:8040 via [[Tailscale]]). Toolbox,
+  clipboard passthrough, Backstage. Backlinks [[Azure Key Vault Code Signing]]
+  (agent signing). New references `_index` "Remote access / RMM" group + [[Wiki Index]].
+- New [[hermes-agent]] reference — Nous Research self-improving, model-agnostic
+  autonomous agent (skills + bounded memory + FTS5 archive; point it at local
+  [[Ollama]]/[[vLLM]]). New [[openshell]] concept — NVIDIA sandboxed,
+  policy-governed agent runtimes (three-outcome egress, credential isolation,
+  inference routing). Both wired into [[AI and Local LLMs]] agentic tooling +
+  indexes.
+- New [[ReFS]] reference — Windows CoW FS; **block cloning** powers Veeam Fast
+  Clone, integrity streams + scrubber (off for VHDX), mirror-accelerated parity,
+  **format repos ReFS-64K**. New [[Comet Backup]] reference — file-level + image/
+  Hyper-V; client-side dedup + AES-256 to **your own Wasabi buckets** (not
+  Comet-hosted), MSP portal/Storage Templates. Both tie into
+  [[3-2-1 Backup Strategy]]; [[Veeam]] ↔ [[ReFS]] cross-linked.
+- Also expanded [[Veeam]] (Fast Clone, Backup Copy Jobs, GFS, restore options,
+  transport modes, 3-2-1-1-0, v13 deprecations).
+- New [[Internal Domain Naming]] concept — RFC 6762 mDNS vs `.local`; why `.local`
+  for AD/internal is deprecated (mDNS collisions, no public-CA certs, hybrid/SSO
+  pain, TLD-collision risk) → use an owned public subdomain (`ad.example.com`).
+  Backlinked from [[Active Directory Administration]].
+- New [[Reverse Shells]] concept — bind vs reverse, mechanics (egress beats
+  NAT/FW), PTY upgrade, threat-actor use, **authorized/internal** use cases, and
+  blue-team defense (egress filtering, EDR, hunting). In [[Security]] domain.
+
 ## Last Updated
-2026-06-28 — Desktop/terminal + MSP-stack + local-LLM pass: KDE Plasma full page,
-Ghostty/Zsh concepts, Huntress/Avanan/Pax8 refs, vLLM concept, Dependabot in
-CI/CD, Kubernetes wired; earlier today: language pages (Go/Python/JS), Cargo/rustc.
+2026-06-28 — Workstation + MSP + security pass: [[Looking Glass]] (VFIO Windows VM
+in a lossless host window — "dual-booting is dead"), [[ScreenConnect]] (split
+exposure: public relay + tailnet-only admin), [[hermes-agent]] + [[openshell]]
+(autonomous-agent harness + NVIDIA agent sandbox), [[ReFS]] + [[Comet Backup]]
+(Veeam repo FS + file-level/Hyper-V backup to Wasabi), [[Internal Domain Naming]]
+(why not `.local`) and [[Reverse Shells]]. Earlier today: Nix + backup stack
+([[Nix]], [[Veeam]] expanded, [[Snapper]]).
+
+## 2026-06-28 additions (Nix + backup stack)
+- New [[Nix]] concept — Nix-the-package-manager/language/build-system + NixOS:
+  the `/nix/store` content-addressed model, derivations/sandbox, flakes
+  (inputs/outputs + lock), `nixos-rebuild` generations/rollback, channels-vs-flakes,
+  home-manager/nix-darwin, the upstream/Determinate/Lix split, and an extensive
+  **Nix vs Docker** comparison (build-time vs runtime reproducibility; Nix can
+  *build* minimal OCI images). Wired into concepts `_index`, [[Wiki Index]],
+  [[Linux and Systems]] packaging, [[DevOps and Homelab]] IaC; backlinked from [[ghostctl]].
+- New [[Veeam]] reference (named "Veeam") — image-level VM backup: full/synthetic/
+  incremental (Hyper-V **RCT**), **Scale-Out Backup Repository** (performance→
+  capacity→archive tiers), offsite to **Azure/Wasabi** object storage,
+  **immutability** (v13 entire-retention is performance-tier-only; capacity falls
+  back to minimum-period), sealed-mode for mixing providers. Ties into
+  [[3-2-1 Backup Strategy]]; backlinked from [[Hyper-V Administration]]. In
+  references `_index` Backup + [[Wiki Index]].
+- Promoted [[Snapper]] **entity → reference** and expanded it from the real
+  `~/arch/btrfs/snapper` config: subvolume layout (@/@home/@snapshots/@pkg/@log),
+  the `/etc/snapper/configs/root` retention knobs (NUMBER_LIMIT=10 + DAILY=7,
+  min-age, space/free limits), **snap-pac** pacman hooks, timeline timers, manual
+  live-ISO rollback, and the default-subvolume gotcha. Moved in entities `_index`
+  → references `_index` Backup and re-slotted in [[Wiki Index]].
 
 ## 2026-06-28 additions (desktop, MSP stack, local LLM)
 - Expanded [[KDE Plasma]] into a full page: layered theming (Aurorae), HDR/VRR on

@@ -51,7 +51,7 @@ MIT-licensed.
 ### System & packages
 
 - Arch: fix, clean, AUR, boot, health, optimize, mirrors, orphans.
-- System update/status; NixOS rebuild/rollback; sysctl and kernel browser;
+- System update/status; [[Nix|NixOS]] rebuild/rollback; sysctl and kernel browser;
   shell/zsh; systemd service management.
 
 ### Virtualization & hardware

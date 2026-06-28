@@ -14,6 +14,7 @@ related:
   - "[[Active Directory Administration]]"
   - "[[Microsoft 365 Administration]]"
   - "[[Endpoint Security Tooling]]"
+  - "[[ReFS]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders.

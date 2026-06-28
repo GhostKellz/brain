@@ -27,6 +27,9 @@ Endpoint, identity, email, and network security — plus cryptographic identity.
 ## Network security
 [[nftables Firewall]] · [[FortiGate Administration]] · [[CrowdSec]] (collaborative IPS)
 
+## Offensive / techniques
+[[Reverse Shells]] (how they work, threat-actor + authorized use, egress defense)
+
 ## SIEM & monitoring
 [[Wazuh]] (SIEM/XDR) · [[CrowdSec]] (edge decisions) ·
 [[Prometheus Monitoring]] + [[Grafana]] (metrics/dashboards)

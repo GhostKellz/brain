@@ -27,10 +27,14 @@ Runbooks and how-to procedures.
   [[systemd]] · [[Initramfs FSCK Recovery]]
 
 ## Filesystems
-- [[Btrfs]] (subvolume layout, restore, troubleshooting) · [[ZFS]]
+- [[Btrfs]] (subvolume layout, restore, troubleshooting) · [[ZFS]] ·
+  [[ReFS]] (Windows CoW + block cloning; the Veeam repo filesystem)
 
 ## Backup
-- [[Restic Backup]] · [[Cloud Backup Storage]]
+- [[Restic Backup]] · [[Cloud Backup Storage]] ·
+  [[Snapper]] (Btrfs local-rollback: snap-pac + timeline) ·
+  [[Veeam|Veeam Backup & Replication]] (image-level VM backup, SOBR, offsite to cloud) ·
+  [[Comet Backup]] (file-level + image/Hyper-V; client-side dedup to your own Wasabi)
 
 ## Networking
 - [[Networking Reference]] · [[Linux Networking]] (bridges/bonds/VLANs/VXLAN) ·
@@ -52,14 +56,20 @@ Runbooks and how-to procedures.
   [[Portainer]] (archived) · [[HestiaCP]]
 
 ## GPU & Wayland
-- [[NVIDIA]] · [[NVIDIA Container Runtime Troubleshooting]]
+- [[NVIDIA]] · [[NVIDIA Container Runtime Troubleshooting]] ·
+  [[Looking Glass]] (VFIO passthrough Windows VM in a lossless host window)
 
 ## AI
-- [[Ollama Service Configuration]]
+- [[Ollama Service Configuration]] · [[hermes-agent]] (self-improving,
+  model-agnostic autonomous agent harness)
 
 ## Hudu
 - [[Hudu]] — wiring Claude Code + Codex into Hudu via its native MCP to read/write
   client & internal KBs (OAuth, two-tier knowledge model, leak guard)
+
+## Remote access / RMM
+- [[ScreenConnect]] (ConnectWise Control) — self-hosted remote support; public
+  relay + tailnet-only admin portal, Toolbox & clipboard passthrough
 
 ## Cloud & Microsoft
 - [[Microsoft 365 Administration]] · [[Exchange Online Administration]] ·

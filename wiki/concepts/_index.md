@@ -18,19 +18,20 @@ Ideas, patterns, and frameworks.
 ## Linux & systems
 - [[Btrfs Snapshots]] · [[Linux Memory Tuning]] · [[systemd Timers]] ·
   [[Tiling Window Management]] · [[Wayland]] · [[ZRAM Swap]] ·
-  [[eBPF and Linux Schedulers]] · [[CachyOS and TKG Kernels]]
+  [[eBPF and Linux Schedulers]] · [[CachyOS and TKG Kernels]] · [[Nix]]
 
 ## AI & local LLMs
 - [[Local LLM Inference]] · [[Choosing a Local Model for Agents]] ·
   [[Ollama Context Length]] · [[KV Cache Quantization]] · [[CUDA Delivery Paths]] ·
-  [[vLLM]]
+  [[vLLM]] · [[openshell]] (NVIDIA: sandboxed, policy-governed agent runtimes)
 
 ## Terminal & shell
 - [[Ghostty Terminal]] · [[Zsh and Powerlevel10k]]
 
 ## Networking & security
 - [[Mesh VPN]] · [[WireGuard]] · [[Zero Trust Networking]] ·
-  [[Recursive DNS Resolution]] · [[Network and Security Services]] ·
+  [[Recursive DNS Resolution]] · [[Internal Domain Naming]] (why not `.local`) ·
+  [[Reverse Shells]] · [[Network and Security Services]] ·
   [[PGP and GPG]] · [[GPG Key Verification Workflow]] · [[Web Key Directory]]
 
 ## GPU & virtualization

@@ -88,6 +88,5 @@ People, organizations, products, repositories, and tools.
 ## Tools & external products
 - [[Ollama]] — local LLM runtime
 - [[Restic]] — backup tool
-- [[Snapper]] — Btrfs snapshot manager
 - [[Unbound]] — recursive DNS resolver
 - [[KDE Plasma]] — desktop environment

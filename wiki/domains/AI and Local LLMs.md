@@ -28,6 +28,10 @@ Local-first inference on the RTX 5090 via [[Ollama]] (interactive) and [[vLLM]]
 
 ## Agentic tooling
 [[Jarvis]] — local-first AI orchestration/memory runtime.
+[[hermes-agent]] — self-improving, model-agnostic autonomous agent (skills +
+bounded memory; point it at the local Ollama/vLLM endpoint).
+[[openshell]] — NVIDIA sandboxed, policy-governed runtimes for running those agents
+safely (egress control + credential isolation + inference routing).
 
 > [!key-insight]
 > The two defaults that silently break agent use of [[Ollama]]: the 4096-token

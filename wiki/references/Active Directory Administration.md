@@ -11,11 +11,17 @@ status: developing
 related:
   - "[[Windows Administration]]"
   - "[[Microsoft 365 Administration]]"
+  - "[[Internal Domain Naming]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders.
 
 On-prem Active Directory account management, Group Policy, and related Windows server tasks. Replace `<user>` / `<domain>` with real values.
+
+> [!note]
+> Naming a **new** forest? Don't use `.local` — pick a subdomain of an owned public
+> domain (`ad.example.com`). See [[Internal Domain Naming]] for why (mDNS/RFC 6762
+> collisions, public-CA certs, hybrid identity).
 
 ## Account Lockout / Unlock
 

@@ -11,6 +11,7 @@ status: developing
 related:
   - "[[Windows Administration]]"
   - "[[Proxmox]]"
+  - "[[Veeam]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders.
@@ -57,3 +58,7 @@ Add-VMHardDiskDrive `
 
 - Host OS tasks: [[Windows Administration]].
 - For the Linux/KVM equivalent hypervisor, see [[Proxmox]].
+- Image-level backup/DR of Hyper-V VMs (RCT incrementals, SOBR, offsite to
+  cloud): [[Veeam]]. File-level + lighter VM/image coverage: [[Comet Backup]].
+- The VHDX volume / Veeam repo filesystem (CoW, block cloning, 64K clusters):
+  [[ReFS]].

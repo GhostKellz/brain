@@ -26,7 +26,8 @@ the brain together.
 
 ## Virtualization
 [[Proxmox]] · [[Hyper-V Administration]] · [[VFIO GPU Passthrough]] ·
-[[IOMMU and Device Groups]] · [[macOS Virtualization]]
+[[IOMMU and Device Groups]] · [[Looking Glass]] (passthrough Windows VM in a
+lossless host window) · [[macOS Virtualization]]
 
 ## Self-hosting
 [[Self-Hosted Services]] · [[NGINX Static Site Hosting]] · [[UniFi Controller]] ·
@@ -42,7 +43,8 @@ the brain together.
 
 ## CI/CD & infrastructure as code
 [[CICD Workflows]] (GitHub Actions + self-hosted runners, GitLab CI) ·
-[[Terraform]] (provisioning) · [[Ansible]] (configuration management)
+[[Terraform]] (provisioning) · [[Ansible]] (configuration management) ·
+[[Nix]] (declarative/reproducible builds, dev shells, NixOS fleet config)
 
 ## Data
 [[Databases]] — choosing/architecting datastores (Postgres, MariaDB, SQLite,

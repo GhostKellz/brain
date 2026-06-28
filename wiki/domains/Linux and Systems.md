@@ -25,7 +25,8 @@ packaging, and desktop (Wayland/KDE).
 
 ## Packaging & updates
 [[Pacman Hooks]] · [[PKGBUILD Templates]] · [[PKGBUILD Auditing]] ·
-[[Modprobe Options]] · [[Ubuntu Unattended Upgrades]]
+[[Modprobe Options]] · [[Ubuntu Unattended Upgrades]] ·
+[[Nix]] (declarative/reproducible packaging + NixOS)
 
 ## Filesystem & backup
 [[Btrfs]] · [[Btrfs Snapshots]] · [[ZFS]] · [[Snapper]] · [[Restic]] ·
