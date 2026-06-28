@@ -11,8 +11,7 @@ tags:
 status: seed
 related:
   - "[[Btrfs Snapshots]]"
-  - "[[Btrfs Restore From Snapshot]]"
-  - "[[Btrfs Troubleshooting]]"
+  - "[[Btrfs]]"
   - "[[systemd Timers]]"
 ---
 
@@ -82,13 +81,13 @@ Retention limits live in `/etc/snapper/configs/<config>`.
 ## Common gotchas
 
 - **"Cannot delete snapshot X — next to be mounted"**: the btrfs default
-  subvolume points at it. Reset default to `@`. See [[Btrfs Troubleshooting]].
+  subvolume points at it. Reset default to `@`. See [[Btrfs#Troubleshooting]].
 - **`snapper list` shows nothing**: `/.snapshots` not mounted or a broken config.
 - Snapshots **do not include `/boot`** when it is a separate partition —
-  regenerate initramfs after a restore (see [[Btrfs Restore From Snapshot]]).
+  regenerate initramfs after a restore (see [[Btrfs#Restore from snapshot]]).
 
 ## Related
 
 - [[Btrfs Snapshots]] — the underlying mechanism
-- [[Btrfs Restore From Snapshot]] — recovery runbook
+- [[Btrfs]] — subvolume layout, restore runbook, troubleshooting
 - [[3-2-1 Backup Strategy]] — snapper is the local-rollback tier only

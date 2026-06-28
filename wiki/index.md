@@ -73,8 +73,7 @@ and [[Hot Cache]] for recent context.
 ## References — runbooks
 [[acme.sh - DNS-01 Certificates]] · [[Active Directory Administration]] ·
 [[Arch Linux Administration]] · [[Azure Key Vault Code Signing]] ·
-[[Btrfs Restore From Snapshot]] · [[Btrfs Subvolume Layout]] ·
-[[Btrfs Troubleshooting]] · [[Cargo Workflow]] · [[Cloud Backup Storage]] ·
+[[Btrfs]] · [[Cargo Workflow]] · [[Cloud Backup Storage]] ·
 [[Cloudflare]] · [[CrowdSec]] · [[Debian and Ubuntu Administration]] ·
 [[Disk IO Scheduler]] · [[Docker]] ·
 [[Email DNS Security]] · [[Endpoint Security Tooling]] ·
@@ -88,13 +87,13 @@ and [[Hot Cache]] for recent context.
 [[nftables Firewall]] · [[Nginx Reference]] · [[openSUSE Administration]] ·
 [[NVIDIA Container Runtime Troubleshooting]] · [[NVIDIA on Wayland]] ·
 [[Ollama Service Configuration]] · [[Pacman Hooks]] · [[PKGBUILD Auditing]] ·
-[[PKGBUILD Templates]] · [[Portainer]] · [[Prometheus Monitoring]] · [[Proxmox Administration]] ·
+[[PKGBUILD Templates]] · [[Portainer]] · [[Prometheus Monitoring]] · [[Proxmox]] ·
 [[Restic Backup]] · [[RHEL, Rocky and Alma Administration]] ·
 [[Self-Hosted Services]] · [[Sysctl Performance Tuning]] ·
 [[systemd]] · [[Tailscale]] ·
 [[Headscale]] · [[tmux Cheatsheet]] · [[Ubuntu Unattended Upgrades]] ·
 [[UniFi Controller]] · [[Wazuh]] · [[Windows Activation]] ·
-[[Windows Administration]]
+[[Windows Administration]] · [[ZFS]]
 
 ## Sources
 [[ckelley.dev Repository]] · [[cktechx.com Repository]] · [[ghostkellz.sh Repository]]

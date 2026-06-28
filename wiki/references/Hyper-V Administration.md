@@ -10,7 +10,7 @@ tags:
 status: developing
 related:
   - "[[Windows Administration]]"
-  - "[[Proxmox Administration]]"
+  - "[[Proxmox]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders.
@@ -56,4 +56,4 @@ Add-VMHardDiskDrive `
 ## Notes
 
 - Host OS tasks: [[Windows Administration]].
-- For the Linux/KVM equivalent hypervisor, see [[Proxmox Administration]].
+- For the Linux/KVM equivalent hypervisor, see [[Proxmox]].

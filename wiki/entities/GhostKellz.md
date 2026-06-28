@@ -35,7 +35,7 @@ developer and systems tooling under the `ghost*` and `nv*` families.
   security, cloud, and [[Microsoft 365 Services]] for businesses.
 - **Systems engineer** — daily-driver Arch Linux ([[Arch Linux Administration]]),
   [[Btrfs Snapshots|Btrfs]], [[Wayland]]/[[KDE Plasma]], NVIDIA on Linux, and a
-  Proxmox-based home lab ([[Proxmox Administration]]).
+  Proxmox-based home lab ([[Proxmox]]).
 - **OSS author** — the [[Ghost Ecosystem]] (languages, shells, blockchain,
   sysadmin tools) and the [[NV Tools Suite]] (NVIDIA-on-Linux tooling).
 - **Local-AI tinkerer** — [[Ollama]] on an RTX 5090, [[Local LLM Inference]],

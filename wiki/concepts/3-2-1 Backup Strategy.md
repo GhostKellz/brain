@@ -62,7 +62,7 @@ Cloud object storage (off-site)      ← site loss? restore from cloud
 A backup you've never restored is a hypothesis. Periodically:
 
 - `restic check` / restore a sample (see [[Restic Backup]]).
-- Actually boot a snapshot or do a test [[Btrfs Restore From Snapshot]].
+- Actually boot a snapshot or do a test [[Btrfs#Restore from snapshot]].
 
 > [!gap]
 > Specific NAS hosts, bucket names, and cloud providers are infrastructure
@@ -72,4 +72,4 @@ A backup you've never restored is a hypothesis. Periodically:
 
 - [[Snapper]] — the local-rollback tier
 - [[Restic Backup]] — the encrypted file-backup tier
-- [[Btrfs Restore From Snapshot]] — exercising the rollback tier
+- [[Btrfs]] — exercising the rollback tier (restore-from-snapshot runbook)

@@ -15,7 +15,7 @@ related:
   - "[[Debian and Ubuntu Administration]]"
   - "[[Linux Administration]]"
   - "[[systemd Timers]]"
-  - "[[Proxmox Administration]]"
+  - "[[Proxmox]]"
 ---
 
 > [!key-insight] Standard server-hardening step applied to **all** Debian/Ubuntu servers. Values below are house defaults; placeholders mark site-specific entries.
@@ -106,7 +106,7 @@ Unattended-Upgrade::InstallOnShutdown "false";
 - **Auto-reboot ON** at `03:30` (stagger times across a fleet to avoid a
   simultaneous reboot storm).
 - **Blacklist `linux-`** on boxes where we control kernel upgrades manually
-  (e.g. DKMS/out-of-tree modules, [[Proxmox Administration]] nodes).
+  (e.g. DKMS/out-of-tree modules, [[Proxmox]] nodes).
 - **Mail on-change** to the alerts mailbox so patching is auditable.
 - **Autoremove unused deps + old kernels** to keep `/boot` from filling.
 

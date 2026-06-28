@@ -1,8 +1,11 @@
 ---
 type: reference
-title: "Proxmox Administration"
+title: Proxmox
+aliases:
+  - "Proxmox Administration"
+  - "references/Proxmox-Administration"
 created: 2026-06-21
-updated: 2026-06-22
+updated: 2026-06-28
 tags:
   - proxmox
   - virtualization
@@ -14,6 +17,7 @@ related:
   - "[[UniFi Controller]]"
   - "[[Let's Encrypt - Certbot|Let's Encrypt / Certbot]]"
   - "[[Linux Administration]]"
+  - "[[ZFS]]"
   - "[[3-2-1 Backup Strategy]]"
 ---
 
@@ -174,22 +178,12 @@ qm agent <vmid> ping
 qm guest exec <vmid> -- <command>
 ```
 
-## ZFS Maintenance
+## ZFS on Proxmox
 
-```bash
-zpool status -v <pool>                 # health, errors, resilver state
-zpool scrub <pool>                     # checksum every block (run on a timer)
-zpool iostat -v <pool> 5               # live throughput per vdev
-zpool trim <pool>                      # SSD/NVMe TRIM
-
-zfs list -o name,used,avail,refer,mountpoint
-zfs set compression=zstd <pool>/<dataset>
-zfs snapshot <pool>/<dataset>@<name>
-zfs rollback <pool>/<dataset>@<name>
-```
-
-Cap the **ARC** so ZFS doesn't starve VMs of RAM — size it to your host, not the
-default (half of RAM):
+Full ZFS reference (pools, datasets, snapshots, `send`/`receive`, scrub,
+sanoid/syncoid) → [[ZFS]]. The one knob you almost always set on a hypervisor is
+the **ARC cap**, so the cache doesn't starve guest RAM (default is up to 50% of
+system memory):
 
 ```bash
 # /etc/modprobe.d/zfs.conf  — example: 8 GiB ARC cap
@@ -198,9 +192,11 @@ update-initramfs -u && reboot
 ```
 
 > [!key-insight]
-> On a hypervisor, the default ARC (50% of RAM) competes with guest memory.
-> Pin `zfs_arc_max` to a deliberate ceiling (rule of thumb: ~1–2 GiB per 16 GiB
-> of host RAM for a VM-heavy node) so the ARC is a cache, not a memory hog.
+> On a hypervisor the default ARC competes with guest memory. Pin `zfs_arc_max`
+> to a deliberate ceiling (rule of thumb: ~1–2 GiB per 16 GiB of host RAM for a
+> VM-heavy node) so the ARC is a cache, not a memory hog. VM disks live on
+> zvols — Proxmox's ZFS storage plugin manages those for you; set
+> `volblocksize` on the storage, not `recordsize`. See [[ZFS]] for the rest.
 
 ## Proxmox Backup Server (PBS)
 

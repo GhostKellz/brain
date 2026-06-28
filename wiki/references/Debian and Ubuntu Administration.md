@@ -15,7 +15,7 @@ related:
   - "[[Linux Administration]]"
   - "[[Ubuntu Unattended Upgrades]]"
   - "[[nftables Firewall]]"
-  - "[[Proxmox Administration]]"
+  - "[[Proxmox]]"
 ---
 
 > [!key-insight] One note for the whole apt family. Debian and Ubuntu share `apt`/`dpkg`/systemd; the deltas (snap, netplan defaults, ESM/Pro, release cadence) are small — see the differences callout at the bottom.
@@ -128,4 +128,4 @@ journalctl -b -p err --no-pager        # this-boot errors
 ## Notes
 
 - Proxmox nodes are Debian-based — apt workflow applies, but pin/blacklist the
-  PVE kernel. See [[Proxmox Administration]].
+  PVE kernel. See [[Proxmox]].

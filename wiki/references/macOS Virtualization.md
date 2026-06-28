@@ -9,7 +9,7 @@ tags:
   - qemu
 status: developing
 related:
-  - "[[Proxmox Administration]]"
+  - "[[Proxmox]]"
   - "[[Windows Activation]]"
 ---
 
@@ -36,5 +36,5 @@ sudo systemctl status libvirtd
 
 ## Notes
 
-- For running guests on Proxmox specifically, see [[Proxmox Administration]].
+- For running guests on Proxmox specifically, see [[Proxmox]].
 - Windows guest activation is unrelated and uses KMS/GVLK; see [[Windows Activation]].

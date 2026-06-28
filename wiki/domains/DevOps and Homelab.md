@@ -24,7 +24,7 @@ the brain together.
 [[NVIDIA Container Runtime Troubleshooting]] · [[Bolt]] (container runtime)
 
 ## Virtualization
-[[Proxmox Administration]] · [[Hyper-V Administration]] · [[VFIO GPU Passthrough]] ·
+[[Proxmox]] · [[Hyper-V Administration]] · [[VFIO GPU Passthrough]] ·
 [[IOMMU and Device Groups]] · [[macOS Virtualization]]
 
 ## Self-hosting

@@ -10,7 +10,7 @@ tags:
   - runbook
 status: seed
 related:
-  - "[[Btrfs Restore From Snapshot]]"
+  - "[[Btrfs]]"
 ---
 
 # Initramfs FSCK Recovery
@@ -101,9 +101,9 @@ pvs; vgs; lvs -a       # LVM / LVM-thin
 
 - FS corruption after a dirty shutdown is common and usually recoverable.
 - **Always have current backups before major FS repairs** — see
-  [[Btrfs Restore From Snapshot]] for the snapshot-based recovery path on btrfs
+  [[Btrfs#Restore from snapshot]] for the snapshot-based recovery path on btrfs
   roots.
 
 ## Related
 
-- [[Btrfs Restore From Snapshot]] — equivalent recovery on a btrfs root
+- [[Btrfs]] — equivalent recovery on a btrfs root (restore-from-snapshot)

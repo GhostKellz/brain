@@ -26,9 +26,8 @@ Runbooks and how-to procedures.
   [[Sysctl Performance Tuning]] · [[Disk IO Scheduler]] ·
   [[systemd]] · [[Initramfs FSCK Recovery]]
 
-## Btrfs
-- [[Btrfs Subvolume Layout]] · [[Btrfs Restore From Snapshot]] ·
-  [[Btrfs Troubleshooting]]
+## Filesystems
+- [[Btrfs]] (subvolume layout, restore, troubleshooting) · [[ZFS]]
 
 ## Backup
 - [[Restic Backup]] · [[Cloud Backup Storage]]
@@ -64,7 +63,7 @@ Runbooks and how-to procedures.
 ## Cloud & Microsoft
 - [[Microsoft 365 Administration]] · [[Exchange Online Administration]] ·
   [[Active Directory Administration]] · [[Windows Administration]] ·
-  [[Windows Activation]] · [[Hyper-V Administration]] · [[Proxmox Administration]] ·
+  [[Windows Activation]] · [[Hyper-V Administration]] · [[Proxmox]] ·
   [[macOS Virtualization]]
 
 ## Observability

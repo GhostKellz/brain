@@ -28,9 +28,8 @@ packaging, and desktop (Wayland/KDE).
 [[Modprobe Options]] · [[Ubuntu Unattended Upgrades]]
 
 ## Filesystem & backup
-[[Btrfs Snapshots]] · [[Btrfs Subvolume Layout]] · [[Btrfs Restore From Snapshot]] ·
-[[Btrfs Troubleshooting]] · [[Snapper]] · [[Restic]] · [[Restic Backup]] ·
-[[3-2-1 Backup Strategy]] · [[Cloud Backup Storage]]
+[[Btrfs]] · [[Btrfs Snapshots]] · [[ZFS]] · [[Snapper]] · [[Restic]] ·
+[[Restic Backup]] · [[3-2-1 Backup Strategy]] · [[Cloud Backup Storage]]
 
 ## Kernel & performance
 [[Linux Memory Tuning]] · [[ZRAM Swap]] · [[Sysctl Performance Tuning]] ·

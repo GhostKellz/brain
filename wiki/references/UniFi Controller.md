@@ -120,4 +120,4 @@ Full standalone issuance and nginx integration details: [[Let's Encrypt - Certbo
 
 ## Notes
 
-- The controller is commonly hosted on a Linux VM or LXC; see [[Proxmox Administration]].
+- The controller is commonly hosted on a Linux VM or LXC; see [[Proxmox]].

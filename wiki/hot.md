@@ -16,7 +16,20 @@ related:
 # Recent Context
 
 ## Last Updated
-2026-06-28 — Docker hub built; Portainer split out (archived).
+2026-06-28 — Filesystem refactor: Btrfs consolidated, ZFS note added, Proxmox renamed.
+
+## 2026-06-28 additions (filesystems)
+- Consolidated the three Btrfs notes ([[Btrfs Subvolume Layout]],
+  [[Btrfs Restore From Snapshot]], [[Btrfs Troubleshooting]]) into one [[Btrfs]]
+  reference (old titles + old slugs kept as aliases/redirects). Sections:
+  subvolume layout, restore from snapshot, troubleshooting. Concept/entity notes
+  [[Btrfs Snapshots]] and [[Snapper]] stay separate.
+- New full [[ZFS]] reference (pools/vdevs, dataset properties, snapshots/clones,
+  send/receive replication, scrub/disk-replace, ARC tuning, sanoid/syncoid).
+  Generic ZFS moved out of Proxmox; [[Proxmox]] keeps a pointer + the
+  Proxmox-specific ARC cap.
+- Renamed [[Proxmox Administration]] → [[Proxmox]] (alias + old-slug redirect
+  kept). Repointed all active backlinks.
 
 ## 2026-06-28 additions (Docker)
 - Renamed [[Docker and Portainer]] → [[Docker]] (alias + old-slug redirect kept)

@@ -11,8 +11,7 @@ tags:
 status: seed
 related:
   - "[[Snapper]]"
-  - "[[Btrfs Restore From Snapshot]]"
-  - "[[Btrfs Subvolume Layout]]"
+  - "[[Btrfs]]"
   - "[[3-2-1 Backup Strategy]]"
 ---
 
@@ -63,7 +62,7 @@ btrfs subvolume get-default /
 
 The btrfs "default subvolume" is what mounts when no explicit `subvol=` is given.
 Snapper rollback manipulates this, which interacts with bootloader config — see
-[[Btrfs Subvolume Layout]] for why an explicit `rootflags=subvol=@` in the boot
+[[Btrfs#Subvolume layout]] for why an explicit `rootflags=subvol=@` in the boot
 entry is the safer pattern.
 
 ## Space accounting
@@ -77,11 +76,9 @@ sudo compsize /@
 ```
 
 For freeing space after deleting snapshots and for "No space left but disk shows
-free" (metadata exhaustion), see [[Btrfs Troubleshooting]].
+free" (metadata exhaustion), see [[Btrfs#Troubleshooting]].
 
 ## Related
 
 - [[Snapper]] — automation layer (timeline timers, cleanup, configs)
-- [[Btrfs Restore From Snapshot]] — recovery runbook
-- [[Btrfs Subvolume Layout]] — the `@` / `@home` / `@snapshots` scheme
-- [[Btrfs Troubleshooting]] — common failures and fixes
+- [[Btrfs]] — the runbook: subvolume layout, restore from snapshot, troubleshooting

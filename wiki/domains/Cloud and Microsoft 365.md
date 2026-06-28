@@ -34,5 +34,5 @@ Microsoft 365 / Entra / Exchange administration and cloud hosting, largely from
 [[Cloud and Hosting Services]] · [[Cloud Backup Storage]] · [[Self-Hosted Services]]
 
 ## Virtualization platforms
-[[Proxmox Administration]] · [[Hyper-V Administration]] · [[macOS Virtualization]] ·
+[[Proxmox]] · [[Hyper-V Administration]] · [[macOS Virtualization]] ·
 [[VFIO GPU Passthrough]] · [[IOMMU and Device Groups]]
