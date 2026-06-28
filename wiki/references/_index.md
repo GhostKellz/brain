@@ -52,7 +52,7 @@ Runbooks and how-to procedures.
   [[Portainer]] (archived) · [[HestiaCP]]
 
 ## GPU & Wayland
-- [[NVIDIA on Wayland]] · [[NVIDIA Container Runtime Troubleshooting]]
+- [[NVIDIA]] · [[NVIDIA Container Runtime Troubleshooting]]
 
 ## AI
 - [[Ollama Service Configuration]]
@@ -65,7 +65,7 @@ Runbooks and how-to procedures.
 - [[Microsoft 365 Administration]] · [[Exchange Online Administration]] ·
   [[Active Directory Administration]] · [[Windows Administration]] ·
   [[Windows Activation]] · [[Hyper-V Administration]] · [[Proxmox]] ·
-  [[macOS Virtualization]]
+  [[macOS Virtualization]] · [[Pax8]] (MSP cloud marketplace/distributor)
 
 ## Observability
 - [[Uptime Kuma]] (uptime/synthetic + 90+ notifiers) · [[Prometheus Monitoring]] ·
@@ -77,6 +77,7 @@ Runbooks and how-to procedures.
 
 ## Security
 - [[Linux Server Hardening]] (the hardening bible) · [[Endpoint Security Tooling]] ·
+  [[Huntress]] (managed EDR/ITDR/SOC) · [[Avanan]] (API email security) ·
   [[Email DNS Security]] · [[Wazuh]] · [[CrowdSec]]
 
 ## Infrastructure as code

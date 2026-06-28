@@ -44,6 +44,14 @@
   <em>One vault, two views — the published <a href="https://brain.ckelley.dev">Quartz site</a> (left) and the Obsidian graph (right).</em>
 </p>
 
+<p align="center">
+  <img src="assets/images/example-obsidian-app.png" alt="The vault open in Obsidian — file tree, graph view, and wiki-path node filters" width="49%">
+  &nbsp;
+  <img src="assets/images/example-brain-graphic.png" alt="The published brain.ckelley.dev knowledge graph — every wiki page a linked node" width="49%">
+  <br>
+  <em>Authoring in <a href="https://obsidian.md">Obsidian</a> (left) → the same graph published by <a href="https://quartz.jzhao.xyz">Quartz</a> at <a href="https://brain.ckelley.dev">brain.ckelley.dev</a> (right).</em>
+</p>
+
 ---
 
 > 🧠 **About this repository:**

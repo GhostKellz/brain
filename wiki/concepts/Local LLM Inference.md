@@ -11,6 +11,7 @@ tags:
 status: seed
 related:
   - "[[Ollama]]"
+  - "[[vLLM]]"
   - "[[KV Cache Quantization]]"
   - "[[Choosing a Local Model for Agents]]"
   - "[[NVIDIA Container Toolkit]]"
@@ -69,8 +70,25 @@ converging on the same CUDA stack. See [[CUDA Delivery Paths]] and
 1. Context too small — silent flailing. See [[Ollama Context Length]].
 2. Weak tool-calling — broken harness. See [[Choosing a Local Model for Agents]].
 
+## Choosing a runtime: Ollama vs vLLM
+
+The two common local runtimes optimize for opposite ends:
+
+- **[[Ollama]]** — single-user, latency-first, zero-setup daily driver (GGUF,
+  one binary). What you run for interactive chat on one card.
+- **[[vLLM]]** — throughput-first **serving** engine (PagedAttention + continuous
+  batching, tensor/pipeline parallelism, OpenAI-compatible API). What you run when
+  many concurrent requests — an agent fleet or batch job — must share the GPU(s).
+
+> [!key-insight]
+> They're complementary, not rivals, and both obey the same VRAM math above.
+> Ollama when it's just you; **[[vLLM]]** when concurrency and tokens/sec matter,
+> or when a model must be tensor-sharded across multiple GPUs. Both can present the
+> same OpenAI API so an agent harness doesn't care which is behind it.
+
 ## Related
 
-- [[Ollama]] — the easiest local runtime
+- [[Ollama]] — the easiest local runtime (single-user, latency)
+- [[vLLM]] — high-throughput multi-GPU serving (concurrency, OpenAI API)
 - [[KV Cache Quantization]] — making long context fit
 - [[CUDA Delivery Paths]] — native vs VFIO vs container

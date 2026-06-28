@@ -10,6 +10,7 @@ tags:
   - windows
 status: developing
 related:
+  - "[[Huntress]]"
   - "[[Windows Administration]]"
   - "[[Exchange Online Administration]]"
   - "[[CK Technology LLC]]"
@@ -39,17 +40,10 @@ Set-MpPreference -RemediationScheduleTime 21:00:00
 
 ### Re-enable Defender real-time protection
 
-```powershell
-Set-MpPreference -DisableRealtimeMonitoring $false
-Set-MpPreference -DisableIOAVProtection $false
-New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name "Real-Time Protection" -Force
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" -Name "DisableBehaviorMonitoring" -Value 0 -PropertyType DWORD -Force
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" -Name "DisableOnAccessProtection" -Value 0 -PropertyType DWORD -Force
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" -Name "DisableScanOnRealtimeEnable" -Value 0 -PropertyType DWORD -Force
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name "DisableAntiSpyware" -Value 0 -PropertyType DWORD -Force
-Start-Service WinDefend
-Start-Service WdNisSvc
-```
+Re-enabling Defender when a prior AV/GPO explicitly disabled it (clearing the
+policy DWORDs, plus the Windows Server `MpCmdRun -WdEnable` / DISM paths) now lives
+on the dedicated [[Huntress#Enabling Microsoft Defender via PowerShell|Huntress]]
+page, since Huntress Managed Defender is the usual reason to run it.
 
 ### Windows Defender Firewall
 
@@ -98,6 +92,7 @@ reg add HKEY_CURRENT_USER\Software\Policies\Microsoft\OneDrive /v DisablePersona
 
 ## Notes
 
+- Managed EDR/AV (Huntress) and the full Defender-enable runbook: [[Huntress]].
 - Update/patch workflows: [[Windows Administration]].
 - Mail-side protection (Defender for Office 365): [[Exchange Online Administration]].
 - These agent-deployment patterns are part of standard managed-services tooling at [[CK Technology LLC]].

@@ -10,7 +10,7 @@ tags:
   - troubleshooting
 status: seed
 related:
-  - "[[NVIDIA on Wayland]]"
+  - "[[NVIDIA]]"
   - "[[Modprobe Options]]"
 ---
 
@@ -60,5 +60,5 @@ See [[Modprobe Options]] for how module parameters are set and made persistent.
 
 ## Related
 
-- [[NVIDIA on Wayland]] — where the frozen-monitor symptom shows up
+- [[NVIDIA#NVIDIA on Wayland|NVIDIA on Wayland]] — where the frozen-monitor symptom shows up
 - [[Modprobe Options]] — setting kernel module parameters

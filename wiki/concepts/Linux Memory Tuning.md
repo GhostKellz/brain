@@ -106,7 +106,7 @@ daemon**.
 > reclaim aggressively and OOM-kill sooner under spikes; bounded ZRAM gives a
 > compression-speed cushion while the OOM daemon protects responsiveness. CPU
 > governor, VRAM and kernel choice are separate levers →
-> [[CachyOS and TKG Kernels]] · [[NVIDIA on Wayland]].
+> [[CachyOS and TKG Kernels]] · [[NVIDIA]].
 
 > [!gap]
 > Exact ZRAM size and ratios depend on total RAM and workload — the above is a

@@ -28,7 +28,11 @@ Microsoft 365 / Entra / Exchange administration and cloud hosting, largely from
 [[acme.sh - DNS-01 Certificates]] (Azure DNS validation)
 
 ## Email security
-[[Email DNS Security]] (SPF/DKIM/DMARC)
+[[Email DNS Security]] (SPF/DKIM/DMARC) · [[Avanan]] (API-based M365 email security)
+
+## MSP procurement & licensing
+[[Pax8]] (cloud marketplace/distributor; Microsoft CSP/NCE) · [[ctl365]] (M365 /
+Intune automation CLI)
 
 ## Cloud hosting & backup
 [[Cloud and Hosting Services]] · [[Cloud Backup Storage]] · [[Self-Hosted Services]]

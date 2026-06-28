@@ -16,8 +16,42 @@ related:
 # Recent Context
 
 ## Last Updated
-2026-06-28 — Language concept pages (Go/Python/JS), Cargo/rustc, Rust/Zig depth;
-earlier: Uptime Kuma, SMTP2GO, Discord refs; Docker, memory-tuning & ARC enhanced.
+2026-06-28 — Desktop/terminal + MSP-stack + local-LLM pass: KDE Plasma full page,
+Ghostty/Zsh concepts, Huntress/Avanan/Pax8 refs, vLLM concept, Dependabot in
+CI/CD, Kubernetes wired; earlier today: language pages (Go/Python/JS), Cargo/rustc.
+
+## 2026-06-28 additions (desktop, MSP stack, local LLM)
+- Expanded [[KDE Plasma]] into a full page: layered theming (Aurorae), HDR/VRR on
+  Plasma 6 for OLED, **Krohnkite** KWin tiling (layouts + real keybindings, float
+  ignore-list, panic sequence), KWin shortcuts, Wayland-on-KDE. Wired in
+  [[Linux and Systems]] desktop, [[Tiling Window Management]], [[Wayland]], [[NVIDIA]].
+- New concepts [[Ghostty Terminal]] (GPU terminal in Zig; flat key=value config,
+  Nerd Fonts) and [[Zsh and Powerlevel10k]] (Oh My Zsh + P10k instant prompt,
+  `~/.zshrc.d` modular aliases, zoxide/fzf/direnv/vivid). Wired into
+  [[Linux and Systems]] Tooling + concepts `_index` + [[Wiki Index]].
+- New [[Huntress]] reference — managed EDR/ITDR/SIEM/SAT/ESPM/Managed Defender +
+  24/7 SOC; absorbed the "Enable Microsoft Defender via PowerShell" runbook
+  (workstation + Windows Server `MpCmdRun -WdEnable`/DISM) from
+  [[Endpoint Security Tooling]] (now a pointer). In [[Security]] endpoint section.
+- New [[Avanan]] reference — Check Point Harmony Email; API-based vs SEG,
+  Monitor/Detect/Prevent ("virtual inline"), Click-Time Protection, SandBlast
+  file scanning, Smart API for MSP (Client ID/Secret→JWT). In [[Security]] email
+  + [[Cloud and Microsoft 365]].
+- New [[Pax8]] reference — MSP cloud marketplace/distributor (billing engine,
+  storefront, Microsoft CSP/NCE); "the Pax shell" is the **REST API** (OAuth
+  client-credentials) — no official CLI; community PowerShell modules. In
+  [[Cloud and Microsoft 365]] procurement.
+- New [[vLLM]] concept — high-throughput serving engine: PagedAttention +
+  continuous batching, OpenAI-compatible server, tensor/pipeline/data/expert
+  parallelism, FP8/AWQ/GPTQ + FP8 KV cache, vLLM-vs-Ollama. Wired into
+  [[Local LLM Inference]] (runtime-choice section), [[AI and Local LLMs]], concepts `_index`.
+- Added a **Dependabot** section to [[CICD Workflows]] (version vs security
+  updates, grouping, auto-merge, Renovate alternative).
+- Wired the previously-orphaned [[Kubernetes]] concept into DevOps `_index`,
+  [[DevOps and Homelab]] containers, and [[Wiki Index]]. Filled the entities
+  index with 14 missing entity pages (ghost-kde,
+  GhostCP, ghostport, GhostPSI, nvprime, Nitrogen, Nexus, Aventra, ctl365,
+  Citadel, fgbackup, strix, zaur, zeppelin).
 
 ## 2026-06-28 additions (IaC, CI/CD, databases)
 - New [[Ansible]] reference — agentless config management: inventory, playbooks,

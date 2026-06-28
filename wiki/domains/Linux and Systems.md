@@ -41,10 +41,11 @@ packaging, and desktop (Wayland/KDE).
 [[eBPF and Linux Schedulers]]
 
 ## Desktop
-[[Wayland]] · [[KDE Plasma]] · [[Tiling Window Management]] · [[NVIDIA on Wayland]]
+[[Wayland]] · [[KDE Plasma]] · [[Tiling Window Management]] · [[NVIDIA]]
 
 ## Networking
 [[Linux Networking]] (bridges, bonds, VLANs, VXLAN, Proxmox vmbr) · [[nftables Firewall]]
 
 ## Tooling
+[[Ghostty Terminal]] (terminal) · [[Zsh and Powerlevel10k]] (shell + prompt) ·
 [[tmux Cheatsheet]] · [[Neovim Cheatsheet]]

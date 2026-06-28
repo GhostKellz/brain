@@ -56,10 +56,10 @@ and [[Hot Cache]] for recent context.
 [[Btrfs Snapshots]] · [[CachyOS and TKG Kernels]] · [[Cargo Workflow]] ·
 [[Choosing a Local Model for Agents]] · [[CICD Workflows]] ·
 [[Cloud and Hosting Services]] · [[CUDA Delivery Paths]] · [[Databases]] ·
-[[eBPF and Linux Schedulers]] · [[Ghost Ecosystem]] · [[Go]] ·
+[[eBPF and Linux Schedulers]] · [[Ghost Ecosystem]] · [[Ghostty Terminal]] · [[Go]] ·
 [[GPG Key Verification Workflow]] · [[Hand-Authored Inline SVG Diagrams]] ·
-[[IOMMU and Device Groups]] · [[JavaScript]] · [[KV Cache Quantization]] ·
-[[Linux Memory Tuning]] ·
+[[IOMMU and Device Groups]] · [[JavaScript]] · [[Kubernetes]] ·
+[[KV Cache Quantization]] · [[Linux Memory Tuning]] ·
 [[Local LLM Inference]] · [[Managed IT Services]] · [[Mesh VPN]] ·
 [[Microsoft 365 Services]] · [[MSP Positioning and Values]] ·
 [[Network and Security Services]] · [[NGINX Static Site Hosting]] ·
@@ -68,28 +68,30 @@ and [[Hot Cache]] for recent context.
 [[Recursive DNS Resolution]] ·
 [[Rust]] · [[Rust Ownership and Borrowing]] · [[systemd Timers]] ·
 [[Tailwind CSS 4]] ·
-[[Tiling Window Management]] · [[VFIO GPU Passthrough]] · [[Wayland]] ·
+[[Tiling Window Management]] · [[VFIO GPU Passthrough]] · [[vLLM]] · [[Wayland]] ·
 [[Web Key Directory]] · [[WireGuard]] · [[Zero-JS Static Site Approach]] ·
-[[Zero Trust Networking]] · [[Zig]] · [[ZRAM Swap]]
+[[Zero Trust Networking]] · [[Zig]] · [[ZRAM Swap]] · [[Zsh and Powerlevel10k]]
 
 ## References — runbooks
 [[acme.sh - DNS-01 Certificates]] · [[Active Directory Administration]] ·
-[[Ansible]] · [[Arch Linux Administration]] · [[Azure Key Vault Code Signing]] ·
+[[Ansible]] · [[Arch Linux Administration]] · [[Avanan]] ·
+[[Azure Key Vault Code Signing]] ·
 [[Btrfs]] · [[Cloud Backup Storage]] ·
 [[Cloudflare]] · [[CrowdSec]] · [[Debian and Ubuntu Administration]] ·
 [[Discord]] · [[Disk IO Scheduler]] · [[Docker]] ·
 [[Email DNS Security]] · [[Endpoint Security Tooling]] ·
 [[Exchange Online Administration]] · [[Fedora Administration]] ·
 [[FortiGate Administration]] ·
-[[Grafana]] · [[HestiaCP]] · [[Hudu]] · [[Hyper-V Administration]] · [[Initramfs FSCK Recovery]] ·
+[[Grafana]] · [[HestiaCP]] · [[Hudu]] · [[Huntress]] · [[Hyper-V Administration]] ·
+[[Initramfs FSCK Recovery]] ·
 [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] · [[Linux Administration]] ·
 [[Linux Networking]] · [[Linux Server Hardening]] · [[macOS Virtualization]] ·
 [[Microsoft 365 Administration]] ·
 [[Modprobe Options]] · [[NATO Phonetic Alphabet]] · [[Neovim Cheatsheet]] ·
 [[Networking Reference]] ·
 [[nftables Firewall]] · [[Nginx Reference]] · [[openSUSE Administration]] ·
-[[NVIDIA Container Runtime Troubleshooting]] · [[NVIDIA on Wayland]] ·
-[[Ollama Service Configuration]] · [[Pacman Hooks]] · [[PKGBUILD Auditing]] ·
+[[NVIDIA]] · [[NVIDIA Container Runtime Troubleshooting]] ·
+[[Ollama Service Configuration]] · [[Pacman Hooks]] · [[Pax8]] · [[PKGBUILD Auditing]] ·
 [[PKGBUILD Templates]] · [[Portainer]] · [[Prometheus Monitoring]] · [[Proxmox]] ·
 [[Restic Backup]] · [[RHEL, Rocky and Alma Administration]] ·
 [[Self-Hosted Services]] · [[SMTP2GO]] · [[Sysctl Performance Tuning]] ·

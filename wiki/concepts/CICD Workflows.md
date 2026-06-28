@@ -8,12 +8,14 @@ aliases:
   - "GitHub Actions"
   - "GitLab CI"
   - "Self-Hosted Runners"
+  - "Dependabot"
 tags:
   - cicd
   - github-actions
   - gitlab
   - automation
   - devops
+  - dependabot
 status: developing
 related:
   - "[[Docker]]"
@@ -196,6 +198,55 @@ Executors: `shell`, `docker`, `docker-autoscaler`, `kubernetes`. Tag jobs
 > [[Docker]] image) → push to a registry → release (rsync/ssh, k8s, or trigger
 > [[Ansible]]/[[Terraform]]). The brain's own publish flow is a change-gated
 > systemd timer rather than a CI runner — a deliberately minimal "CD".
+
+## Dependency automation (Dependabot)
+
+Keeping dependencies current is part of the same "automate on every change"
+discipline. **Dependabot** (built into GitHub) opens PRs to bump dependencies; the
+PRs then run through CI, so an update only merges if the pipeline stays green.
+
+```yaml
+# .github/dependabot.yml
+version: 2
+updates:
+  - package-ecosystem: "cargo"        # one block per ecosystem present in the repo
+    directory: "/"                    # where the manifest lives
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:                           # batch related bumps into one PR (less noise)
+      cargo-minor:
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: "github-actions"  # keep `uses:` action versions fresh
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "docker"          # base-image tags in Dockerfiles
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+Two distinct jobs Dependabot does:
+
+- **Version updates** — the scheduled bumps configured in `dependabot.yml` above
+  (cargo, npm, pip, go modules, github-actions, docker, terraform, …).
+- **Security updates** — separate, **on by default** once Dependabot alerts are
+  enabled: it opens PRs for vulnerable deps (from GitHub Advisories) regardless of
+  schedule. These don't need a `dependabot.yml` entry.
+
+> [!key-insight] **Grouping** is what makes Dependabot livable. Ungrouped, it can
+> open a PR per dependency and bury you. Group minor/patch bumps (and related
+> packages) into one PR per ecosystem, reserve individual PRs for majors, and let
+> CI be the gate. Pair with **auto-merge** (`gh pr merge --auto`) so a green
+> patch/minor PR merges itself once checks pass — human review only on majors.
+
+> [!note] **Renovate** is the common alternative: more configurable (monorepos,
+> custom managers, scheduling, auto-merge rules) at the cost of more config. Pick
+> Dependabot for zero-setup on GitHub; Renovate when you need its flexibility or
+> run outside GitHub.
 
 ## Pros / trade-offs
 

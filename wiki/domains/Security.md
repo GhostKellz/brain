@@ -17,11 +17,12 @@ related:
 Endpoint, identity, email, and network security — plus cryptographic identity.
 
 ## Endpoint & identity
-[[Endpoint Security Tooling]] · [[Network and Security Services]] ·
-[[Zero Trust Networking]]
+[[Endpoint Security Tooling]] · [[Huntress]] (managed EDR/ITDR/SIEM/SOC) ·
+[[Network and Security Services]] · [[Zero Trust Networking]]
 
 ## Email & messaging
-[[Email DNS Security]] (SPF/DKIM/DMARC) · [[Exchange Online Administration]]
+[[Email DNS Security]] (SPF/DKIM/DMARC) · [[Avanan]] (API email security) ·
+[[Exchange Online Administration]]
 
 ## Network security
 [[nftables Firewall]] · [[FortiGate Administration]] · [[CrowdSec]] (collaborative IPS)

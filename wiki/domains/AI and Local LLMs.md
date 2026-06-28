@@ -15,12 +15,12 @@ related:
 
 # AI and Local LLMs
 
-Local-first inference on the RTX 5090 via [[Ollama]], plus the agentic tooling
-built on top of it.
+Local-first inference on the RTX 5090 via [[Ollama]] (interactive) and [[vLLM]]
+(high-throughput serving), plus the agentic tooling built on top of them.
 
-## Inference engine
+## Inference engines
 [[Ollama]] · [[Ollama Service Configuration]] · [[Ollama Context Length]] ·
-[[Local LLM Inference]]
+[[vLLM]] · [[Local LLM Inference]]
 
 ## Tuning & hardware
 [[KV Cache Quantization]] · [[Choosing a Local Model for Agents]] ·

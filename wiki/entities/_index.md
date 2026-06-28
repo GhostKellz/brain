@@ -30,12 +30,16 @@ People, organizations, products, repositories, and tools.
 - [[Bolt]] — container runtime (Rust)
 - [[GhostChain]] — blockchain stack (Rust)
 - [[ghostbrew]] — sched-ext BPF CPU scheduler (Rust)
+- [[ghost-kde]] — KDE Plasma 6 theming toolkit (Rust)
 - [[ghostcrate]] — crate/registry tooling
 - [[ghostctl]] — all-in-one sysadmin/DevOps/homelab toolkit (Rust)
+- [[GhostCP]] — host-level hosting control panel (Rust)
 - [[GhostForge]] — build/forge tooling
 - [[Ghostlang]] — embeddable scripting engine (Zig)
 - [[ghostls]] — Ghostlang language server (Zig)
 - [[GhostPanel]] — control panel
+- [[ghostport]] — Docker/OCI registry (Rust)
+- [[GhostPSI]] — Linux memory-pressure governor (Rust)
 - [[ghostshell]] — shell tooling
 - [[ghostsnap]] — snapshot tooling
 - [[GhostView]] — viewer
@@ -61,11 +65,25 @@ People, organizations, products, repositories, and tools.
 - [[nvcontrol]] — NVIDIA control (Rust)
 - [[nvhud]] — overlay/HUD
 - [[nvlatency]] — latency tooling
+- [[nvprime]] — unified NVIDIA subsystem layer (Zig)
 - [[nvproton]] — Proton integration
 - [[nvshader]] — shader tooling
 - [[nvsync]] — sync tooling
 - [[nvvk]] — Vulkan helper
+- [[Nitrogen]] — Wayland NVENC capture/streaming (Rust)
 - [[Proton-NV]] — Proton/NVIDIA integration
+
+## MSP & business platforms
+- [[Nexus]] — self-hosted PSA / ticketing service desk (Go)
+- [[Aventra]] — AI-native CRM / growth-ops platform (Go)
+- [[ctl365]] — Microsoft 365 / Intune automation CLI (Rust)
+- [[Citadel]] — multi-site CrowdSec control plane (Go)
+- [[fgbackup]] — FortiGate config backup to object storage (Python)
+
+## Self-hosted infrastructure
+- [[strix]] — S3-compatible object-storage server (Rust)
+- [[zaur]] — Zig-native AUR builder + repo server (Zig)
+- [[zeppelin]] — Zig package registry (Zig)
 
 ## Tools & external products
 - [[Ollama]] — local LLM runtime

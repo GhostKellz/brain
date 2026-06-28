@@ -9,7 +9,7 @@ tags:
   - display-server
 status: seed
 related:
-  - "[[NVIDIA on Wayland]]"
+  - "[[NVIDIA]]"
   - "[[KDE Plasma]]"
 ---
 
@@ -39,7 +39,7 @@ buffers and hand them to the compositor, which composites the final screen.
 - **Screen capture / remote control** go through PipeWire portals rather than
   reading the X root window — older tools needed updating.
 - **Proprietary GPU drivers** (notably NVIDIA) were the slow adopters; this is
-  why [[NVIDIA on Wayland]] is its own topic.
+  why [[NVIDIA#NVIDIA on Wayland|NVIDIA on Wayland]] is its own topic.
 - **XWayland** runs legacy X11 apps inside a Wayland session for compatibility.
 
 ## Common building blocks
@@ -53,5 +53,5 @@ buffers and hand them to the compositor, which composites the final screen.
 
 ## Related
 
-- [[NVIDIA on Wayland]] — the proprietary-driver pain points
+- [[NVIDIA]] — the proprietary-driver pain points (Wayland, gaming, CUDA)
 - [[KDE Plasma]] — KWin is its Wayland compositor

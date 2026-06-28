@@ -19,9 +19,10 @@ related:
 Containers, virtualization, CI patterns, and the self-hosted homelab that ties
 the brain together.
 
-## Containers
-[[Docker]] · [[Portainer]] (archived) · [[NVIDIA Container Toolkit]] ·
-[[NVIDIA Container Runtime Troubleshooting]] · [[Bolt]] (container runtime)
+## Containers & orchestration
+[[Docker]] · [[Kubernetes]] (k8s/k3s orchestration) · [[Portainer]] (archived) ·
+[[NVIDIA Container Toolkit]] · [[NVIDIA Container Runtime Troubleshooting]] ·
+[[Bolt]] (container runtime)
 
 ## Virtualization
 [[Proxmox]] · [[Hyper-V Administration]] · [[VFIO GPU Passthrough]] ·

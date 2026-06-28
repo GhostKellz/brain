@@ -127,7 +127,7 @@ usbcore.autosuspend=-1                          # no USB autosuspend (audio/HID)
 ```
 
 The NVIDIA flags only apply on an NVIDIA box; on AMD/Intel graphics drop them.
-See [[NVIDIA on Wayland]] and [[NVIDIA GSP Firmware]] for the GPU side.
+See [[NVIDIA]] and [[NVIDIA GSP Firmware]] for the GPU side.
 
 ## Building
 

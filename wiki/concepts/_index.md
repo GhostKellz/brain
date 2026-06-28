@@ -22,7 +22,11 @@ Ideas, patterns, and frameworks.
 
 ## AI & local LLMs
 - [[Local LLM Inference]] · [[Choosing a Local Model for Agents]] ·
-  [[Ollama Context Length]] · [[KV Cache Quantization]] · [[CUDA Delivery Paths]]
+  [[Ollama Context Length]] · [[KV Cache Quantization]] · [[CUDA Delivery Paths]] ·
+  [[vLLM]]
+
+## Terminal & shell
+- [[Ghostty Terminal]] · [[Zsh and Powerlevel10k]]
 
 ## Networking & security
 - [[Mesh VPN]] · [[WireGuard]] · [[Zero Trust Networking]] ·
@@ -47,7 +51,7 @@ Ideas, patterns, and frameworks.
   [[Rust Ownership and Borrowing]] · [[Cargo Workflow]]
 
 ## DevOps & CI/CD
-- [[CICD Workflows]]
+- [[CICD Workflows]] · [[Kubernetes]]
 
 ## Databases
 - [[Databases]]

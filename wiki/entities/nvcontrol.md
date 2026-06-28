@@ -1,86 +1,91 @@
 ---
 type: entity
-title: "nvcontrol"
+title: nvcontrol
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-28
 tags:
   - nvidia
   - gpu
   - linux
   - wayland
   - rust
-status: seed
+status: developing
 entity_type: repository
 language: Rust
 repo_status: active
-purpose: "Modern NVIDIA settings manager for Linux + Wayland — vibrance, VRR/G-SYNC, HDR, overclocking, fan and power control"
+purpose: Comprehensive NVIDIA GPU control tool for Linux with native Wayland
+  support — vibrance, VRR/G-SYNC, HDR, monitoring, overclocking, fan and power
+  control
 related:
   - "[[Rust]]"
   - "[[NV Tools Suite]]"
-  - "[[Bolt]]"
-  - "[[nvhud]]"
-  - "[[nvsync]]"
+  - "[[NVIDIA]]"
+  - "[[NVIDIA GSP Firmware]]"
+  - "[[Wayland]]"
+  - "[[Local LLM Inference]]"
   - "[[GhostKellz]]"
 ---
 
 # nvcontrol
 
-The flagship of the **nv\*** family: a comprehensive NVIDIA GPU control tool for
-Linux, designed from the ground up for Wayland. Think "the missing NVIDIA
-Control Panel for Linux." Authored by [[GhostKellz]] / CK Technology LLC,
-MIT-licensed, written in [[Rust]].
+A comprehensive NVIDIA GPU control tool for Linux, built from the ground up for
+[[Wayland]]. It covers display and color, monitoring, overclocking, fan and power
+control, driver diagnostics, and CUDA/AI tooling. Authored by [[GhostKellz]] /
+CK Technology LLC, MIT-licensed, written in [[Rust]].
 
 ## Language & stack
 
-- **Language**: Rust (1.95+), with a `build.rs` and PKGBUILD/packaging tree.
-- **TUI**: ratatui dashboard (`nvctl gpu stat`, `nvctl nvtop`).
-- **GUI**: egui application (`nvcontrol` binary, `--features gui`).
-- **Binaries**: `nvctl` (CLI/TUI) and `nvcontrol` (GUI).
+- **Language**: Rust 1.95+ (2024 edition).
+- **TUI**: ratatui dashboard.
+- **GUI**: egui application.
+- **CLI**: `nvctl`.
+- GPU access via `nvml-wrapper`; pure-Rust digital vibrance through NVKMS ioctls
+  (no `nvidia-settings` dependency).
 
 ## Architecture & approach
 
-- **Native NVKMS ioctls** for digital vibrance — no `nvidia-settings` required,
-  so it works under Wayland. (Inspired by `nvibrant`.)
-- Compositor-aware integrations: KDE (kscreen-doctor), GNOME (gsettings),
-  Hyprland (hyprctl), Sway (swaymsg), Pop!_OS COSMIC (cosmic-randr).
-- Targets the NVIDIA **610 open driver** branch as the primary path; ships a
-  driver diagnostics + support-bundle workflow (`nvctl driver diagnose-release`,
-  `nvctl doctor --support`) with redaction options for shareable artifacts.
+- **Native NVKMS ioctls** for digital vibrance, so color control works under
+  [[Wayland]] without `nvidia-settings`.
+- Driver diagnostics align kernel, userspace, and [[NVIDIA GSP Firmware]]
+  versions, with redacted support bundles for shareable artifacts.
 
-## Notable features
+## Capabilities
 
-- Digital vibrance via NVKMS ioctls (0-200 scale)
-- Display controls: color range (full/limited RGB), color space, dithering,
-  sharpening
-- VRR / G-SYNC enable/disable per display
-- GPU monitoring: info, live watch, htop-style `nvtop`, full TUI dashboard
-- Overclocking (experimental), fan control, power management (experimental)
-- ASUS ROG support: **Power Detector+** for 12V-2x6 connector health on ROG
-  Astral/Matrix RTX 5090
-- Shell completions (bash/zsh/fish); multiple themes (Tokyo Night default)
+- **Display & color**: digital vibrance (0–200), full/limited RGB, color space
+  (RGB/YCbCr), dithering, sharpening; VRR / G-SYNC toggle; HDR on [[KDE Plasma]]
+  6, GNOME 45+, Hyprland, and COSMIC.
+- **Monitoring**: `nvctl gpu info/stat/nvtop`, live watch, and a TUI with
+  Overview, Performance, Memory, Temp, Power, Processes, Overclock, Fan,
+  Profiles, Tuner, Profiler, OSD, Drivers, DLSS, CUDA-AI, and Settings tabs.
+- **Overclock & power** (experimental): clock offsets, per-fan and auto fan
+  control, power limits, persistent mode, and power-curve profiles.
+- **Driver diagnostics**: `driver diagnose-release` (kernel/userspace/GSP
+  alignment, JSON output), `support-bundle` (redacted), and `doctor --support`;
+  a compatibility matrix for NVIDIA 610+ open-kernel modules across RTX 50/40/30/
+  20 and GTX legacy.
+- **CUDA / AI**: `cuda doctor/ollama/env/smoke` and VRAM-fit analysis (see
+  [[Local LLM Inference]]).
+- **ASUS ROG Power Detector+**: 12V-2x6 connector health monitoring.
+- **Gaming**: detection, launcher and profiles, Gamescope integration,
+  passthrough diagnostics, latency tooling, and DLSS detection.
 
 ## Hardware & platform support
 
-- RTX 50 (Blackwell), 40 (Ada), 30 (Ampere) fully supported; 20 (Turing)
-  supported; GTX 16/10 basic.
-- Requires NVIDIA driver 610+ (open kernel modules), kernel 6.6+ (7.0+
-  recommended).
-- Arch Linux is the premier platform (AUR `nvcontrol-git`); Fedora/Nobara/
-  Bazzite/Pop!_OS Tier 1; Debian/Ubuntu full.
+- RTX 50, 40, 30, and 20 series supported; GTX legacy parts covered for basic
+  control.
+- Targets NVIDIA 610+ open kernel modules.
 
 > [!key-insight]
-> The differentiator is doing color/vibrance/VRR natively through NVKMS ioctls
-> rather than shelling out to `nvidia-settings`, which is what makes it work on
-> Wayland where the old control panel does not.
+> Color, vibrance, and VRR are driven natively through NVKMS ioctls rather than
+> by shelling out to `nvidia-settings`, which is what makes them work under
+> Wayland.
 
 ## Status
 
-Active. Overclocking, voltage, and power-limit features are explicitly flagged
-experimental ("use at your own risk").
+v0.8.x, well-maintained and actively developed. Overclock and power features are
+explicitly experimental. MIT-licensed.
 
 ## Relationships
 
-The anchor of the [[NV Tools Suite]]. Sibling tools cover adjacent niches:
-[[nvhud]] (performance OSD), [[nvsync]] (VRR/G-Sync manager), and others.
-Container GPU passthrough now lives natively in [[Bolt]] (formerly the
-standalone `nvbind`). Built on [[Rust]].
+Part of the [[NV Tools Suite]]. Built on [[Rust]]; integrates with the wider
+[[NVIDIA]] stack on Linux.
