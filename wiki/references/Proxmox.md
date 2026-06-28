@@ -356,12 +356,23 @@ options zfs zfs_arc_max=8589934592
 update-initramfs -u && reboot
 ```
 
+Inspect and tune at runtime (lowering the cap takes effect without a reboot):
+
+```bash
+arc_summary | less                         # full ARC report (hit ratio, size, breakdown)
+arcstat 1                                   # live hits/misses/ARC size, 1s interval
+grep -E '^(size|c_max|c_min)' /proc/spl/kstat/zfs/arcstats   # current vs caps (bytes)
+echo 8589934592 | tee /sys/module/zfs/parameters/zfs_arc_max # apply a new cap now
+```
+
 > [!key-insight]
 > On a hypervisor the default ARC competes with guest memory. Pin `zfs_arc_max`
 > to a deliberate ceiling (rule of thumb: ~1–2 GiB per 16 GiB of host RAM for a
-> VM-heavy node) so the ARC is a cache, not a memory hog. VM disks live on
-> zvols — Proxmox's ZFS storage plugin manages those for you; set
-> `volblocksize` on the storage, not `recordsize`. See [[ZFS]] for the rest.
+> VM-heavy node) so the ARC is a cache, not a memory hog. Watch for the host
+> looking "full" — that's usually ARC, and `arc_summary` confirms it. VM disks
+> live on zvols — Proxmox's ZFS storage plugin manages those for you; set
+> `volblocksize` on the storage, not `recordsize`. See [[ZFS]] for ARC/L2ARC
+> tuning and the rest.
 
 ## Proxmox Backup Server (PBS)
 

@@ -16,7 +16,17 @@ related:
 # Recent Context
 
 ## Last Updated
-2026-06-28 — Uptime Kuma, SMTP2GO, Discord references; Docker enhanced.
+2026-06-28 — Uptime Kuma, SMTP2GO, Discord refs; Docker, memory-tuning & ARC enhanced.
+
+## 2026-06-28 additions (memory & ARC)
+- Expanded [[Linux Memory Tuning]] with a **gaming/performance profile**: disable
+  *disk* swap → ZRAM-only + an OOM daemon (`systemd-oomd` PSI vs `earlyoom` RSS),
+  low `swappiness`, `vm.max_map_count` (kernel 6.1+ defaults high; Fedora/SteamOS
+  value for edge cases). Cross-linked from [[Linux Administration]]'s swap section.
+  (zram/swap/oomd already lived in concepts: [[Linux Memory Tuning]] + [[ZRAM Swap]].)
+- [[Proxmox]] ZFS ARC section already had the `zfs_arc_max` cap; added runtime
+  inspect/tune (`arc_summary`, `arcstat`, `/proc/spl/kstat/zfs/arcstats`,
+  `/sys/module/zfs/parameters/zfs_arc_max`).
 
 ## 2026-06-28 additions (monitoring & comms)
 - New [[Uptime Kuma]] reference — the black-box/synthetic monitoring layer

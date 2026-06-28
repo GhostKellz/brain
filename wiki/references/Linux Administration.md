@@ -131,7 +131,11 @@ cat /proc/swaps                                    # verify
 echo '/mnt/1GiB.swap swap swap defaults 0 0' | sudo tee -a /etc/fstab   # persist
 ```
 
-> [!note] On Arch/CachyOS this box runs zram swap instead — see [[ZRAM Swap]].
+> [!note] On Arch/CachyOS this box runs **ZRAM swap instead of a swap file**
+> (disk swap off, ZRAM + an OOM daemon). The memory/OOM philosophy and a
+> gaming/performance profile live in [[Linux Memory Tuning]]; the ZRAM mechanism
+> in [[ZRAM Swap]]. VM tunables (`swappiness`, dirty ratios) →
+> [[Sysctl Performance Tuning]].
 
 ## Notes
 

@@ -2,16 +2,19 @@
 type: concept
 title: "Linux Memory Tuning"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-28
 tags:
   - linux
   - memory
   - zram
   - performance
-status: seed
+  - gaming
+status: developing
 related:
   - "[[Sysctl Performance Tuning]]"
   - "[[ZRAM Swap]]"
+  - "[[CachyOS and TKG Kernels]]"
+  - "[[Linux Administration]]"
 ---
 
 # Linux Memory Tuning
@@ -67,6 +70,43 @@ cat /sys/module/zswap/parameters/enabled    # N when disabled
 - `vm.swappiness = 10`, `vm.vfs_cache_pressure = 50`.
 - `vm.dirty_ratio = 15`, `vm.dirty_background_ratio = 5`.
 - `systemd-oomd` enabled.
+
+## Gaming / performance profile
+
+For gaming and latency-sensitive workstations the goal shifts: keep the working
+set (game + shader cache + Proton/Wine) resident, avoid disk-swap stalls mid-frame,
+but still fail fast on a runaway. The common pattern — what Fedora, CachyOS,
+Nobara and SteamOS ship by default — is **no disk swap, ZRAM only, plus an OOM
+daemon**.
+
+- **Disable disk/partition swap; run ZRAM only.** Disk swap during gameplay causes
+  stutter; ZRAM keeps any swap traffic in RAM at compression speed.
+  ```bash
+  sudo swapoff /swapfile        # or the swap partition
+  # remove its line from /etc/fstab, then size ZRAM in zram-generator.conf
+  ```
+- **Bounded ZRAM, `zstd`** — a fixed ceiling (not `ram/2`) so the OOM daemon still
+  triggers in time → [[ZRAM Swap]].
+- **An OOM daemon so a stuck game doesn't freeze the desktop:**
+  - `systemd-oomd` — PSI/pressure-based (default on most distros).
+  - `earlyoom` — RSS-threshold based; simpler, popular on gaming distros.
+  - Run **one**, not both.
+- **`vm.swappiness` low** (e.g. 10; some gaming presets go to 1) to keep the game
+  in RAM.
+- **`vm.max_map_count`** — many games/Proton need a high value. Kernel 6.1+
+  defaults to `1048576` (enough for almost everything); older kernels or edge-case
+  titles want the Fedora/SteamOS value:
+  ```ini
+  # /etc/sysctl.d/99-gaming.conf
+  vm.max_map_count = 2147483642
+  ```
+
+> [!key-insight] "Disable swap for gaming" really means **disable *disk* swap and
+> use ZRAM + an OOM daemon** — not run with zero swap. Zero swap makes the kernel
+> reclaim aggressively and OOM-kill sooner under spikes; bounded ZRAM gives a
+> compression-speed cushion while the OOM daemon protects responsiveness. CPU
+> governor, VRAM and kernel choice are separate levers →
+> [[CachyOS and TKG Kernels]] · [[NVIDIA on Wayland]].
 
 > [!gap]
 > Exact ZRAM size and ratios depend on total RAM and workload — the above is a
