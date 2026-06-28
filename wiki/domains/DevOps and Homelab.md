@@ -20,7 +20,7 @@ Containers, virtualization, CI patterns, and the self-hosted homelab that ties
 the brain together.
 
 ## Containers
-[[Docker and Portainer]] · [[NVIDIA Container Toolkit]] ·
+[[Docker]] · [[Portainer]] (archived) · [[NVIDIA Container Toolkit]] ·
 [[NVIDIA Container Runtime Troubleshooting]] · [[Bolt]] (container runtime)
 
 ## Virtualization

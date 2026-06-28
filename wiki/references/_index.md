@@ -48,8 +48,8 @@ Runbooks and how-to procedures.
   (AzureSignTool) + ScreenConnect / ConnectWise Control agents
 
 ## Web & hosting
-- [[Nginx Reference]] · [[Self-Hosted Services]] · [[Docker and Portainer]] ·
-  [[HestiaCP]]
+- [[Nginx Reference]] · [[Self-Hosted Services]] · [[Docker]] ·
+  [[Portainer]] (archived) · [[HestiaCP]]
 
 ## GPU & Wayland
 - [[NVIDIA on Wayland]] · [[NVIDIA Container Runtime Troubleshooting]]

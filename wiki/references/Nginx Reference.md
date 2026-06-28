@@ -15,7 +15,7 @@ related:
   - "[[acme.sh - DNS-01 Certificates]]"
   - "[[NGINX Static Site Hosting]]"
   - "[[Self-Hosted Services]]"
-  - "[[Docker and Portainer]]"
+  - "[[Docker]]"
   - "[[FortiGate Administration]]"
   - "[[Cloudflare]]"
 ---
@@ -252,5 +252,5 @@ sudo tail -f /var/log/nginx/error.log
 - [[NGINX Static Site Hosting]] — the static-deploy workflow this serves.
 - [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] · [[acme.sh - DNS-01 Certificates]] — TLS issuance + renewal hooks.
 - [[Self-Hosted Services]] — services that sit behind this proxy.
-- [[Docker and Portainer]] — running nginx in a container.
+- [[Docker]] — running nginx in a container.
 - [[FortiGate Administration]] · [[Cloudflare]] — edge layers in front of nginx.

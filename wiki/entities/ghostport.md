@@ -18,7 +18,7 @@ related:
   - "[[Ghost Ecosystem]]"
   - "[[GhostCP]]"
   - "[[ghostcrate]]"
-  - "[[Docker and Portainer]]"
+  - "[[Docker]]"
   - "[[GhostKellz]]"
 ---
 
@@ -49,5 +49,5 @@ Rust server · SvelteKit + TypeScript UI · PostgreSQL · S3-compatible storage 
 Tailwind CSS.
 
 Part of the [[Ghost Ecosystem]]; complements the control panel [[GhostCP]] and
-the crate tooling [[ghostcrate]]. See [[Docker and Portainer]] for related
+the crate tooling [[ghostcrate]]. See [[Docker]] for related
 container workflow.

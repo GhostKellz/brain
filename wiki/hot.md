@@ -16,7 +16,20 @@ related:
 # Recent Context
 
 ## Last Updated
-2026-06-28 — Linux admin restructure into a distro-family hub.
+2026-06-28 — Docker hub built; Portainer split out (archived).
+
+## 2026-06-28 additions (Docker)
+- Renamed [[Docker and Portainer]] → [[Docker]] (alias + old-slug redirect kept)
+  and rebuilt it as a comprehensive container hub: modern install (`docker
+  compose` plugin), image/container lifecycle, Dockerfiles & multi-stage builds,
+  Compose stacks, volumes/bind mounts (incl. SELinux `:z/:Z`), networking
+  (preserved driver/bridge/macvlan content), DNS-resolution troubleshooting
+  (check `ip_forward` + nftables/ufw `DOCKER-USER` chain), the docker socket +
+  socket-proxy least-privilege pattern, `daemon.json` tuning, troubleshooting.
+- Split Portainer into its own note [[Portainer]], marked **archived** (no longer
+  actively used; kept for reference). Server/Agent install + upgrade moved there.
+- Repointed all active [[Docker and Portainer]] backlinks → [[Docker]]; added
+  [[Portainer]] to index/_index/DevOps hub catalogs.
 
 ## 2026-06-28 additions
 - Restructured Linux admin around a hub: [[Linux Administration]] is now an

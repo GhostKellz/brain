@@ -13,7 +13,7 @@ status: seed
 related:
   - "[[Grafana]]"
   - "[[CrowdSec]]"
-  - "[[Docker and Portainer]]"
+  - "[[Docker]]"
 ---
 
 > [!key-insight] Generalized from a homelab observability stack; all IPs/hostnames are placeholders.
@@ -174,4 +174,4 @@ promtool check config prometheus.yml          # validate first
 
 - [[Grafana]] — dashboards on top of this datasource
 - [[CrowdSec]] — security decisions scraped as metrics
-- [[Docker and Portainer]] — the container runtime this stack lives on
+- [[Docker]] — the container runtime this stack lives on

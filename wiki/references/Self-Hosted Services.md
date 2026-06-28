@@ -11,7 +11,7 @@ tags:
 status: developing
 related:
   - "[[Let's Encrypt - Certbot|Let's Encrypt / Certbot]]"
-  - "[[Docker and Portainer]]"
+  - "[[Docker]]"
   - "[[Tailscale]]"
 ---
 
@@ -67,4 +67,4 @@ Set up a cron/`--deploy-hook` so renewals re-copy the cert and restart KASM.
 
 ## Notes
 
-- Container-based deployments: [[Docker and Portainer]].
+- Container-based deployments: [[Docker]].
