@@ -16,6 +16,7 @@ related:
   - "[[RHEL, Rocky and Alma Administration]]"
   - "[[openSUSE Administration]]"
   - "[[nftables Firewall]]"
+  - "[[Linux Server Hardening]]"
 ---
 
 > [!key-insight] Overarching Linux hub. Truly cross-distro basics live here; package management, firewall frontends, and update policy live in the per-distro runbooks linked below.
@@ -97,6 +98,10 @@ sudo systemctl restart sshd
 
 > [!warning] Open the new SSH port in the firewall *before* restarting, or you'll
 > lock yourself out. Firewall frontend is distro-specific — see the table above.
+
+> [!key-insight] This is the *baseline*. For the full production posture (complete
+> `sshd` policy, deny-by-default firewall, SSH behind [[Tailscale]], TLS, sysctl
+> hardening, monitoring, review checklist) follow **[[Linux Server Hardening]]**.
 
 ## Shell Snippets
 

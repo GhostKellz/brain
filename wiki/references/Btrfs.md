@@ -55,6 +55,79 @@ A typical partition split (systemd-boot, NVMe):
 > Excluding `@log` and `@pkg` from the root subvolume means a rollback of `@`
 > doesn't wipe logs (you can read why it broke) or re-download every package.
 
+### Subvolume basics
+
+A subvolume is an independently-mountable, independently-snapshottable tree
+inside one btrfs filesystem — not a partition. They share the pool's free space,
+so there's no fixed sizing to plan up front.
+
+```bash
+sudo btrfs subvolume create /mnt/@srv          # create
+sudo btrfs subvolume list /                      # list (with IDs + paths)
+sudo btrfs subvolume show /                       # details of the mounted subvol
+sudo btrfs subvolume get-default /                # which subvol mounts by default
+sudo btrfs subvolume set-default <ID> /           # change the default
+sudo btrfs subvolume delete /mnt/@srv            # delete
+```
+
+> [!key-insight]
+> **A snapshot *is* a subvolume.** `btrfs subvolume snapshot <src> <dst>` makes a
+> new subvolume that shares all of `<src>`'s extents copy-on-write — instant and
+> near-zero space until blocks diverge. That's why a snapshot can be mounted,
+> booted, or promoted to `@` (the [restore](#restore-from-snapshot) flow) just
+> like any other subvolume. Add `-r` for a read-only snapshot (what Snapper
+> takes).
+
+```bash
+sudo btrfs subvolume snapshot      /  /.snapshots/manual   # writable snapshot
+sudo btrfs subvolume snapshot -r   /  /.snapshots/manual   # read-only snapshot
+```
+
+### The `.snapshots` directory
+
+`/.snapshots` is the `@snapshots` subvolume mounted into the tree. [[Snapper]]
+populates it with one **numbered** directory per snapshot, each holding the
+read-only snapshot subvolume plus its metadata:
+
+```
+/.snapshots/
+├── 1/
+│   ├── info.xml        # number, type (single/pre/post), timestamp, description, cleanup
+│   └── snapshot/       # the read-only snapshot subvolume (the actual files)
+├── 2/
+│   ├── info.xml
+│   └── snapshot/
+└── ...
+```
+
+- `info.xml` is what `snapper list` reads — type (`single`, or `pre`/`post`
+  pairs around an operation), the `cleanup` algorithm (`number`/`timeline`), and
+  the description.
+- `snapshot/` is the bootable/restorable subvolume — the path you feed to
+  `btrfs subvolume snapshot .../snapshot /mnt/@` in a [restore](#restore-from-snapshot).
+- Because `@snapshots` is its own subvolume, snapshots of `@` **don't** contain
+  the snapshots themselves (no recursion), and rolling back `@` doesn't discard
+  your snapshot history.
+
+### Distro-standard layouts
+
+The flat `@`/`@home` scheme isn't Arch-specific — most snapshot-aware installers
+converge on it, with small naming differences:
+
+| Distro / tool | Root subvol | Home | Snapshots | Notes |
+|---------------|-------------|------|-----------|-------|
+| Arch (manual) | `@` | `@home` | `@snapshots` → `/.snapshots` | this note's layout |
+| openSUSE | `@/.snapshots/N/snapshot` (nested) | `@/home` | nested under `@` | Snapper-native; many split subvols (`@/var`, `@/srv`, …) |
+| Ubuntu (default) | `@` | `@home` | — | no auto-snapshots out of the box |
+| Ubuntu + Timeshift | `@` | `@home` | `@`-snapshots in `/timeshift-btrfs` | Timeshift expects exactly `@` + `@home` |
+| Fedora | `root` | `home` | — | unprefixed names; layered with `dnf`/Snapper add-on |
+
+> [!note] **Flat vs nested.** Arch/Ubuntu use a *flat* layout (all subvols are
+> children of the toplevel `subvolid=5`), which keeps `set-default`/rollback
+> simple. openSUSE *nests* subvols under `@` — more granular, but rollbacks go
+> through `snapper rollback` rather than a bare `set-default`. Match the
+> recovery steps below to your layout.
+
 ### Mount options worth setting
 
 ```

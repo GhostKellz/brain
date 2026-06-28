@@ -70,8 +70,8 @@ Runbooks and how-to procedures.
 - [[Prometheus Monitoring]] · [[Grafana]]
 
 ## Security
-- [[Endpoint Security Tooling]] · [[Email DNS Security]] · [[Wazuh]] ·
-  [[CrowdSec]]
+- [[Linux Server Hardening]] (the hardening bible) · [[Endpoint Security Tooling]] ·
+  [[Email DNS Security]] · [[Wazuh]] · [[CrowdSec]]
 
 ## Dev workflow
 - [[Cargo Workflow]] · [[tmux Cheatsheet]] · [[Neovim Cheatsheet]]

@@ -31,6 +31,9 @@ packaging, and desktop (Wayland/KDE).
 [[Btrfs]] · [[Btrfs Snapshots]] · [[ZFS]] · [[Snapper]] · [[Restic]] ·
 [[Restic Backup]] · [[3-2-1 Backup Strategy]] · [[Cloud Backup Storage]]
 
+## Security & hardening
+[[Linux Server Hardening]] · [[nftables Firewall]] · [[Wazuh]] · [[CrowdSec]]
+
 ## Kernel & performance
 [[Linux Memory Tuning]] · [[ZRAM Swap]] · [[Sysctl Performance Tuning]] ·
 [[Disk IO Scheduler]] · [[systemd]] · [[systemd Timers]] ·

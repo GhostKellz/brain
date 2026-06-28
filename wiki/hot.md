@@ -16,7 +16,21 @@ related:
 # Recent Context
 
 ## Last Updated
-2026-06-28 — Filesystem refactor: Btrfs consolidated, ZFS note added, Proxmox renamed.
+2026-06-28 — Linux Server Hardening bible added; Btrfs layout expanded.
+
+## 2026-06-28 additions (hardening)
+- New [[Linux Server Hardening]] — the authoritative, example-heavy hardening
+  guide (the "bible" applied to every production Linux server). Sections: full
+  `sshd` policy, SSH/admin behind [[Tailscale]] (the house posture), deny-by-
+  default firewall, Fail2Ban (only if public), reverse-proxy/TLS, sysctl
+  hardening, patching, package/service minimization, logging/auditd/[[Wazuh]],
+  file integrity, least-exposure, example prod layouts, review checklist. Links
+  out to the deep-dive notes rather than duplicating. Cross-linked from
+  [[Linux Administration]] (baseline → full posture).
+- Expanded [[Btrfs]] layout: subvolume basics (create/list/snapshot/set-default),
+  the `.snapshots` directory structure (snapper `N/snapshot` + `info.xml`; a
+  snapshot *is* a subvolume), and a distro-standard layouts table (Arch flat,
+  openSUSE nested, Ubuntu/Timeshift, Fedora).
 
 ## 2026-06-28 additions (filesystems)
 - Consolidated the three Btrfs notes ([[Btrfs Subvolume Layout]],
