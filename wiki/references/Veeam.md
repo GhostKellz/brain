@@ -283,7 +283,7 @@ in v14):
 | **Veeam** | Hypervisor image | Whole VM (bootable) | Production VM DR, [[Hyper-V Administration|Hyper-V]] fleets, offsite to cloud |
 | [[Restic Backup]] | File/dir | Files, encrypted+dedup | Linux desktop `/home`, `/data` |
 | [[Btrfs Snapshots]] | Filesystem | Subvolume, instant | Local rollback (not a backup) |
-| [[Proxmox]] PBS | Hypervisor image | VM/CT | The Proxmox-side analogue to Veeam |
+| [[Proxmox Backup Server]] | Hypervisor image | VM/CT | The Proxmox-side analogue to Veeam (dedup + S3) |
 
 Veeam owns the **production virtualized** tier; the others cover desktop files and
 local rollback. Together they are the layered [[3-2-1 Backup Strategy|3-2-1]]
@@ -316,4 +316,4 @@ implementation — Veeam's SOBR alone spans local (performance) + offsite-cloud
 - [[ReFS]] — the repo filesystem that powers Fast Clone (64K block cloning)
 - [[Cloud Backup Storage]] — the S3/Azure/Wasabi target shape + secret handling
 - [[Restic Backup]] — the file-level tier alongside Veeam's image tier
-- [[Proxmox]] — Proxmox Backup Server, the equivalent on the Proxmox side
+- [[Proxmox Backup Server]] — the equivalent on the Proxmox side (note: PBS forbids S3 Object Lock)

@@ -25,7 +25,8 @@ the brain together.
 [[Bolt]] (container runtime)
 
 ## Virtualization
-[[Proxmox]] · [[Hyper-V Administration]] · [[VFIO GPU Passthrough]] ·
+[[Proxmox]] · [[Proxmox Backup Server]] (dedup VM/CT backup + S3 datastores) ·
+[[Hyper-V Administration]] · [[VFIO GPU Passthrough]] ·
 [[IOMMU and Device Groups]] · [[Looking Glass]] (passthrough Windows VM in a
 lossless host window) · [[macOS Virtualization]]
 

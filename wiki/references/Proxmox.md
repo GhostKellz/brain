@@ -21,6 +21,7 @@ related:
   - "[[VFIO GPU Passthrough]]"
   - "[[ZFS]]"
   - "[[3-2-1 Backup Strategy]]"
+  - "[[Proxmox Backup Server]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders.
@@ -439,6 +440,11 @@ echo 8589934592 | tee /sys/module/zfs/parameters/zfs_arc_max # apply a new cap n
 
 ## Proxmox Backup Server (PBS)
 
+> [!note]
+> Full write-up — chunk-store internals, **S3 object-storage datastores** (4.2+),
+> prune/GC/verify, sync jobs, and the Object-Lock caveat — lives in
+> **[[Proxmox Backup Server]]**. Quick PVE-side bits below.
+
 PBS gives **incremental, deduplicated, verifiable** backups — far better than
 plain `vzdump` dumps. After the first full backup, the QEMU **dirty-bitmap**
 means subsequent runs only ship changed blocks.
@@ -474,4 +480,4 @@ proxmox-backup-manager verify <datastore>
 
 - For TLS certificates fronting the web UI, see [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]].
 - macOS guests require a special board key; see [[macOS Virtualization]].
-- ZFS snapshots are not backups — pair them with PBS for the 3-2-1 picture ([[3-2-1 Backup Strategy]]).
+- ZFS snapshots are not backups — pair them with [[Proxmox Backup Server|PBS]] for the 3-2-1 picture ([[3-2-1 Backup Strategy]]).

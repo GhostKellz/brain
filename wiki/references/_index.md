@@ -34,7 +34,8 @@ Runbooks and how-to procedures.
 - [[Restic Backup]] · [[Cloud Backup Storage]] ·
   [[Snapper]] (Btrfs local-rollback: snap-pac + timeline) ·
   [[Veeam|Veeam Backup & Replication]] (image-level VM backup, SOBR, offsite to cloud) ·
-  [[Comet Backup]] (file-level + image/Hyper-V; client-side dedup to your own Wasabi)
+  [[Comet Backup]] (file-level + image/Hyper-V; client-side dedup to your own Wasabi) ·
+  [[Proxmox Backup Server]] (dedup VM/CT backup + S3 object-storage datastores)
 
 ## Networking
 - [[Networking Reference]] · [[Linux Networking]] (bridges/bonds/VLANs/VXLAN) ·
