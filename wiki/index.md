@@ -91,7 +91,7 @@ and [[Hot Cache]] for recent context.
 [[Networking Reference]] ·
 [[nftables Firewall]] · [[Nginx Reference]] · [[openSUSE Administration]] ·
 [[NVIDIA]] · [[NVIDIA Container Runtime Troubleshooting]] ·
-[[Ollama Service Configuration]] · [[Pacman Hooks]] · [[Pax8]] · [[PKGBUILD Auditing]] ·
+[[OAuth2 Proxy]] · [[Ollama Service Configuration]] · [[Pacman Hooks]] · [[Pax8]] · [[PKGBUILD Auditing]] ·
 [[PKGBUILD Templates]] · [[Portainer]] · [[Prometheus Monitoring]] · [[Proxmox]] ·
 [[Proxmox Backup Server]] · [[ReFS]] · [[Restic Backup]] ·
 [[RHEL, Rocky and Alma Administration]] ·

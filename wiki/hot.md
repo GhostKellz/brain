@@ -4,7 +4,7 @@ title: "Hot Cache"
 aliases:
   - "Hot Cache"
 created: 2026-06-21
-updated: 2026-06-28
+updated: 2026-06-29
 tags:
   - meta
 status: developing
@@ -14,6 +14,22 @@ related:
 ---
 
 # Recent Context
+
+## 2026-06-29 additions (SSO)
+- New [[OAuth2 Proxy]] reference — oauth2-proxy as an nginx `auth_request` gate
+  that puts **Microsoft (Entra ID) sign-in** in front of self-hosted Docker apps
+  that have no native auth (e.g. a public status/uptime page). Covers the Entra
+  app registration (tenant/client/secret, redirect URI), the external
+  `nginx-net` Docker network + internal-IP binding to prevent SSO bypass, the
+  oauth2-proxy Compose + env + config templates, **why Redis server-side session
+  storage** is needed (large Entra tokens blow the 4 KB cookie limit), the full
+  nginx `auth_request` vhost pattern (`/oauth2/auth`, branded `/oauth2/sign_in`,
+  `X-Auth-Request-*` headers, websocket upgrade), custom sign-in branding, a
+  verification checklist, troubleshooting, and an ops runbook. Sanitized to
+  placeholders (host/client specifics stay in the gitignored private tier).
+  Cross-linked from [[Docker]], [[Nginx Reference]], [[Uptime Kuma]],
+  [[DevOps and Homelab]] (self-hosting), [[Security]] (endpoint & identity),
+  and [[Wiki Index]].
 
 ## 2026-06-28 additions (workstation, MSP, security)
 - New [[Looking Glass]] reference — VFIO-passthrough Windows VM displayed in a

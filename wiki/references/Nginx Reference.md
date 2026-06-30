@@ -18,6 +18,7 @@ related:
   - "[[Docker]]"
   - "[[FortiGate Administration]]"
   - "[[Cloudflare]]"
+  - "[[OAuth2 Proxy]]"
 ---
 
 > [!key-insight] nginx is configured top-down: one `http` block contains many
@@ -254,3 +255,4 @@ sudo tail -f /var/log/nginx/error.log
 - [[Self-Hosted Services]] — services that sit behind this proxy.
 - [[Docker]] — running nginx in a container.
 - [[FortiGate Administration]] · [[Cloudflare]] — edge layers in front of nginx.
+- [[OAuth2 Proxy]] — `auth_request` SSO gate for backends that lack native auth.

@@ -18,7 +18,8 @@ Endpoint, identity, email, and network security — plus cryptographic identity.
 
 ## Endpoint & identity
 [[Endpoint Security Tooling]] · [[Huntress]] (managed EDR/ITDR/SIEM/SOC) ·
-[[Network and Security Services]] · [[Zero Trust Networking]]
+[[Network and Security Services]] · [[Zero Trust Networking]] ·
+[[OAuth2 Proxy]] (Microsoft SSO gate in front of self-hosted apps)
 
 ## Email & messaging
 [[Email DNS Security]] (SPF/DKIM/DMARC) · [[Avanan]] (API email security) ·

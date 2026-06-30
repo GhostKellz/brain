@@ -21,6 +21,7 @@ related:
   - "[[Self-Hosted Services]]"
   - "[[Tailscale]]"
   - "[[nftables Firewall]]"
+  - "[[OAuth2 Proxy]]"
 ---
 
 > [!key-insight] Uptime Kuma is the **black-box / synthetic** layer — it probes

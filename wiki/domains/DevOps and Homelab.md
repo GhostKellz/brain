@@ -33,7 +33,8 @@ lossless host window) · [[macOS Virtualization]]
 ## Self-hosting
 [[Self-Hosted Services]] · [[NGINX Static Site Hosting]] · [[UniFi Controller]] ·
 [[Let's Encrypt - Certbot|Let's Encrypt / Certbot]] ·
-[[acme.sh - DNS-01 Certificates]]
+[[acme.sh - DNS-01 Certificates]] ·
+[[OAuth2 Proxy]] (SSO gate for apps without native auth)
 
 ## Observability
 [[Uptime Kuma]] (uptime/synthetic) · [[Prometheus Monitoring]] · [[Grafana]] ·

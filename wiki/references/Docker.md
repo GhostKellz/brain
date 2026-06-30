@@ -27,6 +27,7 @@ related:
   - "[[Restic Backup]]"
   - "[[3-2-1 Backup Strategy]]"
   - "[[Portainer]]"
+  - "[[OAuth2 Proxy]]"
 ---
 
 > [!key-insight] Generalized from field notes; host/client-specific values are placeholders. The container engine of record across the fleet — Compose stacks behind nginx, mounted onto host storage, on user-defined bridges.
@@ -733,3 +734,5 @@ sudo ss -ltnp | grep :8080
 - Container metrics (per-network IO included) via cadvisor → [[Prometheus Monitoring]].
 - What runs in containers here: [[Self-Hosted Services]].
 - Daemon under systemd (journald, restart, resource limits): [[systemd]].
+- SSO in front of containers that lack native auth (Microsoft sign-in via nginx
+  `auth_request`): [[OAuth2 Proxy]].
